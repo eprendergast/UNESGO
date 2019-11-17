@@ -1,0 +1,5 @@
+class XMLParser < ApplicationRecord
+
+    
+
+end
