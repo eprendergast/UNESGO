@@ -1,0 +1,2 @@
+class SiteReferenceTag < ApplicationRecord
+end

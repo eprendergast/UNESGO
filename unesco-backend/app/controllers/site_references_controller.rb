@@ -1,0 +1,2 @@
+class SiteReferencesController < ApplicationController
+end
