@@ -5,41 +5,32 @@ SiteReference.delete_all
 SiteReferenceTag.delete_all
 SavedSite.delete_all
 
-# User
-
-User.create(
+# Generate Test User
+user = User.create(
     first_name: "Elizabeth",
     last_name: "Prendergast",
     email: "elizabeth.prendergast@gmail.com",
     password: "password1"   
 )
-
 puts "#{User.all.length} user(s) created"
 
-# SiteReference
-
+# Generate Site References for all UNESCO sites
 sites = API.get_sites
-
 sites.map{ |site| site["id"] }.each do |id|
     SiteReference.create(site_id: id)
 end
-
 puts "#{SiteReference.all.length} site references created"
 
+# Give the test user some saved sites
+sample_sites = SiteReference.all.sample(10)
+status_options = ["Bucketlist", "Visited"]
 
-# def self.get_restaurants(location, category)
-#     api_response = Unirest.get( 
-#         SEARCH_URL, 
-#         headers: {
-#             "Accept" => "application/json",
-#             "Authorization" => "Bearer #{ENV["API_KEY"]}"
-#         },
-#         parameters: {
-#             :location => location.downcase,
-#             :categories => category.downcase,
-#             :term => "restaurants",
-#             :limit => 10 #can be up to 50; setting to 10 for development
-#         }
-#     )
-#     return JSON.parse(api_response.raw_body)["businesses"]
-# end
+sample_sites.each do |site|
+    SavedSite.create(
+        user_id: user.id,
+        site_reference_id: site.id,
+        status: status_options.sample
+    )
+end
+puts "#{user.first_name} has been created with #{user.saved_sites.length} saved sites"
+
