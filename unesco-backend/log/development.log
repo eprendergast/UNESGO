@@ -7907,3 +7907,123 @@ Processing by UsersController#signin as */*
 Completed 200 OK in 256ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 749)
 
 
+Started GET "/" for ::1 at 2019-11-20 17:17:11 +0000
+  [1m[35m (6.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/elizabethprendergast/.rvm/gems/ruby-2.6.1/gems/railties-6.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/elizabethprendergast/.rvm/gems/ruby-2.6.1/gems/railties-6.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 56.1ms | Allocations: 318)
+Completed 200 OK in 71ms (Views: 60.2ms | ActiveRecord: 0.0ms | Allocations: 1606)
+
+
+Started GET "/validate" for ::1 at 2019-11-20 17:17:56 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 519ms (Views: 0.3ms | ActiveRecord: 492.5ms | Allocations: 7253)
+
+
+Started GET "/validate" for ::1 at 2019-11-20 17:18:49 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (44.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 50ms (Views: 0.1ms | ActiveRecord: 44.4ms | Allocations: 817)
+
+
+Started GET "/validate" for ::1 at 2019-11-20 17:18:55 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (38.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 42ms (Views: 0.2ms | ActiveRecord: 38.4ms | Allocations: 818)
+
+
+Started GET "/validate" for ::1 at 2019-11-20 17:19:41 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 5.9ms | Allocations: 817)
+
+
+Started GET "/validate" for ::1 at 2019-11-20 17:20:25 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (26.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 31ms (Views: 1.4ms | ActiveRecord: 26.6ms | Allocations: 800)
+
+
+Started GET "/validate" for ::1 at 2019-11-20 17:21:37 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 800)
+
+
+Started GET "/validate" for ::1 at 2019-11-20 17:21:47 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (62.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 66ms (Views: 0.2ms | ActiveRecord: 62.4ms | Allocations: 800)
+
+
+Started GET "/validate" for ::1 at 2019-11-20 17:21:58 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (11.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 11.8ms | Allocations: 800)
+
+
+Started GET "/validate" for ::1 at 2019-11-20 17:22:21 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 800)
+
+
+Started GET "/validate" for ::1 at 2019-11-20 17:22:30 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (11.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 11.0ms | Allocations: 800)
+
+
+Started GET "/validate" for ::1 at 2019-11-20 17:22:34 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 1.8ms | Allocations: 800)
+
+
+Started GET "/validate" for ::1 at 2019-11-20 17:22:41 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 800)
+
+
+Started GET "/validate" for ::1 at 2019-11-20 17:22:57 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (50.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 60ms (Views: 0.2ms | ActiveRecord: 50.6ms | Allocations: 800)
+
+
+Started GET "/validate" for ::1 at 2019-11-20 17:23:53 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (49.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 54ms (Views: 0.1ms | ActiveRecord: 49.1ms | Allocations: 800)
+
+
+Started GET "/validate" for ::1 at 2019-11-20 17:28:39 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (560.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 564ms (Views: 0.1ms | ActiveRecord: 560.6ms | Allocations: 800)
+
+
+Started GET "/validate" for ::1 at 2019-11-20 17:29:11 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 10ms (Views: 3.8ms | ActiveRecord: 0.2ms | Allocations: 800)
+
+
