@@ -65,12 +65,18 @@ GEM
     byebug (11.0.1)
     concurrent-ruby (1.1.5)
     crass (1.0.5)
+    database_cleaner (1.7.0)
+    diff-lcs (1.3)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.5)
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
     erubi (1.9.0)
     escape_utils (1.2.1)
+    faker (2.7.0)
+      i18n (>= 1.6, < 1.8)
     faraday (0.17.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.2)
@@ -103,8 +109,12 @@ GEM
     grpc (1.25.0)
       google-protobuf (~> 3.8)
       googleapis-common-protos-types (~> 1.0)
+    http-accept (1.7.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
+    json (2.2.0)
     jwt (2.2.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -119,6 +129,9 @@ GEM
       mimemagic (~> 0.3.2)
     memoist (0.16.1)
     method_source (0.9.2)
+    mime-types (3.3)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2019.1009)
     mimemagic (0.3.3)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
@@ -126,6 +139,7 @@ GEM
     msgpack (1.3.1)
     multi_json (1.14.1)
     multipart-post (2.1.1)
+    netrc (0.11.0)
     nio4r (2.5.2)
     nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
@@ -170,7 +184,29 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    rest-client (2.1.0)
+      http-accept (>= 1.7.0, < 2.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     rly (0.2.3)
+    rspec-core (3.9.0)
+      rspec-support (~> 3.9.0)
+    rspec-expectations (3.9.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-mocks (3.9.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-rails (3.9.0)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.9.0)
+      rspec-expectations (~> 3.9.0)
+      rspec-mocks (~> 3.9.0)
+      rspec-support (~> 3.9.0)
+    rspec-support (3.9.0)
     ruby_dep (1.5.0)
     signet (0.12.0)
       addressable (~> 2.3)
@@ -192,6 +228,13 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.6)
+    unirest (1.0.8)
+      addressable
+      json
+      rest-client
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
@@ -207,16 +250,21 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
   byebug
+  database_cleaner
   dotenv-rails
+  faker
   google-cloud-vision
+  jwt
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
   rack-cors
   rails (~> 6.0.1)
+  rspec-rails (~> 3.6)
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
+  unirest
   xmlhasher
 
 RUBY VERSION
