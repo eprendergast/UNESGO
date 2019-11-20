@@ -8027,3 +8027,44 @@ Processing by UsersController#validate as */*
 Completed 200 OK in 10ms (Views: 3.8ms | ActiveRecord: 0.2ms | Allocations: 800)
 
 
+Started GET "/" for ::1 at 2019-11-20 17:41:32 +0000
+  [1m[35m (7.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/elizabethprendergast/.rvm/gems/ruby-2.6.1/gems/railties-6.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/elizabethprendergast/.rvm/gems/ruby-2.6.1/gems/railties-6.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 27.9ms | Allocations: 318)
+Completed 200 OK in 34ms (Views: 31.4ms | ActiveRecord: 0.0ms | Allocations: 1606)
+
+
+  [1m[36mSiteReference Load (2.5ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/signin" for ::1 at 2019-11-20 17:55:57 +0000
+Processing by UsersController#signin as */*
+  Parameters: {"email"=>"elizabeth.prendergast@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"elizabeth.prendergast@gmail.com"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elizabeth.prendergast@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `signin'
+Completed 200 OK in 272ms (Views: 0.3ms | ActiveRecord: 5.8ms | Allocations: 5461)
+
+
+Started POST "/signin" for ::1 at 2019-11-20 18:31:56 +0000
+Processing by UsersController#signin as */*
+  Parameters: {"email"=>"elizabeth.prendergast@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"elizabeth.prendergast@gmail.com"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elizabeth.prendergast@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `signin'
+Completed 200 OK in 270ms (Views: 1.1ms | ActiveRecord: 1.8ms | Allocations: 846)
+
+
+Started POST "/signin" for ::1 at 2019-11-20 18:32:00 +0000
+Processing by UsersController#signin as */*
+  Parameters: {"email"=>"elizabeth.prendergast@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"elizabeth.prendergast@gmail.com"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elizabeth.prendergast@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `signin'
+Completed 200 OK in 271ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 765)
+
+
+Started POST "/signin" for ::1 at 2019-11-20 18:32:49 +0000
+Processing by UsersController#signin as */*
+  Parameters: {"email"=>"elizabeth.prendergast@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"elizabeth.prendergast@gmail.com"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elizabeth.prendergast@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `signin'
+Completed 200 OK in 234ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 766)
+
+

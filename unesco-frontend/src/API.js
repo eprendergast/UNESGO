@@ -1,4 +1,7 @@
 const BASE_URL = `http://localhost:3000`
+
+const SITES_URL = `${BASE_URL}/sites`
+
 const SIGNIN_URL = `${BASE_URL}/signin`
 const VALIDATE_URL = `${BASE_URL}/validate`
 
@@ -9,6 +12,15 @@ const signin = (email, password) => {
 const validate = () => {
     return get(VALIDATE_URL)
 }
+
+const getSites = () => {
+    return get(SITES_URL)
+}
+
+
+
+
+
 
 // HELPER METHODS
 

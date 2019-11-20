@@ -1,12 +1,17 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 
-import SignInForm from './components/SignInForm'
-import Profile from './components/Profile'
+import HomeContainer from './containers/HomeContainer'
+import SignInContainer from './containers/SignInContainer'
+import SignUpContainer from './containers/SignUpContainer'
+import ProfileContainer from './containers/Profile';
+import SavedContainer from './containers/SavedContainer';
 
 import './App.css';
 import NavBar from './components/NavBar';
 import API from './API';
+
+
 
 class App extends React.Component {
   
@@ -48,10 +53,11 @@ class App extends React.Component {
         <div className="App">
           <NavBar email={this.state.email} signout={this.signout}/>
           <Switch>
-              < Route exact path = '/' component={() => <h1>Homepage!</h1>}/>
-              < Route path = '/signin' component={routerProps => <SignInForm {...routerProps} signin={this.signin}/>}/>
-              {/* < Route path = '/signup' component={routerProps => <SignUpForm {...routerProps} />}/> */}
-              < Route path = '/profile' component={routerProps => <Profile {...routerProps} email={this.state.email}/>}/>
+              < Route exact path = '/' component={routerProps => < HomeContainer {...routerProps}/>}/>
+              < Route path = '/signin' component={routerProps => < SignInContainer {...routerProps} signin={this.signin}/>}/>
+              < Route path = '/signup' component={routerProps => < SignUpContainer {...routerProps} />}/>
+              < Route path = '/profile' component={routerProps => < ProfileContainer {...routerProps} />}/>
+              < Route path = '/saved' component={routerProps => < SavedContainer {...routerProps} />}/>
               < Route component={() => <h1>Page Not Found</h1>} />
           </Switch>
         </div> 
