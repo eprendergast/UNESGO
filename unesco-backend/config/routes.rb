@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   get '/sites', to: 'site_references#sites'
 
+  get '/users', to: 'users#index'
+  
 end

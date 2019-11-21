@@ -12,7 +12,7 @@ class NavBar extends React.Component {
             <Menu>
 
                 <Menu.Item header>
-                    <img src={logo}/>
+                    <img src={logo} alt="UNESCO Logo"/>
                 </Menu.Item>
                 
                 <Menu.Item header>
