@@ -16,10 +16,6 @@ const getSites = () => {
 }
 
 
-
-
-
-
 // HELPER METHODS
 
 const getWithoutAuth = (url) => {
@@ -27,7 +23,6 @@ const getWithoutAuth = (url) => {
 }
 
 const getWithAuth = (url) => {
-    debugger
     return fetch(
         url,
         { 

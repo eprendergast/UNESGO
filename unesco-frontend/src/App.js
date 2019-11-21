@@ -10,17 +10,19 @@ import SavedContainer from './containers/SavedContainer';
 import './App.css';
 import NavBar from './components/NavBar';
 import API from './API';
+import SignInModal from './modals/SignInModal';
 
 
 
 class App extends React.Component {
   
   state = {
-    email: ''
+    first_name: ''
   }
 
   componentDidMount(){
     const token = localStorage.getItem('token')
+    debugger
     if (token){
       API.validate().then(data => {
         if (data.error) throw Error(data.error)
@@ -31,30 +33,33 @@ class App extends React.Component {
 
   signin = user => {
     this.setState({
-      email: user.email
+      first_name: user.first_name
     })
     localStorage.setItem('token', user.token)
   }
 
   signout = () => {
     this.setState({
-      email: ''
+      first_name: ''
     })
     localStorage.removeItem('token')
   }
 
   signup = () => {
-
+    console.log("SIGN UP")
   }
 
   render(){
+
+    const {signup, signin, signout} = this
+
     return (
       <Router>
         <div className="App">
-          <NavBar email={this.state.email} signout={this.signout}/>
+          < NavBar first_name={this.state.first_name} signup={signup} signin={signin} signout={signout}/>
           <Switch>
-              < Route exact path = '/' component={routerProps => < HomeContainer {...routerProps}/>}/>
-              < Route path = '/signin' component={routerProps => < SignInContainer {...routerProps} signin={this.signin}/>}/>
+              < Route path = '/' component={routerProps => < HomeContainer {...routerProps}/>}/>
+              {/* < Route path = '/signin' component={routerProps => < SignInModal {...routerProps} signin={signin}/>}/> */}
               < Route path = '/signup' component={routerProps => < SignUpContainer {...routerProps} />}/>
               < Route path = '/profile' component={routerProps => < ProfileContainer {...routerProps} />}/>
               < Route path = '/saved' component={routerProps => < SavedContainer {...routerProps} />}/>

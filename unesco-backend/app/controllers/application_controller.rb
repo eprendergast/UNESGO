@@ -6,7 +6,7 @@ class ApplicationController < ActionController::API
     end
 
     def issue_token(data)
-            JWT.encode(data, secret)
+        JWT.encode(data, secret)
     end
 
     def decode_token

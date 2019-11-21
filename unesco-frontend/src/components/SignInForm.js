@@ -1,5 +1,6 @@
 import React from 'react'
 import API from '../API'
+import{ Form, Button } from 'semantic-ui-react'
 
 class SignInForm extends React.Component {
 
@@ -19,7 +20,6 @@ class SignInForm extends React.Component {
         API.signin(this.state.email, this.state.password).then(data => {
             if (data.error) throw Error(data.error)
             this.props.signin(data)
-            this.props.history.push('/profile')
 
         }).catch(error => console.log(error))
     }
@@ -30,11 +30,17 @@ class SignInForm extends React.Component {
         const {handleChange, handleSubmit} = this
 
         return(
-            <form onChange={handleChange} onSubmit={handleSubmit}>
-                <input name="email" type="text" placeholder="email" value={email}/>
-                <input name="password" type="password" placeholder="password" value={password}/>
-                <input type="submit"/> 
-            </form>
+            <Form onChange={handleChange} onSubmit={handleSubmit}>
+                <Form.Field>
+                    <input name="email" placeholder='Email address' value={email}/>
+                </Form.Field>
+
+                <Form.Field>
+                    <input name="password" type="password" placeholder='Password' value={password}/>
+                </Form.Field>
+                
+                <Button type='submit'>Log in</Button>
+            </Form>
         )
     }
 
