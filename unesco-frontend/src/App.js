@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 
 import HomeContainer from './containers/HomeContainer'
-import SignInContainer from './containers/SignInContainer'
 import SignUpContainer from './containers/SignUpContainer'
 import ProfileContainer from './containers/Profile';
 import SavedContainer from './containers/SavedContainer';
@@ -22,7 +21,6 @@ class App extends React.Component {
 
   componentDidMount(){
     const token = localStorage.getItem('token')
-    debugger
     if (token){
       API.validate().then(data => {
         if (data.error) throw Error(data.error)

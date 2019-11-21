@@ -19,13 +19,11 @@ class SignUpForm extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        // API.signUp(this.state.email, this.state.password).then(data => {
-        //     if (data.error) throw Error(data.error)
-        //     this.props.signin(data)
-        //     this.props.history.push('/profile')
 
-        // }).catch(error => console.log(error))
-        console.log("Clicked Sign Up!")
+        API.signup(this.state).then(data => {
+            if (data.error) throw Error(data.error)
+            this.props.signin(data)
+        }).catch(error => console.log(error))
     }
 
     render(){
