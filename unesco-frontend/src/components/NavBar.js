@@ -35,7 +35,7 @@ class NavBar extends React.Component {
                 </Menu.Item>
 
                 <Menu.Item position='right'>
-                    { first_name ? <Button>Saved</Button> : <SignUpModal signup={signup}/> }
+                    { first_name ? <Button>Saved</Button> : <SignUpModal signin={signin} signup={signup}/> }
                 </Menu.Item>
 
                 <Menu.Item position='right'>

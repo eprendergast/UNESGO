@@ -1,6 +1,7 @@
 const BASE_URL = `http://localhost:3000`
 const SITES_URL = `${BASE_URL}/sites`
 const SIGNIN_URL = `${BASE_URL}/signin`
+const SIGNUP_URL = `${BASE_URL}/signup`
 const VALIDATE_URL = `${BASE_URL}/validate`
 
 const signin = (email, password) => {
@@ -9,6 +10,10 @@ const signin = (email, password) => {
 
 const validate = () => {
     return getWithAuth(VALIDATE_URL)
+}
+
+const signup = (formData) => {
+    return post(SIGNUP_URL, formData)
 }
 
 const getSites = () => {
@@ -49,7 +54,8 @@ const generateConfigObject = (method, data) => {
 }
 
 export default {
-    signin, 
+    signin,
+    signup, 
     validate,
     getSites
 }

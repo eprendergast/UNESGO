@@ -5,6 +5,16 @@ class UsersController < ApplicationController
         render json: users
     end
 
+    def signup
+        new_user = User.create(
+            first_name: params[:first_name],
+            last_name: params[:last_name],
+            email: params[:email],
+            password: params[:password]
+        )
+        render json: {first_name: new_user.first_name, token: issue_token({id: new_user.id})}
+    end
+
     def signin
         user = User.find_by(email: params[:email])
         if user && user.authenticate(params[:password])
