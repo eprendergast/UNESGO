@@ -1,11 +1,18 @@
 import React from 'react'
-import {Menu, Input, Button} from 'semantic-ui-react'
+import {Menu, Input, Button, Modal, Image, Header} from 'semantic-ui-react'
 import logo from '../unesco-logo.png'
+
+import SignInModal from '../modals/SignInModal'
+import SignInForm from './SignInForm'
+import { sign } from 'crypto'
+
+import {Link} from 'react-router-dom'
+import SignUpModal from '../modals/SignUpModal'
 
 class NavBar extends React.Component {
 
     render(){
-        const {email, signout} = this.props
+        const {first_name, signup, signin, signout} = this.props
 
         return(
 
@@ -24,11 +31,15 @@ class NavBar extends React.Component {
                 </Menu.Item>
 
                 <Menu.Item position='right'>
-                    {email ? `Welcome back, ${email}` : `Sign In`}
+                    {first_name && `Welcome back, ${first_name}`}
                 </Menu.Item>
 
                 <Menu.Item position='right'>
-                    {email ? <Button onClick={() => signout()} >Logout</Button> : <Button>Login</Button>}
+                    { first_name ? <Button>Saved</Button> : <SignUpModal signup={signup}/> }
+                </Menu.Item>
+
+                <Menu.Item position='right'>
+                    { first_name ? <Button onClick={() => signout()} >Logout</Button> : <SignInModal signin={signin}/> }
                 </Menu.Item>
 
             </Menu>
