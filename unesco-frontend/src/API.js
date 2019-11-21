@@ -1,7 +1,5 @@
 const BASE_URL = `http://localhost:3000`
-
 const SITES_URL = `${BASE_URL}/sites`
-
 const SIGNIN_URL = `${BASE_URL}/signin`
 const VALIDATE_URL = `${BASE_URL}/validate`
 
@@ -10,11 +8,11 @@ const signin = (email, password) => {
 }
 
 const validate = () => {
-    return get(VALIDATE_URL)
+    return getWithAuth(VALIDATE_URL)
 }
 
 const getSites = () => {
-    return get(SITES_URL)
+    return getWithoutAuth(SITES_URL)
 }
 
 
@@ -24,13 +22,18 @@ const getSites = () => {
 
 // HELPER METHODS
 
-const get = (url) => {
+const getWithoutAuth = (url) => {
+    return fetch(url).then(resp => resp.json())
+}
+
+const getWithAuth = (url) => {
+    debugger
     return fetch(
         url,
-        {
+        { 
             headers: {
-                Authorization: localStorage.getItem('token')
-            }
+                "Authorization": localStorage.getItem('token')
+            } 
         }
     ).then(resp => resp.json())
 }
@@ -52,6 +55,7 @@ const generateConfigObject = (method, data) => {
 
 export default {
     signin, 
-    validate
+    validate,
+    getSites
 }
 

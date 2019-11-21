@@ -8068,3 +8068,619 @@ Processing by UsersController#signin as */*
 Completed 200 OK in 234ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 766)
 
 
+Started GET "/" for ::1 at 2019-11-21 10:59:39 +0000
+  [1m[35m (19.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/elizabethprendergast/.rvm/gems/ruby-2.6.1/gems/railties-6.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/elizabethprendergast/.rvm/gems/ruby-2.6.1/gems/railties-6.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.5ms | Allocations: 318)
+Completed 200 OK in 16ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 1606)
+
+
+Started GET "/users" for ::1 at 2019-11-21 11:00:17 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (6.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.0.6) lib/rack/cors.rb:98:in `call'
+railties (6.0.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.0) lib/puma/configuration.rb:228:in `call'
+puma (4.3.0) lib/puma/server.rb:667:in `handle_request'
+puma (4.3.0) lib/puma/server.rb:470:in `process_client'
+puma (4.3.0) lib/puma/server.rb:328:in `block in run'
+puma (4.3.0) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2019-11-21 11:00:33 +0000
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for UsersController):
+  
+actionpack (6.0.1) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.1) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (6.0.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.0.6) lib/rack/cors.rb:98:in `call'
+railties (6.0.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.0) lib/puma/configuration.rb:228:in `call'
+puma (4.3.0) lib/puma/server.rb:667:in `handle_request'
+puma (4.3.0) lib/puma/server.rb:470:in `process_client'
+puma (4.3.0) lib/puma/server.rb:328:in `block in run'
+puma (4.3.0) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2019-11-21 11:00:34 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.0.6) lib/rack/cors.rb:98:in `call'
+railties (6.0.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.0) lib/puma/configuration.rb:228:in `call'
+puma (4.3.0) lib/puma/server.rb:667:in `handle_request'
+puma (4.3.0) lib/puma/server.rb:470:in `process_client'
+puma (4.3.0) lib/puma/server.rb:328:in `block in run'
+puma (4.3.0) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2019-11-21 11:00:40 +0000
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for UsersController):
+  
+actionpack (6.0.1) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.1) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+activerecord (6.0.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.0.6) lib/rack/cors.rb:98:in `call'
+railties (6.0.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.0) lib/puma/configuration.rb:228:in `call'
+puma (4.3.0) lib/puma/server.rb:667:in `handle_request'
+puma (4.3.0) lib/puma/server.rb:470:in `process_client'
+puma (4.3.0) lib/puma/server.rb:328:in `block in run'
+puma (4.3.0) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2019-11-21 11:00:42 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (7.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5:in `index'
+Completed 200 OK in 58ms (Views: 8.0ms | ActiveRecord: 39.2ms | Allocations: 7017)
+
+
+Started GET "/validate" for ::1 at 2019-11-21 11:01:04 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (79.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 164ms (Views: 0.2ms | ActiveRecord: 102.7ms | Allocations: 3355)
+
+
+  [1m[36mSiteReference Load (0.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mSiteReference Load (22.3ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+Started GET "/signin" for ::1 at 2019-11-21 11:21:28 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/signin"):
+  
+actionpack (6.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.0.6) lib/rack/cors.rb:98:in `call'
+railties (6.0.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.0) lib/puma/configuration.rb:228:in `call'
+puma (4.3.0) lib/puma/server.rb:667:in `handle_request'
+puma (4.3.0) lib/puma/server.rb:470:in `process_client'
+puma (4.3.0) lib/puma/server.rb:328:in `block in run'
+puma (4.3.0) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/sites" for ::1 at 2019-11-21 11:21:29 +0000
+Processing by SiteReferencesController#sites as HTML
+  [1m[36mSiteReference Load (2.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 204 No Content in 101203ms (ActiveRecord: 16.1ms | Allocations: 44788)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:23:14 +0000
+Processing by SiteReferencesController#sites as HTML
+  [1m[36mSiteReference Load (1.8ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 204 No Content in 365589ms (ActiveRecord: 8.1ms | Allocations: 79295)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:29:20 +0000
+Processing by SiteReferencesController#sites as HTML
+  [1m[36mSiteReference Load (21.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 204 No Content in 15098ms (ActiveRecord: 21.4ms | Allocations: 74717)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:29:35 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (0.9ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 204 No Content in 2423ms (ActiveRecord: 7.3ms | Allocations: 73283)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:30:25 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (10.2ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 204 No Content in 5065ms (ActiveRecord: 10.2ms | Allocations: 69442)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:31:26 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (170.9ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 204 No Content in 4336ms (ActiveRecord: 170.9ms | Allocations: 69402)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:32:49 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (70.6ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 204 No Content in 2848ms (ActiveRecord: 70.6ms | Allocations: 69428)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:34:28 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (26.0ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 204 No Content in 2995ms (ActiveRecord: 26.0ms | Allocations: 69406)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:34:56 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (1.8ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 204 No Content in 49204ms (ActiveRecord: 140.8ms | Allocations: 147955)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:36:21 +0000
+  [1m[35m (7.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SiteReferencesController#sites as HTML
+  [1m[36mSiteReference Load (1.1ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3101ms (Views: 4.3ms | ActiveRecord: 14.0ms | Allocations: 82077)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:36:36 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (78.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2702ms (Views: 5.0ms | ActiveRecord: 78.4ms | Allocations: 76903)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:36:52 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (16.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3661ms (Views: 4.3ms | ActiveRecord: 16.4ms | Allocations: 76993)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:37:27 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (6.0ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3273ms (Views: 5.8ms | ActiveRecord: 6.0ms | Allocations: 76856)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:38:12 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (630.5ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3785ms (Views: 3.4ms | ActiveRecord: 630.5ms | Allocations: 77014)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:38:24 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (314.8ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3236ms (Views: 16.6ms | ActiveRecord: 314.8ms | Allocations: 76873)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:40:27 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (242.1ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2902ms (Views: 4.8ms | ActiveRecord: 242.1ms | Allocations: 76884)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:41:21 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (558.0ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3491ms (Views: 4.1ms | ActiveRecord: 558.0ms | Allocations: 76892)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:41:31 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (21.3ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3130ms (Views: 6.0ms | ActiveRecord: 21.3ms | Allocations: 77046)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:41:48 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (675.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 4125ms (Views: 4.6ms | ActiveRecord: 675.4ms | Allocations: 77473)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:42:03 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (23.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3146ms (Views: 4.1ms | ActiveRecord: 23.4ms | Allocations: 76875)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:42:08 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (3.8ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Started GET "/sites" for ::1 at 2019-11-21 11:42:11 +0000
+Completed 200 OK in 3085ms (Views: 6.6ms | ActiveRecord: 3.8ms | Allocations: 77622)
+
+
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (6.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2739ms (Views: 3.9ms | ActiveRecord: 6.4ms | Allocations: 77003)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:44:17 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (30.0ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2619ms (Views: 6.3ms | ActiveRecord: 30.0ms | Allocations: 76889)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:44:37 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (581.6ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3443ms (Views: 5.0ms | ActiveRecord: 581.6ms | Allocations: 76830)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:46:09 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (7.6ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Started GET "/sites" for ::1 at 2019-11-21 11:46:12 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (22.1ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 4509ms (Views: 3.0ms | ActiveRecord: 7.6ms | Allocations: 102407)
+
+
+Completed 200 OK in 3305ms (Views: 6.5ms | ActiveRecord: 22.1ms | Allocations: 100222)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:47:01 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (0.9ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2501ms (Views: 124.3ms | ActiveRecord: 0.9ms | Allocations: 76876)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:47:06 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (114.3ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2878ms (Views: 4.8ms | ActiveRecord: 114.3ms | Allocations: 76883)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:47:09 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (53.8ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2352ms (Views: 92.6ms | ActiveRecord: 53.8ms | Allocations: 76888)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:47:17 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (82.5ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2653ms (Views: 3.9ms | ActiveRecord: 82.5ms | Allocations: 76886)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:48:40 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (163.9ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2554ms (Views: 3.9ms | ActiveRecord: 163.9ms | Allocations: 76897)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:49:45 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (17.2ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2534ms (Views: 4.9ms | ActiveRecord: 17.2ms | Allocations: 76848)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:50:07 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (266.2ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3318ms (Views: 3.7ms | ActiveRecord: 266.2ms | Allocations: 77303)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:50:16 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (23.0ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3264ms (Views: 12.9ms | ActiveRecord: 23.0ms | Allocations: 77247)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:50:20 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (15.3ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3167ms (Views: 4.1ms | ActiveRecord: 15.3ms | Allocations: 76876)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:50:30 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (322.8ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2873ms (Views: 4.0ms | ActiveRecord: 322.8ms | Allocations: 76906)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:51:57 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (50.9ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3342ms (Views: 4.9ms | ActiveRecord: 50.9ms | Allocations: 76983)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:52:04 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (145.9ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3472ms (Views: 5.7ms | ActiveRecord: 145.9ms | Allocations: 76920)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:52:09 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (17.0ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3770ms (Views: 4.5ms | ActiveRecord: 17.0ms | Allocations: 76922)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:52:40 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (0.9ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3134ms (Views: 5.8ms | ActiveRecord: 0.9ms | Allocations: 76916)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:52:44 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (24.1ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 4048ms (Views: 7.5ms | ActiveRecord: 24.1ms | Allocations: 76949)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:52:48 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (40.2ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3801ms (Views: 15.0ms | ActiveRecord: 40.2ms | Allocations: 76923)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:52:55 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (40.1ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3231ms (Views: 4.4ms | ActiveRecord: 40.1ms | Allocations: 76875)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:53:17 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (199.0ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2951ms (Views: 4.7ms | ActiveRecord: 199.0ms | Allocations: 77011)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:55:49 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (335.0ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2632ms (Views: 25.8ms | ActiveRecord: 335.0ms | Allocations: 76928)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:56:52 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (7.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2908ms (Views: 2.8ms | ActiveRecord: 7.4ms | Allocations: 77009)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:57:43 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (543.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2835ms (Views: 4.1ms | ActiveRecord: 543.4ms | Allocations: 76976)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:57:53 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (91.0ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2870ms (Views: 3.5ms | ActiveRecord: 91.0ms | Allocations: 76903)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:58:01 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (1.9ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2242ms (Views: 3.5ms | ActiveRecord: 1.9ms | Allocations: 77000)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:58:11 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (194.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2683ms (Views: 4.3ms | ActiveRecord: 194.4ms | Allocations: 77621)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:58:25 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (783.8ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3261ms (Views: 2.8ms | ActiveRecord: 783.8ms | Allocations: 76859)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:58:28 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (8.1ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2912ms (Views: 9.8ms | ActiveRecord: 8.1ms | Allocations: 77007)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:58:39 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (100.2ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2394ms (Views: 5.5ms | ActiveRecord: 100.2ms | Allocations: 76862)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 11:59:45 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (18.2ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2865ms (Views: 3.2ms | ActiveRecord: 18.2ms | Allocations: 76938)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 12:00:04 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (30.8ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3074ms (Views: 5.5ms | ActiveRecord: 30.8ms | Allocations: 76888)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 12:00:18 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (334.3ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 5556ms (Views: 3.4ms | ActiveRecord: 334.3ms | Allocations: 76899)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 12:01:08 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (1.2ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2549ms (Views: 5.5ms | ActiveRecord: 1.2ms | Allocations: 76864)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 12:01:25 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (616.6ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2889ms (Views: 4.0ms | ActiveRecord: 616.6ms | Allocations: 77405)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 12:01:45 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (473.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3951ms (Views: 95.2ms | ActiveRecord: 473.4ms | Allocations: 77146)
+
+
+Started GET "/sites" for ::1 at 2019-11-21 12:01:54 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (1.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2369ms (Views: 7.4ms | ActiveRecord: 1.4ms | Allocations: 76856)
+
+
