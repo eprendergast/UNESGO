@@ -13,7 +13,8 @@ import SiteContainer from './containers/SiteContainer'
 class App extends React.Component {
   state = {
     id: '',
-    first_name: ''
+    first_name: '',
+    saved_sites: []
   }
 
   componentDidMount () {
@@ -32,8 +33,13 @@ class App extends React.Component {
     this.setState({
       id: user.id,
       first_name: user.first_name
-    })
+    }, () => this.getSavedSites(this.state.id))
     localStorage.setItem('token', user.token)
+  }
+
+  getSavedSites = async (user_id) => {
+    const saved_sites = await API.getSavedSites(user_id)
+    this.setState({ saved_sites }, this.getSavedSiteData)
   }
 
   signout = () => {
@@ -76,7 +82,7 @@ class App extends React.Component {
             />
             <Route
               path='/users/:id/saved'
-              component={routerProps => <SavedContainer {...routerProps} />}
+              component={routerProps => <SavedContainer {...routerProps} savedSites={this.state.saved_sites}/>}
             />
             <Route component={() => <h1>Page Not Found</h1>} />
           </Switch>
