@@ -29887,3 +29887,664 @@ Processing by SiteReferencesController#sites as */*
 Completed 200 OK in 2005ms (Views: 4.3ms | ActiveRecord: 1.9ms | Allocations: 76998)
 
 
+Started GET "/sites" for ::1 at 2019-11-22 16:20:00 +0000
+Started GET "/validate" for ::1 at 2019-11-22 16:20:00 +0000
+Processing by UsersController#validate as */*
+Processing by SiteReferencesController#sites as */*
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 28ms (Views: 1.7ms | ActiveRecord: 2.6ms | Allocations: 1540)
+
+
+  [1m[36mSiteReference Load (55.0ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2357ms (Views: 6.8ms | ActiveRecord: 55.0ms | Allocations: 78332)
+
+
+Started GET "/sites" for ::1 at 2019-11-22 16:20:03 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (35.0ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2164ms (Views: 4.6ms | ActiveRecord: 35.0ms | Allocations: 76850)
+
+
+Started POST "/saved_sites" for ::1 at 2019-11-22 16:20:14 +0000
+Processing by SavedSitesController#create as JSON
+  Parameters: {"_json"=>482, "saved_site"=>{}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+  [1m[36mCACHE User Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/sites" for ::1 at 2019-11-22 16:22:08 +0000
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Started GET "/validate" for ::1 at 2019-11-22 16:22:08 +0000
+Started GET "/validate" for ::1 at 2019-11-22 16:22:08 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (100.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 105ms (Views: 2.5ms | ActiveRecord: 100.3ms | Allocations: 54507)
+
+
+Completed 204 No Content in 116013ms (ActiveRecord: 3.3ms | Allocations: 824871)
+
+
+Processing by SiteReferencesController#sites as */*
+Processing by UsersController#validate as */*
+  [1m[36mSiteReference Load (4.5ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+  [1m[36mUser Load (34.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 38ms (Views: 0.2ms | ActiveRecord: 35.1ms | Allocations: 11585)
+
+
+Started GET "/validate" for ::1 at 2019-11-22 16:22:12 +0000
+Completed 200 OK in 2808ms (Views: 10.5ms | ActiveRecord: 4.5ms | Allocations: 78909)
+
+
+Started GET "/sites" for ::1 at 2019-11-22 16:22:13 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 64ms (Views: 0.2ms | ActiveRecord: 50.7ms | Allocations: 6228)
+
+
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (6.5ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2108ms (Views: 3.5ms | ActiveRecord: 8.7ms | Allocations: 80671)
+
+
+Started GET "/sites" for ::1 at 2019-11-22 16:22:16 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (8.9ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2414ms (Views: 4.8ms | ActiveRecord: 8.9ms | Allocations: 77242)
+
+
+Started GET "/users/2/saved" for ::1 at 2019-11-22 16:22:42 +0000
+Processing by UsersController#saved as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `saved'
+  [1m[36mSavedSite Load (0.3ms)[0m  [1m[34mSELECT "saved_sites".* FROM "saved_sites" WHERE "saved_sites"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:15:in `saved'
+Completed 200 OK in 36ms (Views: 5.3ms | ActiveRecord: 16.9ms | Allocations: 7687)
+
+
+Started GET "/sites" for ::1 at 2019-11-22 16:22:44 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (14.8ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2563ms (Views: 10.4ms | ActiveRecord: 14.8ms | Allocations: 76880)
+
+
+Started POST "/signin" for ::1 at 2019-11-22 16:22:51 +0000
+Processing by UsersController#signin as JSON
+  Parameters: {"email"=>"elizabeth.prendergast@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"elizabeth.prendergast@gmail.com"}}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "elizabeth.prendergast@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `signin'
+Completed 200 OK in 544ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 872)
+
+
+Started GET "/sites" for ::1 at 2019-11-22 16:22:52 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (20.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2059ms (Views: 3.4ms | ActiveRecord: 20.4ms | Allocations: 76885)
+
+
+Started GET "/users/1/saved" for ::1 at 2019-11-22 16:22:57 +0000
+Processing by UsersController#saved as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `saved'
+  [1m[36mSavedSite Load (0.2ms)[0m  [1m[34mSELECT "saved_sites".* FROM "saved_sites" WHERE "saved_sites"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `saved'
+Completed 200 OK in 19ms (Views: 8.8ms | ActiveRecord: 9.5ms | Allocations: 5943)
+
+
+Started GET "/sites/217" for ::1 at 2019-11-22 16:22:57 +0000
+Started GET "/sites/46" for ::1 at 2019-11-22 16:22:57 +0000
+Started GET "/sites/836" for ::1 at 2019-11-22 16:22:57 +0000
+Started GET "/sites/568" for ::1 at 2019-11-22 16:22:57 +0000
+Started GET "/sites/256" for ::1 at 2019-11-22 16:22:57 +0000
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"217"}
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"836"}
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"568"}
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"46"}
+  [1m[36mSiteReference Load (0.2ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 217], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+  [1m[36mSiteReference Load (0.5ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+  [1m[36mSiteReference Load (4.6ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 836], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+  [1m[36mSiteReference Load (42.6ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 568], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"256"}
+  [1m[36mSiteReference Load (0.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 256], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Completed 200 OK in 155ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 17123)
+
+
+Started GET "/sites/1072" for ::1 at 2019-11-22 16:22:58 +0000
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"1072"}
+  [1m[36mSiteReference Load (0.6ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 1072], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Completed 200 OK in 194ms (Views: 1.8ms | ActiveRecord: 39.5ms | Allocations: 21704)
+
+
+Completed 200 OK in 202ms (Views: 0.3ms | ActiveRecord: 42.6ms | Allocations: 23276)
+
+
+Started GET "/sites/41" for ::1 at 2019-11-22 16:22:58 +0000
+Started GET "/sites/603" for ::1 at 2019-11-22 16:22:58 +0000
+Processing by SiteReferencesController#site as */*
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"603"}
+  Parameters: {"id"=>"41"}
+  [1m[36mSiteReference Load (0.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 603], ["LIMIT", 1]]
+  [1m[36mSiteReference Load (0.6ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 41], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Completed 200 OK in 130ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 19372)
+
+
+Completed 200 OK in 255ms (Views: 0.4ms | ActiveRecord: 4.6ms | Allocations: 32719)
+
+
+Started GET "/sites/308" for ::1 at 2019-11-22 16:22:58 +0000
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"308"}
+  [1m[36mSiteReference Load (1.2ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 308], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Completed 200 OK in 126ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 19649)
+
+
+Completed 200 OK in 128ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 14409)
+
+
+Completed 200 OK in 136ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 15813)
+
+
+Completed 200 OK in 105ms (Views: 0.4ms | ActiveRecord: 1.2ms | Allocations: 8361)
+
+
+Started GET "/sites/66" for ::1 at 2019-11-22 16:22:58 +0000
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"66"}
+  [1m[36mSiteReference Load (0.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Completed 200 OK in 93ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 3924)
+
+
+Started GET "/users/1/saved" for ::1 at 2019-11-22 16:27:15 +0000
+Processing by UsersController#saved as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `saved'
+  [1m[36mSavedSite Load (20.0ms)[0m  [1m[34mSELECT "saved_sites".* FROM "saved_sites" WHERE "saved_sites"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `saved'
+Completed 200 OK in 37ms (Views: 14.6ms | ActiveRecord: 20.8ms | Allocations: 2625)
+
+
+Started GET "/validate" for ::1 at 2019-11-22 16:27:15 +0000
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 807)
+
+
+Started GET "/sites/217" for ::1 at 2019-11-22 16:27:15 +0000
+Started GET "/sites/46" for ::1 at 2019-11-22 16:27:15 +0000
+Started GET "/sites/836" for ::1 at 2019-11-22 16:27:15 +0000
+Started GET "/sites/256" for ::1 at 2019-11-22 16:27:15 +0000
+Started GET "/sites/41" for ::1 at 2019-11-22 16:27:15 +0000
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"217"}
+  [1m[36mSiteReference Load (13.1ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 217], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"836"}
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"256"}
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"41"}
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"46"}
+  [1m[36mSiteReference Load (16.3ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 836], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Completed 200 OK in 505ms (Views: 0.5ms | ActiveRecord: 13.1ms | Allocations: 8537)
+
+
+Started GET "/sites/603" for ::1 at 2019-11-22 16:27:16 +0000
+  [1m[36mSiteReference Load (54.7ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 256], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+  [1m[36mSiteReference Load (75.0ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 41], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+  [1m[36mSiteReference Load (67.7ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"603"}
+  [1m[36mSiteReference Load (0.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 603], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Completed 200 OK in 163ms (Views: 0.4ms | ActiveRecord: 16.3ms | Allocations: 16755)
+
+
+Started GET "/sites/66" for ::1 at 2019-11-22 16:27:16 +0000
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"66"}
+  [1m[36mSiteReference Load (0.2ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Completed 200 OK in 198ms (Views: 0.5ms | ActiveRecord: 54.7ms | Allocations: 21717)
+
+
+Started GET "/sites/1072" for ::1 at 2019-11-22 16:27:16 +0000
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"1072"}
+  [1m[36mSiteReference Load (7.9ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 1072], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Completed 200 OK in 233ms (Views: 0.3ms | ActiveRecord: 75.0ms | Allocations: 26573)
+
+
+Started GET "/sites/308" for ::1 at 2019-11-22 16:27:16 +0000
+Completed 200 OK in 234ms (Views: 0.4ms | ActiveRecord: 67.7ms | Allocations: 28175)
+
+
+Started GET "/users/1/saved" for ::1 at 2019-11-22 16:27:16 +0000
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"308"}
+Processing by UsersController#saved as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mSiteReference Load (13.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 308], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Completed 200 OK in 165ms (Views: 1.2ms | ActiveRecord: 0.4ms | Allocations: 21187)
+
+
+Completed 200 OK in 124ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 17430)
+
+
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `saved'
+  [1m[36mSavedSite Load (4.2ms)[0m  [1m[34mSELECT "saved_sites".* FROM "saved_sites" WHERE "saved_sites"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `saved'
+Completed 200 OK in 63ms (Views: 18.4ms | ActiveRecord: 6.3ms | Allocations: 8049)
+
+
+Completed 200 OK in 147ms (Views: 2.3ms | ActiveRecord: 7.9ms | Allocations: 16769)
+
+
+Started GET "/sites/836" for ::1 at 2019-11-22 16:27:16 +0000
+Started GET "/sites/217" for ::1 at 2019-11-22 16:27:16 +0000
+Started GET "/sites/46" for ::1 at 2019-11-22 16:27:16 +0000
+Started GET "/sites/256" for ::1 at 2019-11-22 16:27:16 +0000
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"836"}
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"256"}
+  [1m[36mSiteReference Load (2.0ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 836], ["LIMIT", 1]]
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"217"}
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"46"}
+  [1m[36mSiteReference Load (1.5ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 256], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+  [1m[36mSiteReference Load (0.6ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 46], ["LIMIT", 1]]
+Completed 200 OK in 141ms (Views: 0.4ms | ActiveRecord: 13.4ms | Allocations: 18469)
+
+
+Started GET "/sites/41" for ::1 at 2019-11-22 16:27:16 +0000
+  [1m[36mSiteReference Load (24.6ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 217], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"41"}
+  [1m[36mSiteReference Load (28.9ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 41], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Completed 200 OK in 166ms (Views: 0.6ms | ActiveRecord: 1.5ms | Allocations: 17181)
+
+
+Started GET "/sites/603" for ::1 at 2019-11-22 16:27:16 +0000
+Completed 200 OK in 189ms (Views: 0.4ms | ActiveRecord: 2.0ms | Allocations: 20228)
+
+
+Completed 200 OK in 193ms (Views: 1.1ms | ActiveRecord: 0.6ms | Allocations: 20011)
+
+
+Started GET "/sites/66" for ::1 at 2019-11-22 16:27:16 +0000
+Started GET "/sites/1072" for ::1 at 2019-11-22 16:27:16 +0000
+Completed 200 OK in 207ms (Views: 0.3ms | ActiveRecord: 24.6ms | Allocations: 22005)
+
+
+Started GET "/sites/308" for ::1 at 2019-11-22 16:27:17 +0000
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"603"}
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"66"}
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"1072"}
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"308"}
+  [1m[36mSiteReference Load (2.6ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 66], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+  [1m[36mSiteReference Load (1.8ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 1072], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+  [1m[36mSiteReference Load (2.6ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 308], ["LIMIT", 1]]
+  [1m[36mSiteReference Load (4.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 603], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Completed 200 OK in 162ms (Views: 0.7ms | ActiveRecord: 28.9ms | Allocations: 19107)
+
+
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Completed 200 OK in 161ms (Views: 0.3ms | ActiveRecord: 2.6ms | Allocations: 14425)
+
+
+Completed 200 OK in 165ms (Views: 2.7ms | ActiveRecord: 1.8ms | Allocations: 15231)
+
+
+Completed 200 OK in 167ms (Views: 0.6ms | ActiveRecord: 2.6ms | Allocations: 16027)
+
+
+Completed 200 OK in 208ms (Views: 0.4ms | ActiveRecord: 4.4ms | Allocations: 18956)
+
+
+Started GET "/sites/568" for ::1 at 2019-11-22 16:27:17 +0000
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"568"}
+  [1m[36mSiteReference Load (0.6ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 568], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Completed 200 OK in 95ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 3900)
+
+
+Started GET "/sites/568" for ::1 at 2019-11-22 16:27:17 +0000
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"568"}
+  [1m[36mSiteReference Load (0.7ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 568], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Completed 200 OK in 96ms (Views: 0.7ms | ActiveRecord: 0.7ms | Allocations: 3906)
+
+
+Started GET "/sites" for ::1 at 2019-11-22 16:27:21 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (4.2ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 2032ms (Views: 3.8ms | ActiveRecord: 4.2ms | Allocations: 77253)
+
+
+Started POST "/signin" for ::1 at 2019-11-22 16:27:27 +0000
+Processing by UsersController#signin as JSON
+  Parameters: {"email"=>"jbloggs@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"jbloggs@gmail.com"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jbloggs@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `signin'
+Completed 200 OK in 240ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 759)
+
+
+Started GET "/sites" for ::1 at 2019-11-22 16:27:27 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (1.3ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 1867ms (Views: 5.8ms | ActiveRecord: 1.3ms | Allocations: 76817)
+
+
+Started POST "/saved_sites" for ::1 at 2019-11-22 16:27:52 +0000
+Processing by SavedSitesController#create as JSON
+  Parameters: {"site_reference_id"=>822, "saved_site"=>{"site_reference_id"=>822}}
+Started GET "/validate" for ::1 at 2019-11-22 16:28:28 +0000
+Started GET "/sites" for ::1 at 2019-11-22 16:28:28 +0000
+Completed 500 Internal Server Error in 35874ms (ActiveRecord: 0.0ms | Allocations: 270975)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/saved_sites_controller.rb:5:in `create'
+Processing by UsersController#validate as */*
+Processing by SiteReferencesController#sites as */*
+  [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 42ms (Views: 2.4ms | ActiveRecord: 7.6ms | Allocations: 241954)
+
+
+  [1m[36mSiteReference Load (365.2ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 5682ms (Views: 116.2ms | ActiveRecord: 365.2ms | Allocations: 16573994)
+
+
+Started GET "/sites" for ::1 at 2019-11-22 16:28:35 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (125.4ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Started GET "/validate" for ::1 at 2019-11-22 16:28:35 +0000
+Started GET "/sites" for ::1 at 2019-11-22 16:28:36 +0000
+Processing by UsersController#validate as */*
+Processing by SiteReferencesController#sites as */*
+  [1m[36mUser Load (94.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 435ms (Views: 2.0ms | ActiveRecord: 94.6ms | Allocations: 3040167)
+
+
+  [1m[36mSiteReference Load (384.6ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 6112ms (Views: 177.7ms | ActiveRecord: 125.4ms | Allocations: 30912149)
+
+
+Completed 200 OK in 4863ms (Views: 147.5ms | ActiveRecord: 384.6ms | Allocations: 27894248)
+
+
+Started GET "/sites" for ::1 at 2019-11-22 16:28:41 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (5.1ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3791ms (Views: 132.4ms | ActiveRecord: 5.1ms | Allocations: 15667756)
+
+
+Started POST "/saved_sites" for ::1 at 2019-11-22 16:28:56 +0000
+Processing by SavedSitesController#create as JSON
+  Parameters: {"site_id"=>490, "saved_site"=>{}}
+Completed 500 Internal Server Error in 76026ms (ActiveRecord: 0.0ms | Allocations: 46284)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/saved_sites_controller.rb:5:in `create'
+Started GET "/validate" for ::1 at 2019-11-22 16:30:16 +0000
+Started GET "/sites" for ::1 at 2019-11-22 16:30:16 +0000
+Processing by UsersController#validate as */*
+Processing by SiteReferencesController#sites as */*
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+  [1m[36mSiteReference Load (190.8ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 390ms (Views: 2.5ms | ActiveRecord: 107.7ms | Allocations: 2107641)
+
+
+Completed 200 OK in 4151ms (Views: 174.6ms | ActiveRecord: 262.2ms | Allocations: 20784708)
+
+
+Started GET "/sites" for ::1 at 2019-11-22 16:30:24 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (2.5ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 3659ms (Views: 157.4ms | ActiveRecord: 2.5ms | Allocations: 18473981)
+
+
+Started GET "/validate" for ::1 at 2019-11-22 16:30:49 +0000
+Started GET "/sites" for ::1 at 2019-11-22 16:30:49 +0000
+Processing by UsersController#validate as */*
+Processing by SiteReferencesController#sites as */*
+  [1m[36mUser Load (38.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 524ms (Views: 9.5ms | ActiveRecord: 38.9ms | Allocations: 371825)
+
+
+  [1m[36mSiteReference Load (572.8ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Started GET "/validate" for ::1 at 2019-11-22 16:30:56 +0000
+Started GET "/sites" for ::1 at 2019-11-22 16:30:57 +0000
+Processing by SiteReferencesController#sites as */*
+Completed 200 OK in 7529ms (Views: 776.9ms | ActiveRecord: 572.8ms | Allocations: 19314789)
+
+
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 55ms (Views: 12.6ms | ActiveRecord: 4.3ms | Allocations: 334251)
+
+
+  [1m[36mSiteReference Load (467.7ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 5983ms (Views: 270.1ms | ActiveRecord: 467.7ms | Allocations: 20155878)
+
+
+Started GET "/sites" for ::1 at 2019-11-22 16:31:03 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (8.1ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Started GET "/sites" for ::1 at 2019-11-22 16:31:05 +0000
+Started GET "/validate" for ::1 at 2019-11-22 16:31:05 +0000
+Processing by UsersController#validate as */*
+Processing by SiteReferencesController#sites as */*
+  [1m[36mUser Load (176.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 410ms (Views: 4.4ms | ActiveRecord: 176.9ms | Allocations: 693437)
+
+
+  [1m[36mSiteReference Load (275.5ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Started GET "/validate" for ::1 at 2019-11-22 16:31:09 +0000
+Started GET "/sites" for ::1 at 2019-11-22 16:31:09 +0000
+Processing by SiteReferencesController#sites as */*
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (263.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 312ms (Views: 8.9ms | ActiveRecord: 263.6ms | Allocations: 1838805)
+
+
+  [1m[36mSiteReference Load (692.6ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 13789ms (Views: 785.5ms | ActiveRecord: 8.1ms | Allocations: 46654706)
+
+
+Started GET "/validate" for ::1 at 2019-11-22 16:31:18 +0000
+Started GET "/sites" for ::1 at 2019-11-22 16:31:18 +0000
+Processing by SiteReferencesController#sites as */*
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (26.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 104ms (Views: 14.1ms | ActiveRecord: 26.7ms | Allocations: 316857)
+
+
+  [1m[36mSiteReference Load (323.8ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Started GET "/sites" for ::1 at 2019-11-22 16:31:23 +0000
+Processing by SiteReferencesController#sites as */*
+Started GET "/sites" for ::1 at 2019-11-22 16:31:23 +0000
+Completed 200 OK in 17932ms (Views: 694.3ms | ActiveRecord: 275.5ms | Allocations: 54926392)
+
+
+Processing by SiteReferencesController#sites as */*
+Started GET "/validate" for ::1 at 2019-11-22 16:31:24 +0000
+  [1m[36mSiteReference Load (836.5ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Processing by UsersController#validate as */*
+  [1m[36mUser Load (77.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+  [1m[36mSiteReference Load (447.2ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+Completed 200 OK in 410ms (Views: 13.4ms | ActiveRecord: 77.4ms | Allocations: 1247822)
+
+
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 18556ms (Views: 1319.9ms | ActiveRecord: 692.6ms | Allocations: 62965446)
+
+
+Completed 200 OK in 15602ms (Views: 290.2ms | ActiveRecord: 323.8ms | Allocations: 59696686)
+
+
+Completed 200 OK in 11832ms (Views: 405.8ms | ActiveRecord: 836.5ms | Allocations: 51719011)
+
+
+Completed 200 OK in 11991ms (Views: 505.5ms | ActiveRecord: 447.2ms | Allocations: 52235807)
+
+
+Started GET "/sites" for ::1 at 2019-11-22 16:31:36 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (2.3ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Started GET "/sites" for ::1 at 2019-11-22 16:31:44 +0000
+Started GET "/validate" for ::1 at 2019-11-22 16:31:44 +0000
+Completed 200 OK in 5575ms (Views: 640.4ms | ActiveRecord: 16.1ms | Allocations: 20871553)
+
+
+Processing by SiteReferencesController#sites as */*
+Processing by UsersController#validate as */*
+  [1m[36mSiteReference Load (42.3ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+Completed 200 OK in 321ms (Views: 6.9ms | ActiveRecord: 102.1ms | Allocations: 2472336)
+
+
+Completed 200 OK in 4045ms (Views: 166.2ms | ActiveRecord: 146.5ms | Allocations: 21115439)
+
+
+Started GET "/sites" for ::1 at 2019-11-22 16:31:51 +0000
+Processing by SiteReferencesController#sites as */*
+  [1m[36mSiteReference Load (5.0ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references"[0m
+  ↳ app/controllers/site_references_controller.rb:4:in `sites'
+Completed 200 OK in 5946ms (Views: 156.5ms | ActiveRecord: 5.0ms | Allocations: 18425322)
+
+
+Started POST "/saved_sites" for ::1 at 2019-11-22 16:32:00 +0000
+  
+SyntaxError (/Users/elizabethprendergast/Development/projects/unesco/unesco-backend/app/controllers/saved_sites_controller.rb:6: syntax error, unexpected '}', expecting =>
+...  render json: {new_saved_site}
+...                              ^):
+  
+app/controllers/saved_sites_controller.rb:6: syntax error, unexpected '}', expecting =>
+app/controllers/saved_sites_controller.rb:6: syntax error, unexpected '}', expecting =>
+Started POST "/saved_sites" for ::1 at 2019-11-22 16:32:27 +0000
+Processing by SavedSitesController#create as JSON
+  Parameters: {"site_id"=>576, "status"=>"bucketlist", "saved_site"=>{"status"=>"bucketlist"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5:in `get_current_user'
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/saved_sites_controller.rb:5:in `create'
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/saved_sites_controller.rb:5:in `create'
+  [1m[36mSiteReference Load (3.0ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."id" = $1 LIMIT $2[0m  [["id", 576], ["LIMIT", 1]]
+  ↳ app/controllers/saved_sites_controller.rb:5:in `create'
+  [1m[36mSavedSite Create (11.8ms)[0m  [1m[32mINSERT INTO "saved_sites" ("user_id", "site_reference_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["user_id", 2], ["site_reference_id", 576], ["status", "bucketlist"], ["created_at", "2019-11-22 16:32:29.541266"], ["updated_at", "2019-11-22 16:32:29.541266"]]
+  ↳ app/controllers/saved_sites_controller.rb:5:in `create'
+  [1m[35m (14.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/saved_sites_controller.rb:5:in `create'
+Completed 200 OK in 597ms (Views: 9.9ms | ActiveRecord: 62.9ms | Allocations: 4657540)
+
+
+Started GET "/users/2/saved" for ::1 at 2019-11-22 16:32:31 +0000
+Processing by UsersController#saved as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14:in `saved'
+  [1m[36mSavedSite Load (5.7ms)[0m  [1m[34mSELECT "saved_sites".* FROM "saved_sites" WHERE "saved_sites"."user_id" = $1[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:15:in `saved'
+Completed 200 OK in 135ms (Views: 68.8ms | ActiveRecord: 6.7ms | Allocations: 752139)
+
+
+Started GET "/sites/576" for ::1 at 2019-11-22 16:32:32 +0000
+Processing by SiteReferencesController#site as */*
+  Parameters: {"id"=>"576"}
+  [1m[36mSiteReference Load (1.0ms)[0m  [1m[34mSELECT "site_references".* FROM "site_references" WHERE "site_references"."site_id" = $1 LIMIT $2[0m  [["site_id", 576], ["LIMIT", 1]]
+  ↳ app/controllers/site_references_controller.rb:11:in `site'
+Completed 200 OK in 228ms (Views: 11.8ms | ActiveRecord: 1.0ms | Allocations: 884767)
+
+

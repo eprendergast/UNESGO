@@ -3,45 +3,42 @@ import { Card, Image, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { identifier } from '@babel/types'
 import PrimaryButton from './PrimaryButton'
+import API from '../API'
 
 class SiteCard extends React.Component {
-    render(){
+  render () {
+    const { id, name, image_url, short_description, states } = this.props.site
 
-        const {id, name, image_url, short_description, states} = this.props.site
+    return (
+      <Card>
+        <Image src={image_url} wrapped ui={false} />
 
-        return(
-            <Card>
-                
-                <Image src={image_url} wrapped ui={false} />
-        
-                <Card.Content>
-                    <Link to={`/sites/${id}`} > 
-                        <Card.Header>{name}</Card.Header>
-                    </Link>
-                    
-                    <Card.Meta>
-                        <span className='date'>{states.map(state => state["name"]).join(", ")}</span>
-                    </Card.Meta>
+        <Card.Content>
+          <Link to={`/sites/${id}`}>
+            <Card.Header>{name}</Card.Header>
+          </Link>
 
-                    <Card.Description>
-                        {short_description.substring(0, 100) + '...'}
-                    </Card.Description>
-                    
-                </Card.Content>
+          <Card.Meta>
+            <span className='date'>
+              {states.map(state => state['name']).join(', ')}
+            </span>
+          </Card.Meta>
 
-                <Card.Content extra>
-                <div className='ui two buttons'>
-                    
-                    < PrimaryButton text="Add to Bucketlist" />
+          <Card.Description>
+            {short_description.substring(0, 100) + '...'}
+          </Card.Description>
+        </Card.Content>
 
-                    < PrimaryButton text="Mark as Visited"/>
+        <Card.Content extra>
+          <div className='ui two buttons'>
+            <PrimaryButton text='Add to Bucketlist' onClick={() => API.saveSite(id, "bucketlist")}/>
 
-                </div>
-                </Card.Content>
-
-            </Card>
-        )
-    }
+            <PrimaryButton text='Mark as Visited' onClick={() => API.saveSite(id, "visited")} />
+          </div>
+        </Card.Content>
+      </Card>
+    )
+  }
 }
 
 export default SiteCard
