@@ -14,15 +14,7 @@ class SavedContainer extends React.Component {
   }
 
   componentDidMount () {
-    localStorage.getItem('token') ? this.getSavedSites() : this.props.history.push('/')
-  }
-
-  getSavedSites = async () => {
-    const user_id = this.props.match.params['id']
-
-    const saved_sites = await API.getSavedSites(user_id)
-
-    this.setState({ saved_sites }, this.getSavedSiteData)
+    localStorage.getItem('token') ? this.getSavedSiteData() : this.props.history.push('/')
   }
 
   getSavedSiteData = async () => {
