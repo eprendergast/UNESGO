@@ -7,4 +7,10 @@ class SiteReferencesController < ApplicationController
         render json: response
     end
 
+    def site
+        site = SiteReference.find_by(site_id: params[:id])
+        response = API.get_site(site.site_id)
+        render json: response
+    end
+
 end

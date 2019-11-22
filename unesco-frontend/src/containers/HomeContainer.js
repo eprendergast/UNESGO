@@ -1,7 +1,7 @@
 import React from 'react'
 import API from '../API'
 import SitesContainer from './SitesContainer'
-import {Header} from 'semantic-ui-react'
+import { Header } from 'semantic-ui-react'
 
 
 class HomeContainer extends React.Component {
@@ -21,7 +21,6 @@ class HomeContainer extends React.Component {
             <div>
                 <Header as='h1'>Welcome to UNESGO</Header>
                 <Header as='h3'>Explore UNESCO World Heritage Sites from around the world</Header>
-
                 <SitesContainer sites={this.state.sites}/>
             </div>
         )

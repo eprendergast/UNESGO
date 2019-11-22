@@ -2,20 +2,18 @@ import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 
 import HomeContainer from './containers/HomeContainer'
-import SignUpContainer from './containers/SignUpContainer'
 import ProfileContainer from './containers/Profile';
 import SavedContainer from './containers/SavedContainer';
 
 import './App.css';
 import NavBar from './components/NavBar';
 import API from './API';
-import SignInModal from './modals/SignInModal';
-
-
+import SiteContainer from './containers/SiteContainer';
 
 class App extends React.Component {
   
   state = {
+    id: '',
     first_name: ''
   }
 
@@ -31,6 +29,7 @@ class App extends React.Component {
 
   signin = user => {
     this.setState({
+      id: user.id,
       first_name: user.first_name
     })
     localStorage.setItem('token', user.token)
@@ -54,13 +53,14 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          < NavBar first_name={this.state.first_name} signup={signup} signin={signin} signout={signout}/>
+          < NavBar id={this.state.id} first_name={this.state.first_name} signup={signup} signin={signin} signout={signout}/>
           <Switch>
-              < Route path = '/' component={routerProps => < HomeContainer {...routerProps}/>}/>
+              < Route exact path = '/' component={routerProps => < HomeContainer {...routerProps}/>}/>
+              < Route path='/sites/:id' component={routerProps => < SiteContainer {...routerProps} />}/>
               {/* < Route path = '/signin' component={routerProps => < SignInModal {...routerProps} signin={signin}/>}/> */}
-              < Route path = '/signup' component={routerProps => < SignUpContainer {...routerProps} />}/>
+              {/* < Route path = '/signup' component={routerProps => < SignUpContainer {...routerProps} />}/> */}
               < Route path = '/profile' component={routerProps => < ProfileContainer {...routerProps} />}/>
-              < Route path = '/saved' component={routerProps => < SavedContainer {...routerProps} />}/>
+              < Route path = '/users/:id/saved' component={routerProps => < SavedContainer {...routerProps} />}/>
               < Route component={() => <h1>Page Not Found</h1>} />
           </Switch>
         </div> 

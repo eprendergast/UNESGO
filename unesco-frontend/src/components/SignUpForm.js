@@ -1,6 +1,6 @@
 import React from 'react'
 import API from '../API'
-import{Form, Button} from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 
 class SignUpForm extends React.Component {
 

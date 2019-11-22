@@ -1,6 +1,6 @@
 import React from 'react'
 import API from '../API'
-import{ Form, Button } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 
 class SignInForm extends React.Component {
 
@@ -17,7 +17,6 @@ class SignInForm extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        
         API.signin(this.state.email, this.state.password).then(data => {
             if (data.error) throw Error(data.error)
             this.props.signin(data)
