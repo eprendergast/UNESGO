@@ -4,9 +4,13 @@ import API from '../API'
 import { Header } from 'semantic-ui-react'
 
 class SavedContainer extends React.Component {
-  state = {
-    saved_sites: [],
-    saved_sites_data: []
+  
+  constructor(props){
+    super(props)
+    this.state = {
+      saved_sites: props.savedSites,
+      saved_sites_data: []
+    }
   }
 
   componentDidMount () {
