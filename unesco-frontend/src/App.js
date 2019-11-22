@@ -70,8 +70,6 @@ class App extends React.Component {
               path='/sites/:id'
               component={routerProps => <SiteContainer {...routerProps} />}
             />
-            {/* < Route path = '/signin' component={routerProps => < SignInModal {...routerProps} signin={signin}/>}/> */}
-            {/* < Route path = '/signup' component={routerProps => < SignUpContainer {...routerProps} />}/> */}
             <Route
               path='/profile'
               component={routerProps => <ProfileContainer {...routerProps} />}
