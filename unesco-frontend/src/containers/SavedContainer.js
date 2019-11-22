@@ -4,54 +4,53 @@ import API from '../API'
 import { Header } from 'semantic-ui-react'
 
 class SavedContainer extends React.Component {
-    
-    state = {
-        saved_sites: [],
-        saved_sites_data: []
-    }
+  state = {
+    saved_sites: [],
+    saved_sites_data: []
+  }
 
-    componentDidMount(){
-        const user_id = this.props.match.params["id"]
+  componentDidMount () {
+    localStorage.getItem('token') ? this.getSavedSites() : this.props.history.push('/')
+  }
 
-        API.getSavedSites(user_id).then(
-            data => this.setState({
-                saved_sites: data
-            })
-        ).then(() => {
-            this.state.saved_sites.forEach(saved_site => {
-                API.getSite(saved_site.site_reference_id).then(this.updateSavedSitesData)
-            })
-        }
-        )
-    }
+  getSavedSites = async () => {
+    const user_id = this.props.match.params['id']
 
-    updateSavedSitesData = (site_data) => {
-        this.setState({
-            saved_sites_data: [
-                ...this.state.saved_sites_data,
-                site_data
-            ]
-        })
-    }
+    const saved_sites = await API.getSavedSites(user_id)
 
-    getBucketlistSites = () => {
+    this.setState({ saved_sites }, this.getSavedSiteData)
+  }
 
-    }
+  getSavedSiteData = async () => {
+    const { saved_sites } = this.state
 
-    getVisitedSites = () => {
-        
-    }
+    const site_data_promises = saved_sites.map(saved_site =>
+      API.getSite(saved_site.site_reference_id)
+    )
 
-    render(){
-        return (
-            <div>
-                <Header as={'h1'}>Saved</Header>
-                < SitesContainer sites={this.state.saved_sites_data}/>
-            </div>
-        )
-    }
-    
+    const site_data = await Promise.all(site_data_promises)
 
+    this.updateSavedSitesData(site_data)
+  }
+
+  updateSavedSitesData = saved_sites_data => {
+    this.setState({
+      saved_sites_data
+    })
+  }
+
+  getBucketlistSites = () => {}
+
+  getVisitedSites = () => {}
+
+  render () {
+    return (
+      <div>
+        <Header as={'h1'}>Saved</Header>
+        <SitesContainer sites={this.state.saved_sites_data} />
+      </div>
+    )
+  }
 }
 
 export default SavedContainer
