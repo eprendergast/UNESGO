@@ -2,11 +2,11 @@ import React from 'react'
 import SiteCard from '../components/SiteCard'
 import { Card } from 'semantic-ui-react'
 
-const SitesContainer = (props) => {
+const SitesContainer = ({sites}) => {
     return (
         <div>
             <Card.Group>
-                {props.sites.map( site => < SiteCard site={site} /> )}
+                {sites.map( site => < SiteCard key={site.id} site={site} /> )}
             </Card.Group>
         </div>
     )

@@ -1,7 +1,6 @@
 import React from 'react'
 import { Button, Modal } from 'semantic-ui-react'
 import SignUpForm from '../components/SignUpForm'
-import SignInModal from './SignInModal'
 
 const SignUpModal = ({signup, signin}) => (
   <Modal trigger={<Button>Sign up</Button>}>
@@ -11,7 +10,7 @@ const SignUpModal = ({signup, signin}) => (
     <Modal.Content>
         <SignUpForm signin={signin} signup={signup}/>
         <Modal.Description>
-          <p>Already have an account? <a>Log in</a> </p>
+          <p>Already have an account? Log in </p>
         </Modal.Description>
   </Modal.Content>
 

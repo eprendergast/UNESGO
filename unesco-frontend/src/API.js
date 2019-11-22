@@ -1,8 +1,10 @@
 const BASE_URL = `http://localhost:3000`
 const SITES_URL = `${BASE_URL}/sites`
+const USERS_URL = `${BASE_URL}/users`
 const SIGNIN_URL = `${BASE_URL}/signin`
 const SIGNUP_URL = `${BASE_URL}/signup`
 const VALIDATE_URL = `${BASE_URL}/validate`
+
 
 const signin = (email, password) => {
     return post(SIGNIN_URL, {email, password})
@@ -18,6 +20,16 @@ const signup = (formData) => {
 
 const getSites = () => {
     return getWithoutAuth(SITES_URL)
+}
+
+const getSite = (id) => {
+    let url = `${SITES_URL}/${id}`
+    return getWithoutAuth(url)
+}
+
+const getSavedSites = (user_id) => {
+    let url = `${USERS_URL}/${user_id}/saved`
+    return getWithAuth(url)
 }
 
 
@@ -57,6 +69,8 @@ export default {
     signin,
     signup, 
     validate,
-    getSites
+    getSites,
+    getSite,
+    getSavedSites
 }
 
