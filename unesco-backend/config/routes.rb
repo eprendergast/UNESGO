@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show'
   get '/users/:id/saved', to: 'users#saved'
 
+  post '/saved_sites', to: 'saved_sites#create'
+
 
 end

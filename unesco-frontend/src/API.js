@@ -4,19 +4,10 @@ const USERS_URL = `${BASE_URL}/users`
 const SIGNIN_URL = `${BASE_URL}/signin`
 const SIGNUP_URL = `${BASE_URL}/signup`
 const VALIDATE_URL = `${BASE_URL}/validate`
+const SAVED_SITES_URL = `${BASE_URL}/saved_sites`
 
 
-const signin = (email, password) => {
-    return post(SIGNIN_URL, {email, password})
-}
-
-const validate = () => {
-    return getWithAuth(VALIDATE_URL)
-}
-
-const signup = (formData) => {
-    return post(SIGNUP_URL, formData)
-}
+// SITE MANAGEMENT
 
 const getSites = () => {
     return getWithoutAuth(SITES_URL)
@@ -30,6 +21,24 @@ const getSite = (id) => {
 const getSavedSites = (user_id) => {
     let url = `${USERS_URL}/${user_id}/saved`
     return getWithAuth(url)
+}
+
+const saveSite = () => {
+
+}
+
+// AUTHENTICATION & AUTHORISATION
+
+const signin = (email, password) => {
+    return post(SIGNIN_URL, {email, password})
+}
+
+const validate = () => {
+    return getWithAuth(VALIDATE_URL)
+}
+
+const signup = (formData) => {
+    return post(SIGNUP_URL, formData)
 }
 
 
@@ -59,7 +68,9 @@ const generateConfigObject = (method, data) => {
     return {
         method: method, 
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': localStorage.getItem('token')
         },
         body: JSON.stringify(data)
     }
