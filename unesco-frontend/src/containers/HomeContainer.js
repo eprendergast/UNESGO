@@ -17,11 +17,14 @@ class HomeContainer extends React.Component {
     }
 
     render(){
+
+        const {saved_sites, visited, bucketlist} = this.props
+
         return (
             <div>
                 <Header as='h1'>Welcome to UNESGO</Header>
                 <Header as='h3'>Explore UNESCO World Heritage Sites from around the world</Header>
-                <SitesContainer sites={this.state.sites}/>
+                <SitesContainer sites={this.state.sites} saved_sites={saved_sites} visited={visited} bucketlist={bucketlist}/>
             </div>
         )
     }

@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get '/users/:id/saved', to: 'users#saved'
 
   post '/saved_sites', to: 'saved_sites#create'
+  patch '/saved_sites/:id', to: 'saved_sites#update'
+  delete '/saved_sites/:id', to: 'saved_sites#delete'
 
 
 end

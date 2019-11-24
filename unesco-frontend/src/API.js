@@ -22,9 +22,25 @@ const getSavedSites = user_id => {
   return getWithAuth(url)
 }
 
-const saveSite = (site_id, status) => {
-  return post(SAVED_SITES_URL, { site_id, status })
-}
+const saveSiteToBucketlist = (site_id) => {
+    let data = {
+        site_id: site_id,
+        bucketlist: true,
+        visited: false
+    }
+    return post(SAVED_SITES_URL, data)
+  }
+
+  const saveSiteToVisited = (site_id) => {
+      let data = {
+        site_id: site_id,
+        bucketlist: false,
+        visited: true
+    }
+    return post(SAVED_SITES_URL, { site_id })
+  }
+
+
 
 // AUTHENTICATION & AUTHORISATION
 
@@ -77,6 +93,7 @@ export default {
   validate,
   getSites,
   getSite,
-  getSavedSites,
-  saveSite
+  getSavedSites,                                                                                                                                                                                                                                                                                                                                                                                                                                            
+  saveSiteAsBucketlist,
+  saveSiteAsVisited
 }

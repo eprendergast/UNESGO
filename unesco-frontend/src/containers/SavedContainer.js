@@ -8,7 +8,7 @@ class SavedContainer extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      saved_sites: props.savedSites,
+      saved_sites: props.saved_sites,
       saved_sites_data: []
     }
   }
@@ -43,7 +43,7 @@ class SavedContainer extends React.Component {
     return (
       <div>
         <Header as={'h1'}>Saved</Header>
-        <SitesContainer sites={this.state.saved_sites_data} />
+        <SitesContainer sites={this.state.saved_sites_data} visited={this.props.visited} bucketlist={this.props.bucketlist}/>
       </div>
     )
   }

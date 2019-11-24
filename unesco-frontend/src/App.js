@@ -4,6 +4,7 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import HomeContainer from './containers/HomeContainer'
 import ProfileContainer from './containers/Profile'
 import SavedContainer from './containers/SavedContainer'
+import PrimaryButton from './components/PrimaryButton'
 
 import './App.css'
 import NavBar from './components/NavBar'
@@ -14,7 +15,9 @@ class App extends React.Component {
   state = {
     id: '',
     first_name: '',
-    saved_sites: []
+    saved_sites: [],
+    bucketlist: [],
+    visited: []
   }
 
   componentDidMount () {
@@ -30,16 +33,25 @@ class App extends React.Component {
   }
 
   signin = user => {
-    this.setState({
-      id: user.id,
-      first_name: user.first_name
-    }, () => this.getSavedSites(this.state.id))
+    this.setState(
+      {
+        id: user.id,
+        first_name: user.first_name
+      },
+      () => this.getSavedSites(this.state.id)
+    )
     localStorage.setItem('token', user.token)
   }
 
-  getSavedSites = async (user_id) => {
+  getSavedSites = async user_id => {
     const saved_sites = await API.getSavedSites(user_id)
-    this.setState({ saved_sites }, this.getSavedSiteData)
+    const bucketlist = saved_sites.filter(site => site.bucketlist === true)
+    const visited = saved_sites.filter(site => site.visited === true)
+    this.setState({
+      saved_sites: saved_sites,
+      bucketlist: bucketlist.map(object => object.site_reference_id),
+      visited: visited.map(object => object.site_reference_id)
+    })
   }
 
   signout = () => {
@@ -70,7 +82,13 @@ class App extends React.Component {
             <Route
               exact
               path='/'
-              component={routerProps => <HomeContainer {...routerProps} />}
+              component={routerProps => (
+                <HomeContainer
+                  {...routerProps}
+                  bucketlist={this.state.bucketlist}
+                  visited={this.state.visited}
+                />
+              )}
             />
             <Route
               path='/sites/:id'
@@ -82,7 +100,14 @@ class App extends React.Component {
             />
             <Route
               path='/users/:id/saved'
-              component={routerProps => <SavedContainer {...routerProps} savedSites={this.state.saved_sites}/>}
+              component={routerProps => (
+                <SavedContainer
+                  {...routerProps}
+                  saved_sites={this.state.saved_sites}
+                  visited={this.state.visited}
+                  bucketlist={this.state.bucketlist}
+                />
+              )}
             />
             <Route component={() => <h1>Page Not Found</h1>} />
           </Switch>
