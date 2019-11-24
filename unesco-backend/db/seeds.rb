@@ -23,13 +23,13 @@ puts "#{SiteReference.all.length} site references created"
 
 # Give the test user some saved sites
 sample_sites = SiteReference.all.sample(10)
-status_options = ["Bucketlist", "Visited"]
 
 sample_sites.each do |site|
     SavedSite.create(
         user_id: user.id,
         site_reference_id: site.id,
-        status: status_options.sample
+        bucketlist: true,
+        visited: false
     )
 end
 puts "#{user.first_name} has been created with #{user.saved_sites.length} saved sites"
