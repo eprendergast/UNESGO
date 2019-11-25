@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get '/sites', to: 'site_references#sites'
   get '/sites/:id', to: 'site_references#site'
+  get '/sites/search/:query', to: 'site_references#search'
 
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show'

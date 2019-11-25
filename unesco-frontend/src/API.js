@@ -9,6 +9,8 @@ const SITES_URL = `${BASE_URL}/sites`
 const USER_BUCKETLISTS_URL = `${BASE_URL}/user_bucketlists`
 const USER_VISITEDS_URL = `${BASE_URL}/user_visiteds`
 
+const SEARCH_URL = `${BASE_URL}/sites/search`
+
 // SITE MANAGEMENT
 
 const getSites = () => {
@@ -19,6 +21,13 @@ const getSite = id => {
   const url = `${SITES_URL}/${id}`
   return getWithoutAuth(url)
 }
+
+const getSitesByRegion = region => {
+    const url = `${SEARCH_URL}/region=${region.split(" ").join("+")}`
+    return getWithoutAuth(url)
+}
+
+// BUCKETLIST
 
 const getBucketlistSiteIds = (user_id) => {
     const url = `${USERS_URL}/${user_id}/bucketlist_site_ids`
@@ -115,6 +124,7 @@ export default {
   validate,
   getSites,
   getSite,
+  getSitesByRegion,
   getBucketlistSiteIds,
   getBucketlist,
   addToBucketlist,
