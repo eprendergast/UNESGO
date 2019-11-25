@@ -10,12 +10,6 @@ class UsersController < ApplicationController
         render json: user
     end
 
-    def saved
-        user = User.find_by(id: params[:id])
-        render json: user.saved_sites
-    end
-
-
     def signup
         new_user = User.create(
             first_name: params[:first_name],

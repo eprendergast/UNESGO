@@ -4,7 +4,7 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import HomeContainer from './containers/HomeContainer'
 import ProfileContainer from './containers/Profile'
 import SavedContainer from './containers/SavedContainer'
-import PrimaryButton from './components/PrimaryButton'
+import PrimaryButton from './archive/PrimaryButton'
 
 import './App.css'
 import NavBar from './components/NavBar'
@@ -67,13 +67,14 @@ class App extends React.Component {
 
   render () {
     const { signup, signin, signout } = this
+    const { id, first_name, saved_sites, bucketlist, visited} = this.state
 
     return (
       <Router>
         <div className='App'>
           <NavBar
-            id={this.state.id}
-            first_name={this.state.first_name}
+            id={id}
+            first_name={first_name}
             signup={signup}
             signin={signin}
             signout={signout}
@@ -85,8 +86,8 @@ class App extends React.Component {
               component={routerProps => (
                 <HomeContainer
                   {...routerProps}
-                  bucketlist={this.state.bucketlist}
-                  visited={this.state.visited}
+                  bucketlist={bucketlist}
+                  visited={visited}
                 />
               )}
             />
@@ -95,17 +96,13 @@ class App extends React.Component {
               component={routerProps => <SiteContainer {...routerProps} />}
             />
             <Route
-              path='/profile'
-              component={routerProps => <ProfileContainer {...routerProps} />}
-            />
-            <Route
               path='/users/:id/saved'
               component={routerProps => (
                 <SavedContainer
                   {...routerProps}
-                  saved_sites={this.state.saved_sites}
-                  visited={this.state.visited}
-                  bucketlist={this.state.bucketlist}
+                  saved_sites={saved_sites}
+                  visited={visited}
+                  bucketlist={bucketlist}
                 />
               )}
             />
