@@ -1,0 +1,2 @@
+class SieReferenceVisitedsController < ApplicationController
+end

@@ -3,7 +3,10 @@ User.delete_all
 Tag.delete_all
 SiteReference.delete_all
 SiteReferenceTag.delete_all
-SavedSite.delete_all
+Bucketlist.delete_all
+Visited.delete_all
+SiteReferenceBucketlist.delete_all
+SiteReferenceVisited.delete_all
 
 # Generate Test User
 user = User.create(
@@ -22,15 +25,27 @@ end
 puts "#{SiteReference.all.length} site references created"
 
 # Give the test user some saved sites
-sample_sites = SiteReference.all.sample(10)
+sample_bucketlist_sites = SiteReference.all.sample(10)
+sample_visited_sites = SiteReference.all.sample(10)
 
-sample_sites.each do |site|
-    SavedSite.create(
-        user_id: user.id,
+bucketlist = Bucketlist.create(user_id: user.id)
+
+sample_bucketlist_sites.each do |site| 
+    SiteReferenceBucketlist.create(
         site_reference_id: site.id,
-        bucketlist: true,
-        visited: false
+        bucketlist_id: bucketlist.id
     )
 end
-puts "#{user.first_name} has been created with #{user.saved_sites.length} saved sites"
+
+visited = Visited.create(user_id: user.id)
+sample_visited_sites.each do |site|
+    SiteReferenceVisited.create(
+        site_reference_id: site.id, 
+        visited_id: visited.id
+    )
+end
+
+
+
+puts "#{user.first_name} has been created with #{user.site_reference_bucketlists.length} bucketlist sites and #{user.site_reference_visiteds.length} visited sites"
 

@@ -17,29 +17,6 @@ const getSite = id => {
   return getWithoutAuth(url)
 }
 
-const getSavedSites = user_id => {
-  let url = `${USERS_URL}/${user_id}/saved`
-  return getWithAuth(url)
-}
-
-const saveSiteToBucketlist = (site_id) => {
-    let data = {
-        site_id: site_id,
-        bucketlist: true,
-        visited: false
-    }
-    return post(SAVED_SITES_URL, data)
-  }
-
-  const saveSiteToVisited = (site_id) => {
-      let data = {
-        site_id: site_id,
-        bucketlist: false,
-        visited: true
-    }
-    return post(SAVED_SITES_URL, { site_id })
-  }
-
 
 
 // AUTHENTICATION & AUTHORISATION
@@ -92,8 +69,5 @@ export default {
   signup,
   validate,
   getSites,
-  getSite,
-  getSavedSites,                                                                                                                                                                                                                                                                                                                                                                                                                                            
-  saveSiteAsBucketlist,
-  saveSiteAsVisited
+  getSite
 }

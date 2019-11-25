@@ -2,11 +2,28 @@ import React from 'react'
 import { Card, Image, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { identifier } from '@babel/types'
-import PrimaryButton from './PrimaryButton'
+import PrimaryButton from '../archive/PrimaryButton'
 
 import API from '../API'
 
 class SiteCard extends React.Component {
+  
+  bucketlistButtonToRender = () => {
+    if (this.props.bucketlist === true) {
+      return (
+        <Button basic color='blue' >
+          Remove from Bucketlist
+        </Button>
+      )
+    } else {
+      return (
+        <Button basic color='blue'>
+          Add to Bucketlist
+        </Button>
+      )
+    }
+  }
+
   visitedButtonToRender = () => {
     if (this.props.visited === true) {
       return (
@@ -16,7 +33,7 @@ class SiteCard extends React.Component {
       )
     } else {
       return (
-        <Button basic color='blue' onClick={() => API.saveSite(this.props.site.id, 'visited')}>
+        <Button basic color='blue'>
           Mark as Visited
         </Button>
       )
@@ -48,21 +65,8 @@ class SiteCard extends React.Component {
 
         <Card.Content extra>
           <div className='ui two buttons'>
-            <Button
-              basic
-              color='blue'
-              onClick={() => API.saveSite(id, 'bucketlist')}
-            >
-              Add to Bucketlist
-            </Button>
-
-            <Button
-              basic
-              color='blue'
-              onClick={() => API.saveSite(id, 'visited')}
-            >
-              Mark as Visited
-            </Button>
+            {this.bucketlistButtonToRender()}
+            {this.visitedButtonToRender()}
           </div>
         </Card.Content>
       </Card>

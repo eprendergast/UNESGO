@@ -35,15 +35,13 @@ class SavedContainer extends React.Component {
     })
   }
 
-  getBucketlistSites = () => {}
-
-  getVisitedSites = () => {}
-
   render () {
+    const { bucketlist, visited } = this.props
+
     return (
       <div>
         <Header as={'h1'}>Saved</Header>
-        <SitesContainer sites={this.state.saved_sites_data} visited={this.props.visited} bucketlist={this.props.bucketlist}/>
+        <SitesContainer sites={this.state.saved_sites_data} bucketlist={bucketlist} visited={visited} />
       </div>
     )
   }

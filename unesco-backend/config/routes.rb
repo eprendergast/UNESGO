@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :sie_reference_visiteds
+  resources :site_reference_bucketlists
+  resources :visiteds
+  resources :bucketlists
   post '/signin', to: 'users#signin'
   get '/validate', to: 'users#validate'
   post 'signup', to: 'users#signup'
@@ -9,11 +13,7 @@ Rails.application.routes.draw do
 
   get '/users', to: 'users#index'
   get '/users/:id', to: 'users#show'
-  get '/users/:id/saved', to: 'users#saved'
 
-  post '/saved_sites', to: 'saved_sites#create'
-  patch '/saved_sites/:id', to: 'saved_sites#update'
-  delete '/saved_sites/:id', to: 'saved_sites#delete'
 
 
 end
