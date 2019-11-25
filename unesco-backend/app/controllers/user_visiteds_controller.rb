@@ -1,0 +1,2 @@
+class UserVisitedsController < ApplicationController
+end

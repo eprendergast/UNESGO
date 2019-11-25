@@ -13,10 +13,29 @@ const getSites = () => {
 }
 
 const getSite = id => {
-  let url = `${SITES_URL}/${id}`
+  const url = `${SITES_URL}/${id}`
   return getWithoutAuth(url)
 }
 
+const getBucketlistSiteIds = (user_id) => {
+    const url = `${USERS_URL}/${user_id}/bucketlist_site_ids`
+    return getWithAuth(url)
+}
+
+const getBucketlist = (user_id) => {
+    const url = `${USERS_URL}/${user_id}/bucketlist`
+    return getWithAuth(url) 
+}
+
+const getVisitedSiteIds = (user_id) => {
+    const url = `${USERS_URL}/${user_id}/visited_site_ids`
+    return getWithAuth(url)
+}
+
+const getVisited = (user_id) => {
+    const url = `${USERS_URL}/${user_id}/visited`
+    return getWithAuth(url)
+}
 
 
 // AUTHENTICATION & AUTHORISATION
@@ -69,5 +88,9 @@ export default {
   signup,
   validate,
   getSites,
-  getSite
+  getSite,
+  getBucketlistSiteIds,
+  getBucketlist,
+  getVisitedSiteIds,
+  getVisited
 }

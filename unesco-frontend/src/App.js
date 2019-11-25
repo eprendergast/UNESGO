@@ -2,9 +2,7 @@ import React from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 
 import HomeContainer from './containers/HomeContainer'
-import ProfileContainer from './containers/Profile'
 import SavedContainer from './containers/SavedContainer'
-import PrimaryButton from './archive/PrimaryButton'
 
 import './App.css'
 import NavBar from './components/NavBar'
@@ -13,11 +11,10 @@ import SiteContainer from './containers/SiteContainer'
 
 class App extends React.Component {
   state = {
-    id: '',
+    user_id: '',
     first_name: '',
-    saved_sites: [],
-    bucketlist: [],
-    visited: []
+    bucketlist_site_ids: [],
+    visited_site_ids: []
   }
 
   componentDidMount () {
@@ -35,28 +32,29 @@ class App extends React.Component {
   signin = user => {
     this.setState(
       {
-        id: user.id,
+        user_id: user.id,
         first_name: user.first_name
       },
-      () => this.getSavedSites(this.state.id)
+      () => this.getBucketlistAndVisitedSiteIds(this.state.user_id)
     )
     localStorage.setItem('token', user.token)
   }
 
-  getSavedSites = async user_id => {
-    const saved_sites = await API.getSavedSites(user_id)
-    const bucketlist = saved_sites.filter(site => site.bucketlist === true)
-    const visited = saved_sites.filter(site => site.visited === true)
+  getBucketlistAndVisitedSiteIds = async user_id => {
+    const bucketlist_site_ids = await API.getBucketlistSiteIds(user_id)
+    const visited_site_ids = await API.getVisitedSiteIds(user_id)
     this.setState({
-      saved_sites: saved_sites,
-      bucketlist: bucketlist.map(object => object.site_reference_id),
-      visited: visited.map(object => object.site_reference_id)
+      bucketlist_site_ids,
+      visited_site_ids
     })
   }
 
   signout = () => {
     this.setState({
-      first_name: ''
+      user_id: '',
+      first_name: '',
+      bucketlist_site_ids: [],
+      visited_site_ids: []
     })
     localStorage.removeItem('token')
   }
@@ -67,13 +65,13 @@ class App extends React.Component {
 
   render () {
     const { signup, signin, signout } = this
-    const { id, first_name, saved_sites, bucketlist, visited} = this.state
+    const { user_id, first_name, bucketlist_site_ids, visited_site_ids } = this.state
 
     return (
       <Router>
         <div className='App'>
           <NavBar
-            id={id}
+            user_id={user_id}
             first_name={first_name}
             signup={signup}
             signin={signin}
@@ -86,8 +84,8 @@ class App extends React.Component {
               component={routerProps => (
                 <HomeContainer
                   {...routerProps}
-                  bucketlist={bucketlist}
-                  visited={visited}
+                  bucketlist_site_ids={bucketlist_site_ids}
+                  visited_site_ids={visited_site_ids}
                 />
               )}
             />
@@ -100,9 +98,9 @@ class App extends React.Component {
               component={routerProps => (
                 <SavedContainer
                   {...routerProps}
-                  saved_sites={saved_sites}
-                  visited={visited}
-                  bucketlist={bucketlist}
+                  user_id={this.state.user_id}
+                  bucketlist_site_ids={bucketlist_site_ids}
+                  visited_site_ids={visited_site_ids}
                 />
               )}
             />

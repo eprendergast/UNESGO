@@ -1,0 +1,2 @@
+class UserBucketlistsController < ApplicationController
+end

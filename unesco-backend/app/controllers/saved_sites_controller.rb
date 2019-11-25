@@ -1,5 +1,0 @@
-class SavedSitesController < ApplicationController
-
-
-
-end

@@ -1,2 +1,0 @@
-class BucketlistsController < ApplicationController
-end
