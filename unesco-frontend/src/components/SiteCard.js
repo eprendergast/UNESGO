@@ -5,17 +5,24 @@ import { Link } from 'react-router-dom'
 import API from '../API'
 
 class SiteCard extends React.Component {
-  
   bucketlistButtonToRender = () => {
     if (this.props.bucketlist === true) {
       return (
-        <Button basic color='blue' >
+        <Button
+          basic
+          color='blue'
+          onClick={() => API.removeFromBucketlist(this.props.site.id)}
+        >
           Remove from Bucketlist
         </Button>
       )
     } else {
       return (
-        <Button basic color='blue'>
+        <Button
+          basic
+          color='blue'
+          onClick={() => API.addToBucketlist(this.props.site.id)}
+        >
           Add to Bucketlist
         </Button>
       )
@@ -25,13 +32,17 @@ class SiteCard extends React.Component {
   visitedButtonToRender = () => {
     if (this.props.visited === true) {
       return (
-        <Button basic color='blue' >
+        <Button
+          basic
+          color='blue'
+          onClick={() => API.removeFromVisited(this.props.site.id)}
+        >
           Remove from Visited
         </Button>
       )
     } else {
       return (
-        <Button basic color='blue'>
+        <Button basic color='blue' onClick={() => API.addToVisited(this.props.site.id)}>
           Mark as Visited
         </Button>
       )

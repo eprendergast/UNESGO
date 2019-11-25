@@ -1,10 +1,13 @@
 const BASE_URL = `http://localhost:3000`
-const SITES_URL = `${BASE_URL}/sites`
+
 const USERS_URL = `${BASE_URL}/users`
 const SIGNIN_URL = `${BASE_URL}/signin`
 const SIGNUP_URL = `${BASE_URL}/signup`
 const VALIDATE_URL = `${BASE_URL}/validate`
-const SAVED_SITES_URL = `${BASE_URL}/saved_sites`
+
+const SITES_URL = `${BASE_URL}/sites`
+const USER_BUCKETLISTS_URL = `${BASE_URL}/user_bucketlists`
+const USER_VISITEDS_URL = `${BASE_URL}/user_visiteds`
 
 // SITE MANAGEMENT
 
@@ -27,6 +30,16 @@ const getBucketlist = (user_id) => {
     return getWithAuth(url) 
 }
 
+const addToBucketlist = (site_id) => {
+    return post(USER_BUCKETLISTS_URL, {site_id})
+}
+
+const removeFromBucketlist = (site_id) => {
+    return destroy(USER_BUCKETLISTS_URL, {site_id})
+}
+
+// VISITED SITES
+
 const getVisitedSiteIds = (user_id) => {
     const url = `${USERS_URL}/${user_id}/visited_site_ids`
     return getWithAuth(url)
@@ -35,6 +48,14 @@ const getVisitedSiteIds = (user_id) => {
 const getVisited = (user_id) => {
     const url = `${USERS_URL}/${user_id}/visited`
     return getWithAuth(url)
+}
+
+const addToVisited = (site_id) => {
+    return post(USER_VISITEDS_URL, {site_id})
+}
+
+const removeFromVisited = (site_id) => {
+    return destroy(USER_VISITEDS_URL, {site_id})
 }
 
 
@@ -71,6 +92,11 @@ const post = (url, data) => {
   return fetch(url, configObject).then(resp => resp.json())
 }
 
+const destroy = (url, data) => {
+    let configObject = generateConfigObject('DELETE', data)
+    return fetch(url, configObject).then(resp => resp.json())
+  }
+
 const generateConfigObject = (method, data) => {
   return {
     method: method,
@@ -91,6 +117,10 @@ export default {
   getSite,
   getBucketlistSiteIds,
   getBucketlist,
+  addToBucketlist,
+  removeFromBucketlist,
   getVisitedSiteIds,
-  getVisited
+  getVisited,
+  addToVisited,
+  removeFromVisited
 }

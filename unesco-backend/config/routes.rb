@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :site_reference_bucketlists
   resources :visiteds
   resources :bucketlists
+
   post '/signin', to: 'users#signin'
   get '/validate', to: 'users#validate'
   post 'signup', to: 'users#signup'
@@ -21,5 +22,12 @@ Rails.application.routes.draw do
   
   get '/users/:id/bucketlist_site_ids', to: 'users#bucketlist_site_ids'
   get '/users/:id/visited_site_ids', to: 'users#visited_site_ids'
+
+  post '/user_bucketlists', to: 'user_bucketlists#create'
+  post '/user_visiteds', to: 'user_visiteds#create'
+
+  delete '/user_bucketlists', to: 'user_bucketlists#destroy'
+  delete '/user_visiteds', to: 'user_visiteds#destroy'
+
 
 end
