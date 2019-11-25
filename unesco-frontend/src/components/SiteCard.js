@@ -5,46 +5,72 @@ import { Link } from 'react-router-dom'
 import API from '../API'
 
 class SiteCard extends React.Component {
-  bucketlistButtonToRender = () => {
-    if (this.props.bucketlist === true) {
-      return (
-        <Button
-          basic
-          color='blue'
-          onClick={() => API.removeFromBucketlist(this.props.site.id)}
-        >
-          Remove from Bucketlist
-        </Button>
-      )
-    } else {
-      return (
-        <Button
-          basic
-          color='blue'
-          onClick={() => API.addToBucketlist(this.props.site.id)}
-        >
-          Add to Bucketlist
-        </Button>
-      )
-    }
+  addToBucketlistButton = () => {
+    return (
+      <Button
+        basic
+        color='blue'
+        onClick={() => API.addToBucketlist(this.props.site.id)}
+      >
+        Add to Bucketlist
+      </Button>
+    )
   }
 
-  visitedButtonToRender = () => {
-    if (this.props.visited === true) {
+  removeFromBucketlistButton = () => {
+    return (
+      <Button
+        basic
+        color='blue'
+        onClick={() => API.removeFromBucketlist(this.props.site.id)}
+      >
+        Remove from Bucketlist
+      </Button>
+    )
+  }
+
+  addToVisitedButton = () => {
+    return (
+      <Button
+        basic
+        color='blue'
+        onClick={() => API.addToVisited(this.props.site.id)}
+      >
+        Mark as Visited
+      </Button>
+    )
+  }
+
+  removeFromVisitedButton = () => {
+    return (
+      <Button
+        basic
+        color='blue'
+        onClick={() => API.removeFromVisited(this.props.site.id)}
+      >
+        Remove from Visited
+      </Button>
+    )
+  }
+
+  buttons = () => {
+    const { bucketlist, visited } = this.props
+
+    if (visited) {
+      return <div className='ui button'>{this.removeFromVisitedButton()}</div>
+    } else if (bucketlist) {
       return (
-        <Button
-          basic
-          color='blue'
-          onClick={() => API.removeFromVisited(this.props.site.id)}
-        >
-          Remove from Visited
-        </Button>
+        <div className='ui two buttons'>
+          {this.removeFromBucketlistButton()}
+          {this.addToVisitedButton()}
+        </div>
       )
     } else {
       return (
-        <Button basic color='blue' onClick={() => API.addToVisited(this.props.site.id)}>
-          Mark as Visited
-        </Button>
+        <div className='ui two buttons'>
+          {this.addToBucketlistButton()}
+          {this.addToVisitedButton()}
+        </div>
       )
     }
   }
@@ -72,12 +98,7 @@ class SiteCard extends React.Component {
           </Card.Description>
         </Card.Content>
 
-        <Card.Content extra>
-          <div className='ui two buttons'>
-            {this.bucketlistButtonToRender()}
-            {this.visitedButtonToRender()}
-          </div>
-        </Card.Content>
+        <Card.Content extra>{this.buttons()}</Card.Content>
       </Card>
     )
   }
