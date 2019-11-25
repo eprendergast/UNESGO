@@ -10,34 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_083618) do
+ActiveRecord::Schema.define(version: 2019_11_25_123246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "bucketlists", force: :cascade do |t|
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "site_reference_bucketlists", force: :cascade do |t|
-    t.integer "site_reference_id"
-    t.integer "bucketlist_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "site_reference_tags", force: :cascade do |t|
     t.integer "site_reference_id"
     t.integer "tag_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "site_reference_visiteds", force: :cascade do |t|
-    t.integer "site_reference_id"
-    t.integer "visited_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -54,17 +34,25 @@ ActiveRecord::Schema.define(version: 2019_11_25_083618) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_bucketlists", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "site_reference_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_visiteds", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "site_reference_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email"
     t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "visiteds", force: :cascade do |t|
-    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

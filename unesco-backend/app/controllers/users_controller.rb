@@ -41,4 +41,24 @@ class UsersController < ApplicationController
         end
     end
 
+    def bucketlist
+        user = User.find_by(id: params[:id])
+        render json: user.bucketlist_sites
+    end
+
+    def bucketlist_site_ids
+        user = User.find_by(id: params[:id])
+        render json: user.bucketlist_site_ids
+    end
+
+    def visited
+        user = User.find_by(id: params[:id])
+        render json: user.visited_sites
+    end
+
+    def visited_site_ids
+        user = User.find_by(id: params[:id])
+        render json: user.visited_site_ids
+    end
+
 end

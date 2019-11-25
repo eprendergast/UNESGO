@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 
 class NavBar extends React.Component {
   render () {
-    const { id, first_name, signup, signin, signout } = this.props
+    const { user_id, first_name, signup, signin, signout } = this.props
 
     return (
       <Menu>
@@ -33,7 +33,7 @@ class NavBar extends React.Component {
 
         <Menu.Item position='right'>
           {first_name ? (
-            <Link to={`/users/${id}/saved`}>
+            <Link to={`/users/${user_id}/saved`}>
               {' '}
               <Button>Saved</Button>{' '}
             </Link>

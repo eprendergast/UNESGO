@@ -4,44 +4,46 @@ import API from '../API'
 import { Header } from 'semantic-ui-react'
 
 class SavedContainer extends React.Component {
-  
-  constructor(props){
-    super(props)
-    this.state = {
-      saved_sites: props.saved_sites,
-      saved_sites_data: []
-    }
+  state = {
+    bucketlist: [],
+    visited: []
   }
 
   componentDidMount () {
-    localStorage.getItem('token') ? this.getSavedSiteData() : this.props.history.push('/')
+    localStorage.getItem('token')
+      ? this.getSavedSiteData()
+      : this.props.history.push('/')
   }
 
   getSavedSiteData = async () => {
-    const { saved_sites } = this.state
+    const { user_id } = this.props
 
-    const site_data_promises = saved_sites.map(saved_site =>
-      API.getSite(saved_site.site_reference_id)
-    )
+    const bucketlist = await API.getBucketlist(user_id)
+    const visited = await API.getVisited(user_id)
 
-    const site_data = await Promise.all(site_data_promises)
-
-    this.updateSavedSitesData(site_data)
-  }
-
-  updateSavedSitesData = saved_sites_data => {
     this.setState({
-      saved_sites_data
+      bucketlist,
+      visited
     })
   }
 
   render () {
-    const { bucketlist, visited } = this.props
-
+    const { bucketlist_site_ids, visited_site_ids } = this.props
+    const { bucketlist, visited } = this.state
     return (
       <div>
-        <Header as={'h1'}>Saved</Header>
-        <SitesContainer sites={this.state.saved_sites_data} bucketlist={bucketlist} visited={visited} />
+        <Header as={'h1'}>Bucketlist</Header>
+        <SitesContainer
+          sites={bucketlist}
+          bucketlist_site_ids={bucketlist_site_ids}
+          visited_site_ids={visited_site_ids}
+        />
+        <Header as={'h1'}>Visited</Header>
+        <SitesContainer
+          sites={visited}
+          bucketlist_site_ids={bucketlist_site_ids}
+          visited_site_ids={visited_site_ids}
+        />
       </div>
     )
   }

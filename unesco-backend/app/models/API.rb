@@ -18,6 +18,4 @@ class API
         return response.body
     end
 
-
-
 end

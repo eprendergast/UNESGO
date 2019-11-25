@@ -1,2 +1,0 @@
-class SiteReferenceBucketlistsController < ApplicationController
-end
