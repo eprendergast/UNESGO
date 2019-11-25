@@ -18,4 +18,12 @@ class API
         return response.body
     end
 
+    def self.search_sites(query)
+        url = "#{SITES_URL}/search/#{query}"
+        response = Unirest.get(url)
+        return response.body
+    end
+
+
+
 end

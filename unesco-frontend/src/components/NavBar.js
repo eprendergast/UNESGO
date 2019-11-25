@@ -1,6 +1,6 @@
 import React from 'react'
 import { Menu, Input, Button } from 'semantic-ui-react'
-import logo from '../unesco-logo.png'
+import logo from '../images/unesgo4.png'
 
 import SignInModal from '../modals/SignInModal'
 import SignUpModal from '../modals/SignUpModal'
@@ -14,10 +14,8 @@ class NavBar extends React.Component {
     return (
       <Menu>
         <Menu.Item header>
-          <img src={logo} alt='UNESCO Logo' />
+          <img src={logo} alt='UNESGO Logo' style={{width:" 100px"}}/>
         </Menu.Item>
-
-        <Menu.Item header><Link to={'/'}> UNESGO </Link></Menu.Item>
 
         <Menu.Item>
           <Input
