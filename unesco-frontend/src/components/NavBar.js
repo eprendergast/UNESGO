@@ -14,15 +14,7 @@ class NavBar extends React.Component {
     return (
       <Menu>
         <Menu.Item header>
-          <img src={logo} alt='UNESGO Logo' style={{width:" 100px"}}/>
-        </Menu.Item>
-
-        <Menu.Item>
-          <Input
-            className='icon'
-            icon='search'
-            placeholder="Try 'ancient ruins'"
-          />
+          <Link to={`/`}> <img src={logo} alt='UNESGO Logo' style={{width:" 100px"}}/> </Link>
         </Menu.Item>
 
         <Menu.Item position='right'>
