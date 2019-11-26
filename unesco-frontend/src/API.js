@@ -27,6 +27,11 @@ const getSitesByRegion = region => {
     return getWithoutAuth(url)
 }
 
+const search = query => {
+  const url = `${SITES_URL}${query}`
+  return getWithoutAuth(url)
+}
+
 // BUCKETLIST
 
 const getBucketlistSiteIds = (user_id) => {
@@ -125,6 +130,7 @@ export default {
   getSites,
   getSite,
   getSitesByRegion,
+  search,
   getBucketlistSiteIds,
   getBucketlist,
   addToBucketlist,
