@@ -80,12 +80,10 @@ class SiteCard extends React.Component {
 
     return (
       <Card>
-        <Image src={image_url} wrapped ui={false} />
+        <Link to={`/sites/${id}`}> <Image src={image_url} wrapped ui={false} style={{width: '120px', height: 'auto'}}/> </Link>
 
         <Card.Content>
-          <Link to={`/sites/${id}`}>
             <Card.Header>{name}</Card.Header>
-          </Link>
 
           <Card.Meta>
             <span className='date'>
