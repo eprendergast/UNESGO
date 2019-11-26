@@ -52,14 +52,15 @@ class HomeContainer extends React.Component {
 
   render () {
     const { bucketlist_site_ids, visited_site_ids } = this.props
-
     return (
       <div>
         <Header as='h1'>Welcome to UNESGO</Header>
         <Header as='h3'>
           Explore UNESCO World Heritage Sites from around the world
         </Header>
-        <SearchBar/>
+        <SearchBar
+          {...this.routerProps}
+        />
         <img
           src={background_image}
           style={{ width: 'auto', height: '600px', borderRadius: '10px' }}
@@ -94,8 +95,6 @@ class HomeContainer extends React.Component {
           visited_site_ids={visited_site_ids}
           bucketlist_site_ids={bucketlist_site_ids}
         /> */}
-
-
       </div>
     )
   }

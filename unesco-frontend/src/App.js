@@ -3,7 +3,7 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 
 import HomeContainer from './containers/HomeContainer'
 import SavedContainer from './containers/SavedContainer'
-
+import SearchResultsContainer from './containers/SearchResultsContainer'
 import './App.css'
 import NavBar from './components/NavBar'
 import API from './API'
@@ -65,7 +65,12 @@ class App extends React.Component {
 
   render () {
     const { signup, signin, signout } = this
-    const { user_id, first_name, bucketlist_site_ids, visited_site_ids } = this.state
+    const {
+      user_id,
+      first_name,
+      bucketlist_site_ids,
+      visited_site_ids
+    } = this.state
 
     return (
       <Router>
@@ -89,6 +94,17 @@ class App extends React.Component {
                 />
               )}
             />
+            <Route
+              path='/search/:query'
+              component={routerProps => (
+                <SearchResultsContainer
+                  {...routerProps}
+                  visited_site_ids={visited_site_ids}
+                  bucketlist_site_ids={bucketlist_site_ids}
+                />
+              )}
+            />
+
             <Route
               path='/sites/:id'
               component={routerProps => <SiteContainer {...routerProps} />}

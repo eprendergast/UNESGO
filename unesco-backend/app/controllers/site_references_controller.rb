@@ -15,7 +15,7 @@ class SiteReferencesController < ApplicationController
 
     def search 
         response = API.search_sites(params[:query])
-        render json: response.sample(4)
+        render json: response
     end
 
 end
