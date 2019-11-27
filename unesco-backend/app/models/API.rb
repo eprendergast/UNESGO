@@ -1,6 +1,6 @@
 class API 
 
-    BASE_URL = "https://unesco-api.herokuapp.com"
+    BASE_URL = "http://localhost:4000"
     SITES_URL = "#{BASE_URL}/sites"
 
     def self.get_sites
