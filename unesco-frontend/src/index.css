@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@font-face {
+  font-family: 'AirbnbCerealLight';
+  src: url(./fonts/AirbnbCerealLight.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AirbnbCerealMedium';
+  src: url(./fonts/AirbnbCerealMedium.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AirbnbCerealBold';
+  src: url(./fonts/AirbnbCerealBold.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,8 +1,17 @@
-.App {
-  text-align: center;
+* {
+  --primary-pink: rgb(253, 92, 99); 
+  --primary-blue: rgb(0, 132, 137);
+  --primary-maroon: rgb(145, 70, 105);
+  --primary-grey: rgb(72, 72, 72);
+  --secondary-grey: rgb(118,118,118);
+
+  --pink-border: 1px solid var(--primary-pink);
+  --pink-border: 1px solid var(--primary-pink);
+  --pink-border: 1px solid var(--primary-pink);
+
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
 }
 
@@ -19,4 +28,5 @@
 
 .App-link {
   color: #09d3ac;
-}
+}  */
+
