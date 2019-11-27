@@ -8,7 +8,6 @@ class UserBucketlistsController < ApplicationController
             site_reference_id: site_reference.id
         )
         new_user_bucketlist_site = API.get_site(site_reference.site_id)
-        byebug
         render json: new_user_bucketlist_site
     end
 
@@ -24,5 +23,4 @@ class UserBucketlistsController < ApplicationController
         render json: site_reference.site_id
 
     end
-
 end

@@ -1,9 +1,9 @@
 import React from 'react'
 import SitesContainer from './SitesContainer'
-import API from '../API'
 import { Header } from 'semantic-ui-react'
 
 class SavedContainer extends React.Component {
+  
   componentDidMount () {
     !localStorage.getItem('token') && this.props.history.push('/')
   }

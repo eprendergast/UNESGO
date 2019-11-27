@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 import API from '../API'
 import SitesContainer from './SitesContainer'
 import { PulseLoader } from 'react-spinners'
+import SearchBar from '../components/SearchBar'
 
 class SearchResultsContainer extends React.Component {
   state = {
@@ -26,7 +27,15 @@ class SearchResultsContainer extends React.Component {
   }
 
   render () {
-    const { bucketlist_site_ids, visited_site_ids } = this.props
+    const {
+      bucketlist,
+      visited,
+      addBucketlistSiteToState,
+      addVisitedSiteToState,
+      removeBucketlistSiteFromState,
+      removeVisitedSiteFromState
+    } = this.props
+
     const { sites, searchCriteria, loading } = this.state
 
     return (
@@ -38,8 +47,12 @@ class SearchResultsContainer extends React.Component {
             <h1>{`Displaying results for "${searchCriteria}"`}</h1>
             <SitesContainer
               sites={sites.slice(0, 10)}
-              visited_site_ids={visited_site_ids}
-              bucketlist_site_ids={bucketlist_site_ids}
+              visited={visited}
+              bucketlist={bucketlist}
+              addBucketlistSiteToState={addBucketlistSiteToState}
+              addVisitedSiteToState={addVisitedSiteToState}
+              removeBucketlistSiteFromState={removeBucketlistSiteFromState}
+              removeVisitedSiteFromState={removeVisitedSiteFromState}
             />
           </div>
         )}

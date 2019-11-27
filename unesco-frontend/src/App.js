@@ -8,6 +8,8 @@ import './App.css'
 import NavBar from './components/NavBar'
 import API from './API'
 import SiteContainer from './containers/SiteContainer'
+import SignUpModal from './modals/SignUpModal'
+import SearchBar from './components/SearchBar'
 
 class App extends React.Component {
   state = {
@@ -130,6 +132,10 @@ class App extends React.Component {
                   {...routerProps}
                   bucketlist={bucketlist}
                   visited={visited}
+                  addBucketlistSiteToState={addBucketlistSiteToState}
+                  addVisitedSiteToState={addVisitedSiteToState}
+                  removeBucketlistSiteFromState={removeBucketlistSiteFromState}
+                  removeVisitedSiteFromState={removeVisitedSiteFromState}
                 />
               )}
             />
@@ -140,6 +146,10 @@ class App extends React.Component {
                   {...routerProps}
                   visited={visited}
                   bucketlist={bucketlist}
+                  addBucketlistSiteToState={addBucketlistSiteToState}
+                  addVisitedSiteToState={addVisitedSiteToState}
+                  removeBucketlistSiteFromState={removeBucketlistSiteFromState}
+                  removeVisitedSiteFromState={removeVisitedSiteFromState}
                 />
               )}
             />
