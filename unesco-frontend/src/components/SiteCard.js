@@ -103,13 +103,15 @@ class SiteCard extends React.Component {
     return (
       <Card>
         <Link to={`/sites/${id}`}>
+          <div style={{overflow: 'hidden'}}>
           <Image
             src={image_url}
             wrapped
             ui={false}
-            height={'auto'}
-            width={200}
+            height={'250'}
+            width={'auto'}
           />
+          </div>
         </Link>
 
         <Card.Content>
