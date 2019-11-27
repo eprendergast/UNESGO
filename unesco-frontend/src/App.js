@@ -13,8 +13,8 @@ class App extends React.Component {
   state = {
     user_id: '',
     first_name: '',
-    bucketlist_site_ids: [],
-    visited_site_ids: []
+    bucketlist: [],
+    visited: []
   }
 
   componentDidMount () {
@@ -25,7 +25,7 @@ class App extends React.Component {
           if (data.error) throw Error(data.error)
           this.signin(data)
         })
-        .catch(error => alert(error))
+        .catch(error => console.log(error))
     }
   }
 
@@ -35,17 +35,53 @@ class App extends React.Component {
         user_id: user.id,
         first_name: user.first_name
       },
-      () => this.getBucketlistAndVisitedSiteIds(this.state.user_id)
+      () => this.getBucketlistAndVisited(this.state.user_id)
     )
     localStorage.setItem('token', user.token)
   }
 
-  getBucketlistAndVisitedSiteIds = async user_id => {
-    const bucketlist_site_ids = await API.getBucketlistSiteIds(user_id)
-    const visited_site_ids = await API.getVisitedSiteIds(user_id)
+  getBucketlistAndVisited = async user_id => {
+    const bucketlist = await API.getBucketlist(user_id)
+    const visited = await API.getVisited(user_id)
     this.setState({
-      bucketlist_site_ids,
-      visited_site_ids
+      bucketlist,
+      visited
+    })
+  }
+
+  addBucketlistSiteToState = site => {
+    this.setState({
+      ...this.state,
+      bucketlist: [...this.state.bucketlist, site]
+    })
+  }
+
+  removeBucketlistSiteFromState = site_id => {
+    let filteredBucketlist = this.state.bucketlist.filter(
+      site => site.id != site_id
+    )
+    this.setState({
+      ...this.state,
+      bucketlist: filteredBucketlist
+    })
+  }
+
+  addVisitedSiteToState = site => {
+    let filteredBucketlist = this.state.bucketlist.filter(
+      s => s.id != site.id
+    )
+    this.setState({
+      ...this.state,
+      bucketlist: filteredBucketlist,
+      visited: [...this.state.visited, site]
+    })
+  }
+
+  removeVisitedSiteFromState = site_id => {
+    let filteredVisited = this.state.visited.filter(site => site.id != site_id)
+    this.setState({
+      ...this.state,
+      visited: filteredVisited
     })
   }
 
@@ -53,8 +89,8 @@ class App extends React.Component {
     this.setState({
       user_id: '',
       first_name: '',
-      bucketlist_site_ids: [],
-      visited_site_ids: []
+      bucketlist: [],
+      visited: []
     })
     localStorage.removeItem('token')
   }
@@ -64,13 +100,16 @@ class App extends React.Component {
   }
 
   render () {
-    const { signup, signin, signout } = this
     const {
-      user_id,
-      first_name,
-      bucketlist_site_ids,
-      visited_site_ids
-    } = this.state
+      signup,
+      signin,
+      signout,
+      addBucketlistSiteToState,
+      addVisitedSiteToState,
+      removeBucketlistSiteFromState,
+      removeVisitedSiteFromState
+    } = this
+    const { user_id, first_name, bucketlist, visited } = this.state
 
     return (
       <Router>
@@ -89,8 +128,8 @@ class App extends React.Component {
               component={routerProps => (
                 <HomeContainer
                   {...routerProps}
-                  bucketlist_site_ids={bucketlist_site_ids}
-                  visited_site_ids={visited_site_ids}
+                  bucketlist={bucketlist}
+                  visited={visited}
                 />
               )}
             />
@@ -99,8 +138,8 @@ class App extends React.Component {
               component={routerProps => (
                 <SearchResultsContainer
                   {...routerProps}
-                  visited_site_ids={visited_site_ids}
-                  bucketlist_site_ids={bucketlist_site_ids}
+                  visited={visited}
+                  bucketlist={bucketlist}
                 />
               )}
             />
@@ -109,14 +148,19 @@ class App extends React.Component {
               path='/sites/:id'
               component={routerProps => <SiteContainer {...routerProps} />}
             />
+
             <Route
               path='/users/:id/saved'
               component={routerProps => (
                 <SavedContainer
                   {...routerProps}
                   user_id={this.state.user_id}
-                  bucketlist_site_ids={bucketlist_site_ids}
-                  visited_site_ids={visited_site_ids}
+                  bucketlist={bucketlist}
+                  visited={visited}
+                  addBucketlistSiteToState={addBucketlistSiteToState}
+                  addVisitedSiteToState={addVisitedSiteToState}
+                  removeBucketlistSiteFromState={removeBucketlistSiteFromState}
+                  removeVisitedSiteFromState={removeVisitedSiteFromState}
                 />
               )}
             />

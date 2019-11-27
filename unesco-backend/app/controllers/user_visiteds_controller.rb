@@ -13,7 +13,9 @@ class UserVisitedsController < ApplicationController
             user_bucketlist.destroy!
         end
 
-        render json: new_user_visited
+        new_user_visited_site = API.get_site(site_reference.site_id)
+
+        render json: new_user_visited_site
     end
 
     def destroy
@@ -25,7 +27,7 @@ class UserVisitedsController < ApplicationController
         )
         user_visited.destroy!
 
-        render json: "Successfully destroyed"
+        render json: site_reference.site_id
 
     end
 

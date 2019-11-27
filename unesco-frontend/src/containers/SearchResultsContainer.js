@@ -2,7 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import API from '../API'
 import SitesContainer from './SitesContainer'
-import { ClipLoader } from 'react-spinners'
+import { PulseLoader } from 'react-spinners'
 
 class SearchResultsContainer extends React.Component {
   state = {
@@ -32,7 +32,7 @@ class SearchResultsContainer extends React.Component {
     return (
       <div>
         {loading ? (
-          <ClipLoader />
+          <PulseLoader />
         ) : (
           <div>
             <h1>{`Displaying results for "${searchCriteria}"`}</h1>
