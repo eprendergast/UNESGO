@@ -4,45 +4,40 @@ import API from '../API'
 import { Header } from 'semantic-ui-react'
 
 class SavedContainer extends React.Component {
-  state = {
-    bucketlist: [],
-    visited: []
-  }
-
   componentDidMount () {
-    localStorage.getItem('token')
-      ? this.getSavedSiteData()
-      : this.props.history.push('/')
-  }
-
-  getSavedSiteData = async () => {
-    const { user_id } = this.props
-
-    const bucketlist = await API.getBucketlist(user_id)
-    const visited = await API.getVisited(user_id)
-
-    this.setState({
-      bucketlist,
-      visited
-    })
+    !localStorage.getItem('token') && this.props.history.push('/')
   }
 
   render () {
-    const { bucketlist_site_ids, visited_site_ids } = this.props
-    const { bucketlist, visited } = this.state
+    const {
+      bucketlist,
+      visited,
+      addBucketlistSiteToState,
+      addVisitedSiteToState,
+      removeBucketlistSiteFromState,
+      removeVisitedSiteFromState
+    } = this.props
     return (
       <div>
         <Header as={'h1'}>Bucketlist</Header>
         <SitesContainer
           sites={bucketlist}
-          bucketlist_site_ids={bucketlist_site_ids}
-          visited_site_ids={visited_site_ids}
+          bucketlist={bucketlist}
+          visited={visited}
+          addBucketlistSiteToState={addBucketlistSiteToState}
+          addVisitedSiteToState={addVisitedSiteToState}
+          removeBucketlistSiteFromState={removeBucketlistSiteFromState}
+          removeVisitedSiteFromState={removeVisitedSiteFromState}
         />
         <Header as={'h1'}>Visited</Header>
         <SitesContainer
           sites={visited}
-          bucketlist_site_ids={bucketlist_site_ids}
-          visited_site_ids={visited_site_ids}
+          bucketlist={bucketlist}
+          visited={visited}
+          addBucketlistSiteToState={addBucketlistSiteToState}
+          addVisitedSiteToState={addVisitedSiteToState}
+          removeBucketlistSiteFromState={removeBucketlistSiteFromState}
+          removeVisitedSiteFromState={removeVisitedSiteFromState}
         />
       </div>
     )

@@ -5,12 +5,34 @@ import { Link } from 'react-router-dom'
 import API from '../API'
 
 class SiteCard extends React.Component {
+  handleAddToBucketlist = site => {
+    API.addToBucketlist(site.id).then(
+      this.props.addBucketlistSiteToState
+    )
+  }
+
+  handleRemoveFromBucketlist = site_id => {
+    API.removeFromBucketlist(site_id).then(
+      this.props.removeBucketlistSiteFromState
+    )
+  }
+
+  handleAddToVisited = site => {
+    API.addToVisited(site.id).then(this.props.addVisitedSiteToState)
+  }
+
+  handleRemoveFromVisited = site_id => {
+    API.removeFromVisited(site_id).then(
+      this.props.removeVisitedSiteFromState
+    )
+  }
+
   addToBucketlistButton = () => {
     return (
       <Button
         basic
         color='blue'
-        onClick={() => API.addToBucketlist(this.props.site.id)}
+        onClick={() => this.handleAddToBucketlist(this.props.site)}
       >
         Add to Bucketlist
       </Button>
@@ -22,7 +44,7 @@ class SiteCard extends React.Component {
       <Button
         basic
         color='blue'
-        onClick={() => API.removeFromBucketlist(this.props.site.id)}
+        onClick={() => this.handleRemoveFromBucketlist(this.props.site.id)}
       >
         Remove from Bucketlist
       </Button>
@@ -34,7 +56,7 @@ class SiteCard extends React.Component {
       <Button
         basic
         color='blue'
-        onClick={() => API.addToVisited(this.props.site.id)}
+        onClick={() => this.handleAddToVisited(this.props.site)}
       >
         Mark as Visited
       </Button>
@@ -46,7 +68,7 @@ class SiteCard extends React.Component {
       <Button
         basic
         color='blue'
-        onClick={() => API.removeFromVisited(this.props.site.id)}
+        onClick={() => this.handleRemoveFromVisited(this.props.site.id)}
       >
         Remove from Visited
       </Button>
@@ -80,10 +102,18 @@ class SiteCard extends React.Component {
 
     return (
       <Card>
-        <Link to={`/sites/${id}`}> <Image src={image_url} wrapped ui={false} style={{width: '120px', height: 'auto'}}/> </Link>
+        <Link to={`/sites/${id}`}>
+          {' '}
+          <Image
+            src={image_url}
+            wrapped
+            ui={false}
+            style={{ width: '120px', height: 'auto' }}
+          />{' '}
+        </Link>
 
         <Card.Content>
-            <Card.Header>{name}</Card.Header>
+          <Card.Header>{name}</Card.Header>
 
           <Card.Meta>
             <span className='date'>
