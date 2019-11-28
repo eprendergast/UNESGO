@@ -4,12 +4,76 @@
   --primary-maroon: rgb(145, 70, 105);
   --primary-grey: rgb(72, 72, 72);
   --secondary-grey: rgb(118,118,118);
+  --light-grey: rgb(228,228,228);
 
   --pink-border: 1px solid var(--primary-pink);
-  --pink-border: 1px solid var(--primary-pink);
-  --pink-border: 1px solid var(--primary-pink);
+  --blue-border: 1px solid var(--primary-blue);
+  --maroon-border: 1px solid var(--primary-maroon);
+  --light-grey-border: 1px solid var(--light-grey);
 
 }
+
+.navbar-container {
+  height: 80px;
+  border: var(--light-grey-border);
+  display: flex;
+  justify-content: space-between; 
+}
+
+.navbar-logo-container {
+  height: 80px;
+  padding: 24px;
+  align-self: center;
+  display: flex;
+  justify-content: space-between; 
+}
+
+.navbar-logo {
+  height: 34px;
+  width: 34px;
+  align-self: center;
+  margin-right: 30px;
+}
+
+.navbar-name {
+  height: 20px;
+  width: 'auto';
+  align-self: center;
+}
+
+.navbar-links-container {
+  /* display: flex; */
+  align-self: center;
+  display: flex;
+  justify-content: space-between; 
+}
+
+.navbar-button-container{
+  /* position: relative; */
+  width: 72px;
+}
+
+.navbar-button {
+  align-self: center; 
+  white-space: nowrap;
+  background: transparent;
+  border-style: none;
+  border-width: initial;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-right: 8px;
+  margin-left: 8px;
+  height: 80px;
+  font-family: 'AirbnbCerealMedium';
+}
+
+
+
+
+
+
+
+
 
 /* .App-logo {
   height: 40vmin;

@@ -79,7 +79,7 @@ class HomeContainer extends React.Component {
               src={background_image}
               style={{ width: 'auto', height: '600px', borderRadius: '10px' }}
             />
-            <Header as='h1'>Europe and North America</Header>
+            {/* <Header as='h1'>Europe and North America</Header>
             <SitesContainer
               sites={this.state.europe_and_north_america}
               visited={visited}
@@ -128,7 +128,7 @@ class HomeContainer extends React.Component {
               addVisitedSiteToState={addVisitedSiteToState}
               removeBucketlistSiteFromState={removeBucketlistSiteFromState}
               removeVisitedSiteFromState={removeVisitedSiteFromState}
-            />
+            /> */}
           </div>
         )}
       </div>

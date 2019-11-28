@@ -12,7 +12,7 @@ class NavBar extends React.Component {
     const { user_id, first_name, signup, signin, signout } = this.props
 
     return (
-      <Menu>
+      <Menu className="navbar-container">
         <Menu.Item header>
           <Link to={`/`}> <img src={logo} alt='UNESGO Logo' style={{width:" 100px"}}/> </Link>
         </Menu.Item>
