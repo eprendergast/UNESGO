@@ -22,27 +22,27 @@ class HomeContainer extends React.Component {
   }
 
   getRegionSites = async () => {
-    const europe_and_north_america = await API.getSitesByRegion(
-      'Europe and North America'
-    )
-    const latin_america_and_the_caribbean = await API.getSitesByRegion(
-      'Latin America and the Caribbean'
-    )
-    const africa = await API.getSitesByRegion('Africa')
-    const asia_and_the_pacific = await API.getSitesByRegion(
-      'Asia and the Pacific'
-    )
-    const arab_states = await API.getSitesByRegion('Arab States')
+    // const europe_and_north_america = await API.getSitesByRegion(
+    //   'Europe and North America'
+    // )
+    // const latin_america_and_the_caribbean = await API.getSitesByRegion(
+    //   'Latin America and the Caribbean'
+    // )
+    // const africa = await API.getSitesByRegion('Africa')
+    // const asia_and_the_pacific = await API.getSitesByRegion(
+    //   'Asia and the Pacific'
+    // )
+    // const arab_states = await API.getSitesByRegion('Arab States')
 
     this.setState({
-      europe_and_north_america: europe_and_north_america.slice(0, 4),
-      latin_america_and_the_caribbean: latin_america_and_the_caribbean.slice(
-        0,
-        4
-      ),
-      africa: africa.slice(0, 4),
-      asia_and_the_pacific: asia_and_the_pacific.slice(0, 4),
-      arab_states: arab_states.slice(0, 4),
+      // europe_and_north_america: europe_and_north_america.slice(0, 4),
+      // latin_america_and_the_caribbean: latin_america_and_the_caribbean.slice(
+      //   0,
+      //   4
+      // ),
+      // africa: africa.slice(0, 4),
+      // asia_and_the_pacific: asia_and_the_pacific.slice(0, 4),
+      // arab_states: arab_states.slice(0, 4),
       loading: false
     })
   }
@@ -65,21 +65,29 @@ class HomeContainer extends React.Component {
     } = this.props
 
     return (
-      <div>
-        {this.state.loading ? (
-          <PulseLoader />
-        ) : (
-          <div>
-            <Header as='h1'>Welcome to UNESGO</Header>
-            <Header as='h3'>
-              Explore UNESCO World Heritage Sites from around the world
-            </Header>
+      <div className="home-container">
+
+        <div className="home-image-container">
+          <img 
+            className="home-image"
+            src="https://images.unsplash.com/photo-1564748250444-fb69f41b9415?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" 
+            alt="Image" 
+          />
+          <div class="home-details-container">
+            <div className="home-header"> Welcome to UNESGO </div>
+            <div className="home-sub-header"> Explore UNESCO World Heritage Sites around the world </div>
             <SearchBar {...this.routerProps} />
-            <img
-              src={background_image}
-              style={{ width: 'auto', height: '600px', borderRadius: '10px' }}
-            />
-            {/* <Header as='h1'>Europe and North America</Header>
+          </div>
+        </div>
+            
+      </div>
+    )
+  }
+}
+
+export default HomeContainer
+
+ {/* <Header as='h1'>Europe and North America</Header>
             <SitesContainer
               sites={this.state.europe_and_north_america}
               visited={visited}
@@ -129,11 +137,13 @@ class HomeContainer extends React.Component {
               removeBucketlistSiteFromState={removeBucketlistSiteFromState}
               removeVisitedSiteFromState={removeVisitedSiteFromState}
             /> */}
-          </div>
-        )}
-      </div>
-    )
-  }
-}
 
-export default HomeContainer
+{/* <Header as='h1'>Welcome to UNESGO</Header>
+            <Header as='h3'>
+              Explore UNESCO World Heritage Sites from around the world
+            </Header>
+            <SearchBar {...this.routerProps} />
+            <img
+              src={background_image}
+              style={{ width: 'auto', height: '600px', borderRadius: '10px' }}
+            /> */}
