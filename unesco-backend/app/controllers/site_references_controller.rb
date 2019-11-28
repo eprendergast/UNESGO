@@ -16,13 +16,18 @@ class SiteReferencesController < ApplicationController
     def site
         site = SiteReference.find_by(site_id: params[:id])
         response = API.get_site(site.site_id)
+        site_reference = SiteReference.find_by(site_id: response["id"])
+        response["tags"] = site_reference.tags.map{|tag| tag.name }
         render json: response
     end
 
     def search 
-        byebug
         response = API.search_sites(params[:query])
-        render json: response
+        response.each do |site|
+            site_reference = SiteReference.find_by(site_id: site["id"])
+            site["tags"] = site_reference.tags.map{|tag| tag.name }
+        end
+        render json: response.sample(25)
     end
 
     def search_by_tag

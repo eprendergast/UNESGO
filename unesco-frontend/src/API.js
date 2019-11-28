@@ -10,6 +10,7 @@ const USER_BUCKETLISTS_URL = `${BASE_URL}/user_bucketlists`
 const USER_VISITEDS_URL = `${BASE_URL}/user_visiteds`
 
 const SEARCH_URL = `${BASE_URL}/sites/search`
+const SEARCH_BY_TAG_URL = `${BASE_URL}/sites/search_by_tag`
 
 // SITE MANAGEMENT
 
@@ -29,6 +30,11 @@ const getSitesByRegion = region => {
 
 const search = query => {
   const url = `${SITES_URL}${query}`
+  return getWithoutAuth(url)
+}
+
+const searchByTag = tag => {
+  const url = `${SEARCH_BY_TAG_URL}/${tag}`
   return getWithoutAuth(url)
 }
 
@@ -138,5 +144,6 @@ export default {
   getVisitedSiteIds,
   getVisited,
   addToVisited,
-  removeFromVisited
+  removeFromVisited,
+  searchByTag
 }
