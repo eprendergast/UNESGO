@@ -1,7 +1,7 @@
 import React from 'react'
 import SitesContainer from './SitesContainer'
 import { Header } from 'semantic-ui-react'
-import StyledButton from '../components/StyledButton'
+import NavBar from '../styled_components/NavBar'
 
 class SavedContainer extends React.Component {
   
@@ -20,7 +20,6 @@ class SavedContainer extends React.Component {
     } = this.props
     return (
       <div>
-        <StyledButton primary>Button</StyledButton>
         <Header as={'h1'}>Bucketlist</Header>
         <SitesContainer
           sites={bucketlist}

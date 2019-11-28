@@ -3,7 +3,9 @@ import { Button, Modal } from 'semantic-ui-react'
 import SignUpForm from '../components/SignUpForm'
 
 const SignUpModal = ({signup, signin}) => (
-  <Modal trigger={<Button>Sign up</Button>}>
+  <Modal trigger={<button className="navbar-button">
+  Sign up
+</button>}>
                 
     <Modal.Header>Welcome to UNESGO</Modal.Header>
     
