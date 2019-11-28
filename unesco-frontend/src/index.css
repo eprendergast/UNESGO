@@ -3,12 +3,13 @@ body {
   font-family: "AirbnbCerealLight";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  justify-content: center;
 }
 
-/* code {
+code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-} */
+}
 
 @font-face {
   font-family: 'AirbnbCerealLight';

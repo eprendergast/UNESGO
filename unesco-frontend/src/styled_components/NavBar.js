@@ -25,10 +25,7 @@ class NavBar extends React.Component {
                     <div className="navbar-button-container">
                         <SignUpModal signin={signin} signup={signup} />
                     </div>
-                    <div className="navbar-button-container">
-                        {/* <button className="navbar-button">
-                            Login
-                        </button> */}
+                    <div className="navbar-user-container">
                         <SignInModal signin={signin} />
                     </div>
 
