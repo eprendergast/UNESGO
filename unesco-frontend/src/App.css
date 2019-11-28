@@ -2,6 +2,7 @@
   --primary-pink: rgb(253, 92, 99); 
   --primary-blue: rgb(0, 132, 137);
   --primary-maroon: rgb(145, 70, 105);
+  --primary-black: rgb(34,34,34);
   --primary-grey: rgb(72, 72, 72);
   --secondary-grey: rgb(118,118,118);
   --light-grey: rgb(228,228,228);
@@ -12,6 +13,9 @@
   --light-grey-border: 1px solid var(--light-grey);
 }
 
+
+
+
 /* NAVBAR */
 
 .navbar-container {
@@ -20,8 +24,6 @@
   display: flex;
   justify-content: space-between; 
 }
-
-
 
 .navbar-logo-container {
   height: 80px;
@@ -108,6 +110,77 @@
   font-family: 'AirbnbCerealLight';
   font-size: 28px;
   margin: 24px;
+}
+
+/* SITE CONTAINER */
+
+.site-container {
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.site-container {
+  height: 100px;
+  width: 100%;
+}
+
+.site-header-container {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.site-header-text-container {
+
+}
+
+.site-image-container {
+  height: 358px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.site-image {
+  overflow: hidden;
+  object-fit: cover;
+  width: 100%;
+}
+
+.site-info-container {
+  display: flex;
+}
+
+
+.tags-container {
+  display: flex;
+  padding: 10px;
+  justify-content: flex-start ;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.site-description-container {
+  flex: 2;
+}
+
+.site-details-container {
+  flex: 1;
+  border-left: var( --light-grey-border);
+}
+
+.tag {
+  width: 172px;
+  height: 30px;
+  text-align: center;
+  padding: 5px;
+  margin: 10px;
+  border: var( --blue-border);
+  border-radius: 3px;
+  font-size: 14px;
+  font-family:'AirbnbCerealBold';
+  color:var(--primary-blue);
+  white-space: nowrap;
+  background-color: white;
 }
 
 
