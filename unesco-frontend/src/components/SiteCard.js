@@ -6,9 +6,7 @@ import API from '../API'
 
 class SiteCard extends React.Component {
   handleAddToBucketlist = site => {
-    API.addToBucketlist(site.id).then(
-      this.props.addBucketlistSiteToState
-    )
+    API.addToBucketlist(site.id).then(this.props.addBucketlistSiteToState)
   }
 
   handleRemoveFromBucketlist = site_id => {
@@ -22,9 +20,7 @@ class SiteCard extends React.Component {
   }
 
   handleRemoveFromVisited = site_id => {
-    API.removeFromVisited(site_id).then(
-      this.props.removeVisitedSiteFromState
-    )
+    API.removeFromVisited(site_id).then(this.props.removeVisitedSiteFromState)
   }
 
   addToBucketlistButton = () => {
@@ -103,14 +99,14 @@ class SiteCard extends React.Component {
     return (
       <Card>
         <Link to={`/sites/${id}`}>
-          <div style={{overflow: 'hidden'}}>
-          <Image
-            src={image_url}
-            wrapped
-            ui={false}
-            height={'250'}
-            width={'auto'}
-          />
+          <div style={{ overflow: 'hidden' }}>
+            <Image
+              src={image_url}
+              wrapped
+              ui={false}
+              height={'250'}
+              width={'auto'}
+            />
           </div>
         </Link>
 
@@ -118,9 +114,9 @@ class SiteCard extends React.Component {
           <Card.Header>{name}</Card.Header>
 
           <Card.Meta>
-            <span className='date'>
-              {states.map(state => state['name']).join(', ')}
-            </span>
+              <span className='date'>
+                {states.map(state => state['name']).join(' | ')}
+              </span>
           </Card.Meta>
 
           <Card.Description>

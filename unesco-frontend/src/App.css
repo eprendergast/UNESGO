@@ -13,6 +13,17 @@
   --light-grey-border: 1px solid var(--light-grey);
 }
 
+.primary-button {
+  background-color: var(--primary-pink);
+  border: var(--pink-border);
+  color: white;
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: 'AirbnbCerealMedium';
+}
 
 
 
@@ -60,7 +71,7 @@
 
 .navbar-user-container{
   /* position: relative; */
-  width: 120px;
+  width: 200px;
   flex: 2;
 }
 
@@ -91,6 +102,7 @@
 
 .home-image {
   overflow: hidden;
+  object-fit: cover;
 }
 
 .home-details-container {
@@ -111,6 +123,18 @@
   font-size: 28px;
   margin: 24px;
 }
+
+/* SEARCH FORM  */
+
+.search-form-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search-field {
+  padding: 5px;
+}
+
 
 /* SITE CONTAINER */
 
@@ -183,6 +207,9 @@
   background-color: white;
 }
 
+.site-card-container {
+  
+}
 
 
 

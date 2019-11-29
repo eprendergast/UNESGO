@@ -6,11 +6,13 @@ const SIGNUP_URL = `${BASE_URL}/signup`
 const VALIDATE_URL = `${BASE_URL}/validate`
 
 const SITES_URL = `${BASE_URL}/sites`
+const TAGS_URL = `${BASE_URL}/tags`
 const USER_BUCKETLISTS_URL = `${BASE_URL}/user_bucketlists`
 const USER_VISITEDS_URL = `${BASE_URL}/user_visiteds`
 
 const SEARCH_URL = `${BASE_URL}/sites/search`
 const SEARCH_BY_TAG_URL = `${BASE_URL}/sites/search_by_tag`
+
 
 // SITE MANAGEMENT
 
@@ -36,6 +38,10 @@ const search = query => {
 const searchByTag = tag => {
   const url = `${SEARCH_BY_TAG_URL}/${tag}`
   return getWithoutAuth(url)
+}
+
+const getTags = () => {
+  return getWithoutAuth(TAGS_URL)
 }
 
 // BUCKETLIST
@@ -145,5 +151,6 @@ export default {
   getVisited,
   addToVisited,
   removeFromVisited,
-  searchByTag
+  searchByTag,
+  getTags
 }

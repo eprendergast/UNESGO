@@ -1,10 +1,10 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 
-import searchTypes from '../searchFormData/searchTypes'
-import categories from '../searchFormData/categories'
-import regions from '../searchFormData/regions'
-import states from '../searchFormData/states'
+import searchTypes from '../data/searchTypes'
+import categories from '../data/categories'
+import regions from '../data/regions'
+import states from '../data/states'
 
 import { Button, Form, Select } from 'semantic-ui-react'
 
@@ -20,7 +20,7 @@ class SearchBar extends React.Component {
     let searchQuery = `${this.state.searchType}=${this.state.selection
       .split(' ')
       .join('+')}`
-      this.props.history.push(`/search/${searchQuery}`)
+    this.props.history.push(`/search/${searchQuery}`)
   }
 
   handleDropdownChange = (event, data) => {
@@ -65,32 +65,44 @@ class SearchBar extends React.Component {
   render () {
     return (
       <Form onChange={this.handleKeywordChange} onSubmit={this.handleSubmit}>
-        <Form.Group width='equal'>
-          <Form.Field>
-            <input
-              name='keywords'
-              placeholder="Try 'ancient ruins'"
-              value={this.state.keywords}
+        <div className='search-form-container'>
+          <div className='search-field'>
+            <Form.Field>
+              <input
+                name='keywords'
+                placeholder="Try 'ancient ruins'"
+                value={this.state.keywords}
+              />
+            </Form.Field>
+          </div>
+
+          <div className='search-field'>
+            <Form.Field
+              name='searchType'
+              control={Select}
+              options={searchTypes}
+              onChange={this.handleDropdownChange}
+              placeholder='Search Type...'
             />
-          </Form.Field>
+          </div>
 
-          <Form.Field
-            name='searchType'
-            control={Select}
-            options={searchTypes}
-            onChange={this.handleDropdownChange}
-            placeholder='Search Type...'
-          />
+          <div className='search-field'>
+            <Form.Field
+              name='selection'
+              control={Select}
+              options={this.getSelectionOptions()}
+              placeholder='Selection...'
+              onChange={this.handleDropdownChange}
+            />
+          </div>
 
-          <Form.Field
-            name='selection'
-            control={Select}
-            options={this.getSelectionOptions()}
-            placeholder='Selection...'
-            onChange={this.handleDropdownChange}
-          />
-          <Button type='submit'>Search</Button>
-        </Form.Group>
+          <div className='search-field'>
+            <button className='primary-button' type='submit'>
+              Search
+            </button>
+          </div>
+
+        </div>
       </Form>
     )
   }
