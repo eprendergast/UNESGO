@@ -13,17 +13,29 @@ class SearchResultsContainer extends React.Component {
   }
 
   componentDidMount () {
-    let url = this.props.match.url
-    API.search(url).then(data => {
-      this.setState({
-        sites: data,
-        searchCriteria: url
-          .split('=')[1]
-          .split('+')
-          .join(' '),
-        loading: false
+    if (this.props.match.url.split('/').includes('search_by_tag')) {
+      let split_url = this.props.match.url.split('/')
+      let tag = split_url[split_url.length - 1]
+      API.searchByTag(tag).then(data => {
+        this.setState({
+          sites: data,
+          searchCriteria: tag,
+          loading: false
+        })
       })
-    })
+    } else {
+      let url = this.props.match.url
+      API.search(url).then(data => {
+        this.setState({
+          sites: data,
+          searchCriteria: url
+            .split('=')[1]
+            .split('+')
+            .join(' '),
+          loading: false
+        })
+      })
+    }
   }
 
   render () {

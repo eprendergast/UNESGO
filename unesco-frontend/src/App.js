@@ -153,6 +153,20 @@ class App extends React.Component {
                 />
               )}
             />
+            <Route
+              path='/search_by_tag/:tag'
+              component={routerProps => (
+                <SearchResultsContainer
+                  {...routerProps}
+                  visited={visited}
+                  bucketlist={bucketlist}
+                  addBucketlistSiteToState={addBucketlistSiteToState}
+                  addVisitedSiteToState={addVisitedSiteToState}
+                  removeBucketlistSiteFromState={removeBucketlistSiteFromState}
+                  removeVisitedSiteFromState={removeVisitedSiteFromState}
+                />
+              )}
+            />
 
             <Route
               path='/sites/:id'

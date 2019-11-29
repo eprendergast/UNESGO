@@ -5,6 +5,7 @@ import { Header } from 'semantic-ui-react'
 import background_image from '../images/poland.jpg'
 import SearchBar from '../components/SearchBar'
 import { PulseLoader } from 'react-spinners'
+import DynamicSearch from '../styled_components/DynamicSearch'
 
 class HomeContainer extends React.Component {
   state = {
@@ -76,6 +77,7 @@ class HomeContainer extends React.Component {
           <div class="home-details-container">
             <div className="home-header"> Welcome to UNESGO </div>
             <div className="home-sub-header"> Explore UNESCO World Heritage Sites around the world </div>
+            <DynamicSearch/>
             <SearchBar {...this.routerProps} />
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import SiteCard from '../components/SiteCard'
+import SiteCard from '../styled_components/SiteCard'
 import { Card } from 'semantic-ui-react'
 
 const SitesContainer = ({

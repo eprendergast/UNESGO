@@ -31,5 +31,6 @@ Rails.application.routes.draw do
   delete '/user_bucketlists', to: 'user_bucketlists#destroy'
   delete '/user_visiteds', to: 'user_visiteds#destroy'
 
+  get '/tags', to: 'tags#index'
 
 end
