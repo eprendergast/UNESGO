@@ -11,6 +11,8 @@
   --blue-border: 1px solid var(--primary-blue);
   --maroon-border: 1px solid var(--primary-maroon);
   --light-grey-border: 1px solid var(--light-grey);
+
+  --heavy-grey-border: 2px solid var(--secondary-grey);
 }
 
 .primary-button {
@@ -37,6 +39,12 @@
   font-family: 'AirbnbCerealMedium';
   font-size: 12px;
   margin-right: 12px;
+}
+
+.primary-header-container {
+  font-size: 24px;
+  font-family: 'AirbnbCerealMedium';
+  margin-bottom: 24px;
 }
 
 .page-content-container {
@@ -88,12 +96,20 @@
   /* position: relative; */
   width: 72px;
   flex: 1;
+  border-bottom: var(--light-grey-border);
+}
+
+.navbar-button-container:hover{
+  border-bottom: var(--heavy-grey-border);
 }
 
 .navbar-user-container{
-  /* position: relative; */
   width: 200px;
   flex: 2;
+}
+
+.navbar-user-container:hover{
+  border-bottom: var(--heavy-grey-border);
 }
 
 .navbar-button {
@@ -187,7 +203,7 @@
 }
 
 .site-details-column-1-container {
-  flex: 2;
+  flex: 3;
 }
 
 .site-details-column-2-container {
@@ -342,12 +358,6 @@
 }
 
 /* SAVED CONTAINER */
-
-.bucketlist-header-container {
-  font-size: 24px;
-  font-family: 'AirbnbCerealMedium';
-  padding-bottom: 10px;
-}
 
 .saved-page-content-container {
   margin-top: 40px;
