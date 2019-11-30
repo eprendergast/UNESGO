@@ -1,7 +1,6 @@
 import React from 'react'
-import SitesContainer from './SitesContainer'
+import SitesContainer from '../containers/SitesContainer'
 import { Header } from 'semantic-ui-react'
-import NavBar from '../styled_components/NavBar'
 
 class SavedContainer extends React.Component {
   
@@ -19,18 +18,24 @@ class SavedContainer extends React.Component {
       removeVisitedSiteFromState
     } = this.props
     return (
-      <div>
-        <Header as={'h1'}>Bucketlist</Header>
-        <SitesContainer
-          sites={bucketlist}
-          bucketlist={bucketlist}
-          visited={visited}
-          addBucketlistSiteToState={addBucketlistSiteToState}
-          addVisitedSiteToState={addVisitedSiteToState}
-          removeBucketlistSiteFromState={removeBucketlistSiteFromState}
-          removeVisitedSiteFromState={removeVisitedSiteFromState}
-        />
-        <Header as={'h1'}>Visited</Header>
+      <div className="saved-page-content-container">
+        
+        <div className="bucketlist-and-visited-content-container">
+          <div className="bucketlist-header-container">My Bucketlist</div>
+          <SitesContainer
+            sites={bucketlist}
+            bucketlist={bucketlist}
+            visited={visited}
+            addBucketlistSiteToState={addBucketlistSiteToState}
+            addVisitedSiteToState={addVisitedSiteToState}
+            removeBucketlistSiteFromState={removeBucketlistSiteFromState}
+            removeVisitedSiteFromState={removeVisitedSiteFromState}
+          />
+        </div>
+
+        <div className="bucketlist-and-visited-content-container">
+      
+        <div className="bucketlist-header-container">My Visited</div>
         <SitesContainer
           sites={visited}
           bucketlist={bucketlist}
@@ -41,6 +46,14 @@ class SavedContainer extends React.Component {
           removeVisitedSiteFromState={removeVisitedSiteFromState}
         />
       </div>
+
+        </div>
+
+
+
+
+        
+        
     )
   }
 }
