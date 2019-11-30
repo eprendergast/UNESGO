@@ -66,7 +66,7 @@ class HomeContainer extends React.Component {
     } = this.props
 
     return (
-      <div className="home-container">
+      <div className="page-content-container">
 
         <div className="home-image-container">
           <img 

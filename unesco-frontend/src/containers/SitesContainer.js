@@ -1,6 +1,5 @@
 import React from 'react'
 import SiteCard from '../styled_components/SiteCard'
-import { Card } from 'semantic-ui-react'
 
 const SitesContainer = ({
   sites,
@@ -12,23 +11,40 @@ const SitesContainer = ({
   removeVisitedSiteFromState
 }) => {
   return (
-    <div>
-      <Card.Group>
-        {sites.map(site => (
-          <SiteCard
-            key={site.id}
-            site={site}
-            bucketlist={bucketlist.map(site => site.id).includes(site.id)}
-            visited={visited.map(site => site.id).includes(site.id)}
-            addBucketlistSiteToState={addBucketlistSiteToState}
-            addVisitedSiteToState={addVisitedSiteToState}
-            removeBucketlistSiteFromState={removeBucketlistSiteFromState}
-            removeVisitedSiteFromState={removeVisitedSiteFromState}
-          />
-        ))}
-      </Card.Group>
+    <div className='sites-container'>
+      {sites.map(site => (
+        <SiteCard
+          key={site.id}
+          site={site}
+          bucketlist={bucketlist.map(site => site.id).includes(site.id)}
+          visited={visited.map(site => site.id).includes(site.id)}
+          addBucketlistSiteToState={addBucketlistSiteToState}
+          addVisitedSiteToState={addVisitedSiteToState}
+          removeBucketlistSiteFromState={removeBucketlistSiteFromState}
+          removeVisitedSiteFromState={removeVisitedSiteFromState}
+        />
+      ))}
     </div>
   )
 }
 
 export default SitesContainer
+
+{
+  /* <div>
+<Card.Group>
+  {sites.map(site => (
+    <SiteCard
+      key={site.id}
+      site={site}
+      bucketlist={bucketlist.map(site => site.id).includes(site.id)}
+      visited={visited.map(site => site.id).includes(site.id)}
+      addBucketlistSiteToState={addBucketlistSiteToState}
+      addVisitedSiteToState={addVisitedSiteToState}
+      removeBucketlistSiteFromState={removeBucketlistSiteFromState}
+      removeVisitedSiteFromState={removeVisitedSiteFromState}
+    />
+  ))}
+</Card.Group>
+</div> */
+}
