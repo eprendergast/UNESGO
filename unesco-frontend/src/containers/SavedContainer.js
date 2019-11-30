@@ -21,7 +21,7 @@ class SavedContainer extends React.Component {
       <div className="saved-page-content-container">
         
         <div className="bucketlist-and-visited-content-container">
-          <div className="bucketlist-header-container">My Bucketlist</div>
+          <div className="primary-header-container">My Bucketlist</div>
           <SitesContainer
             sites={bucketlist}
             bucketlist={bucketlist}
@@ -35,7 +35,7 @@ class SavedContainer extends React.Component {
 
         <div className="bucketlist-and-visited-content-container">
       
-        <div className="bucketlist-header-container">My Visited</div>
+        <div className="primary-header-container">My Visited</div>
         <SitesContainer
           sites={visited}
           bucketlist={bucketlist}
