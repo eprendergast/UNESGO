@@ -59,6 +59,7 @@ class SearchResultsContainer extends React.Component {
             <div className="primary-header-container">
               {`Displaying results for '${searchCriteria}'`}
             </div>
+            <SearchBar/>
             <SitesContainer
               sites={sites.slice(0, 10)}
               visited={visited}

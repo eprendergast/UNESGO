@@ -72,7 +72,7 @@ class SearchBar extends React.Component {
   }
 
   selectionFieldToRender = () => {
-    if (this.state.searchType == 'tag'){
+    if (this.state.searchType === 'tag'){
       return (
           <Form.Field>
             <input
