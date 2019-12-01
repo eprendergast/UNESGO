@@ -1,80 +1,36 @@
-import React from 'react'
-import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react'
+import React, { Component } from 'react'
+import GoogleMapReact from 'google-map-react'
+import { Icon } from 'semantic-ui-react'
 
-const mapStyles = {
-  width: '50%',
-  height: '50%'
-}
+const AnyReactComponent = ({ text }) => <div>{text}</div>
 
 class MapContainer extends React.Component {
-  
-  state = {
-    showingInfoWindow: false, // Hides or the shows the infoWindow
-    activeMarker: {}, // Shows the active marker upon click
-    selectedPlace: {}, // Shows the infoWindow to the selected place upon a marker
-    latitude: '',
-    longitude: '',
-    loading: true
-  }
-
-  componentDidMount(){
-    this.setState({
-      latitude: this.props.latitude,
-      longitude: this.props.longitude,
-      loading: false
-    })
-  }
-
-  onMarkerClick = (props, marker, e) =>
-    this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
-    })
-
-  onClose = props => {
-    if (this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: null
-      })
-    }
+  static defaultProps = {
+    center: {
+      lat: 59.95,
+      lng: 30.33
+    },
+    zoom: 10
   }
 
   render () {
+    // const {google, lat, lng, name} = this.props
     return (
-      <div className="map-container">
-        {this.state.loading ? (<div>Empty</div>) : 
-
-          (<Map
-            google={this.props.google}
-            zoom={8}
-            style={mapStyles}
-            initialCenter={{ lat: this.state.latitude, lng: 0 }}
-          >
-            <Marker
-              position={{ lat: this.state.latitude, lng: 0 }}
-              onClick={this.onMarkerClick}
-              name={'Kenyatta International Convention Centre'}
-            />
-            <InfoWindow
-              marker={this.state.activeMarker}
-              visible={this.state.showingInfoWindow}
-              onClose={this.onClose}
-            >
-              <div>
-                <h4>{this.state.selectedPlace.name}</h4>
-              </div>
-            </InfoWindow>
-          </Map>)
-        }
-
+      <div className='map-container'>
+        <GoogleMapReact
+          bootstrapURLKeys={{
+            key: 'AIzaSyC9kL6GmDUCx-dhhVw4Lxs4v6Hh06y24K4',
+            language: 'en'
+          }}
+          defaultCenter={this.props.center}
+          center={this.props.center}
+          defaultZoom={this.props.zoom}
+        >
+          <AnyReactComponent lat={59.955413} lng={30.337844} text='My Marker' />
+        </GoogleMapReact>
       </div>
-      
     )
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyC9kL6GmDUCx-dhhVw4Lxs4v6Hh06y24K4'
-})(MapContainer)
+export default MapContainer

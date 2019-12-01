@@ -1,6 +1,6 @@
 import React from 'react'
 import API from '../API'
-import { Container, Header } from 'semantic-ui-react'
+import { Container, Header, Icon } from 'semantic-ui-react'
 import TagsContainer from './TagsContainer'
 import MapContainer from '../components/MapContainer'
 
@@ -67,7 +67,7 @@ class SiteContainer extends React.Component {
 
             <div className="site-description-container">
               <div className="site-description-container-header">
-                The Site
+                The Site 
               </div>
               <div className="site-description-text-container">
                 {short_description}
@@ -75,7 +75,7 @@ class SiteContainer extends React.Component {
               <div className="site-description-link-container">
                 <a href={http_url} target="_blank">Learn more</a>
               </div>
-                <MapContainer latitude={latitudeAsFloat} longitude={longitudeAsFloat}/>
+                <MapContainer lat={latitudeAsFloat} lng={longitudeAsFloat} name={name}/>
             </div>
         
           </div>
@@ -84,7 +84,7 @@ class SiteContainer extends React.Component {
             
             <div className="site-sub-details-container">
               <div className="site-detail-description">
-                DATE INSCRIBED
+              <Icon name="calendar alternate outline"/> DATE INSCRIBED 
               </div>
               <div className="site-detail">
                 {date_inscribed}
@@ -102,7 +102,7 @@ class SiteContainer extends React.Component {
 
             <div className="site-sub-details-container">
               <div className="site-detail-description">
-                {states && (states.length > 1 ? `COUNTRIES` : `COUNTRY`)}
+                <Icon name="location arrow"/> {states && (states.length > 1 ? `COUNTRIES` : `COUNTRY`)}
               </div>
               <div className="site-detail">
                 {states && states.map(state => state["name"]).join(", ") } 
@@ -111,7 +111,7 @@ class SiteContainer extends React.Component {
 
             <div className="site-sub-details-container">
               <div className="site-detail-description">
-                REGION
+                <Icon name="world"/> REGION
               </div>
               <div className="site-detail">
                 {region && region["name"]}

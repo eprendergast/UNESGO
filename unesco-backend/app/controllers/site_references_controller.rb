@@ -8,6 +8,7 @@ class SiteReferencesController < ApplicationController
         response.each do |site|
             site_reference = SiteReference.find_by(site_id: site["id"])
             site["tags"] = site_reference.tags.map{|tag| tag.name }
+            site["no_of_bucketlist"]
         end
 
         render json: response

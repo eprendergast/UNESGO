@@ -8,8 +8,6 @@ import './App.css'
 import NavBar from './styled_components/NavBar'
 import API from './API'
 import SiteContainer from './containers/SiteContainer'
-import SignUpModal from './modals/SignUpModal'
-import SearchBar from './components/SearchBar'
 
 class App extends React.Component {
   state = {
