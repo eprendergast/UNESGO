@@ -6,6 +6,7 @@ import background_image from '../images/poland.jpg'
 import SearchBar from '../components/SearchBar'
 import { PulseLoader } from 'react-spinners'
 import DynamicSearch from '../styled_components/DynamicSearch'
+import sampleSites from '../data/sampleSites'
 
 class HomeContainer extends React.Component {
   state = {
@@ -23,27 +24,32 @@ class HomeContainer extends React.Component {
   }
 
   getRegionSites = async () => {
-    // const europe_and_north_america = await API.getSitesByRegion(
-    //   'Europe and North America'
-    // )
-    // const latin_america_and_the_caribbean = await API.getSitesByRegion(
-    //   'Latin America and the Caribbean'
-    // )
-    // const africa = await API.getSitesByRegion('Africa')
-    // const asia_and_the_pacific = await API.getSitesByRegion(
-    //   'Asia and the Pacific'
-    // )
-    // const arab_states = await API.getSitesByRegion('Arab States')
+
+    const europe_and_north_america = sampleSites["europe_and_north_america"].map(id => {
+      API.getSite(id)
+    })
+    const latin_america_and_the_caribbean = await sampleSites["latin_america_and_the_caribbean"].map(id => {
+      API.getSite(id)
+    })
+
+    const africa = await sampleSites["africa"].map(id => {
+      API.getSite(id)
+    })
+
+    const asia_and_the_pacific = await sampleSites["asia_and_the_pacific"].map(id => {
+      API.getSite(id)
+    })
+
+    const arab_states = await sampleSites["arab_states"].map(id => {
+      API.getSite(id)
+    })
 
     this.setState({
-      // europe_and_north_america: europe_and_north_america.slice(0, 4),
-      // latin_america_and_the_caribbean: latin_america_and_the_caribbean.slice(
-      //   0,
-      //   4
-      // ),
-      // africa: africa.slice(0, 4),
-      // asia_and_the_pacific: asia_and_the_pacific.slice(0, 4),
-      // arab_states: arab_states.slice(0, 4),
+      europe_and_north_america,
+      latin_america_and_the_caribbean,
+      africa,
+      asia_and_the_pacific,
+      arab_states,
       loading: false
     })
   }
@@ -77,7 +83,6 @@ class HomeContainer extends React.Component {
           <div class="home-details-container">
             <div className="home-header"> Welcome to UNESGO </div>
             <div className="home-sub-header"> Explore UNESCO World Heritage Sites around the world </div>
-            <DynamicSearch/>
             <SearchBar {...this.routerProps} />
           </div>
         </div>

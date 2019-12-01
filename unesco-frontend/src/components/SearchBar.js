@@ -7,6 +7,7 @@ import regions from '../data/regions'
 import states from '../data/states'
 
 import { Button, Form, Select } from 'semantic-ui-react'
+import API from '../API'
 
 class SearchBar extends React.Component {
   state = {
@@ -17,16 +18,24 @@ class SearchBar extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    let searchQuery = `${this.state.searchType}=${this.state.selection
-      .split(' ')
-      .join('+')}`
-    this.props.history.push(`/search/${searchQuery}`)
+
+    if (this.state.searchType === 'tag'){
+      this.props.history.push(`/search_by_tag/${this.state.keywords}`)
+    } else {
+      let searchQuery = `${this.state.searchType}=${this.state.selection
+        .split(' ')
+        .join('+')}`
+      debugger
+      this.props.history.push(`/search/${searchQuery}`)
+    }
+    
   }
 
   handleDropdownChange = (event, data) => {
     event.preventDefault()
     this.setState({
-      [data.name]: data.value
+      [data.name]: data.value,
+      keywords: ''
     })
   }
 
@@ -62,38 +71,52 @@ class SearchBar extends React.Component {
     }
   }
 
+  selectionFieldToRender = () => {
+    if (this.state.searchType == 'tag'){
+      return (
+          <Form.Field>
+            <input
+              name='keywords'
+              placeholder="Try 'architecture'"
+              value={this.state.keywords}
+            />
+          </Form.Field>
+      )
+    } else {
+      return (
+          <Form.Field
+            name='selection'
+            control={Select}
+            options={this.getSelectionOptions()}
+            placeholder='Selection...'
+            onChange={this.handleDropdownChange}
+          />
+      )
+    }
+    
+  }
+
   render () {
+
+    const {handleKeywordChange, handleSubmit, handleDropdownChange, selectionFieldToRender} = this
+
     return (
-      <Form onChange={this.handleKeywordChange} onSubmit={this.handleSubmit}>
+      <Form onChange={handleKeywordChange} onSubmit={handleSubmit}>
+
         <div className='search-form-container'>
-          <div className='search-field'>
-            <Form.Field>
-              <input
-                name='keywords'
-                placeholder="Try 'ancient ruins'"
-                value={this.state.keywords}
-              />
-            </Form.Field>
-          </div>
 
           <div className='search-field'>
             <Form.Field
               name='searchType'
               control={Select}
               options={searchTypes}
-              onChange={this.handleDropdownChange}
+              onChange={handleDropdownChange}
               placeholder='Search Type...'
             />
           </div>
 
           <div className='search-field'>
-            <Form.Field
-              name='selection'
-              control={Select}
-              options={this.getSelectionOptions()}
-              placeholder='Selection...'
-              onChange={this.handleDropdownChange}
-            />
+            {selectionFieldToRender()}
           </div>
 
           <div className='search-field'>
@@ -103,6 +126,7 @@ class SearchBar extends React.Component {
           </div>
 
         </div>
+
       </Form>
     )
   }

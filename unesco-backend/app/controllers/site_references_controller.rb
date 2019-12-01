@@ -1,7 +1,7 @@
 class SiteReferencesController < ApplicationController
 
     def sites 
-        sites = SiteReference.all.sample(25)
+        sites = SiteReference.all
         site_ids = sites.map{ |site| site.site_id }
         response = site_ids.map{ |id| API.get_site(id) }
         
@@ -27,7 +27,7 @@ class SiteReferencesController < ApplicationController
             site_reference = SiteReference.find_by(site_id: site["id"])
             site["tags"] = site_reference.tags.map{|tag| tag.name }
         end
-        render json: response.sample(25)
+        render json: response
     end
 
     def search_by_tag
@@ -40,7 +40,7 @@ class SiteReferencesController < ApplicationController
             site["tags"] = site_reference.tags.map{|tag| tag.name }
         end
 
-        render json: response.sample(25)
+        render json: response
 
     end
 

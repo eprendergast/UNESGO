@@ -1,18 +1,23 @@
 const search_type = [
   {
     key: '1',
-    text: 'Category',
-    value: 'category'
+    text: 'Tag',
+    value: 'tag'
   },
   {
     key: '2',
+    text: 'Country',
+    value: 'state'
+  },
+  {
+    key: '3',
     text: 'Region',
     value: 'region'
   },
   {
-    key: '3',
-    text: 'Country',
-    value: 'state'
+    key: '4',
+    text: 'Category',
+    value: 'category'
   }
 ]
 
