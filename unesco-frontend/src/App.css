@@ -287,6 +287,11 @@
   color: var(--primary-blue);
 }
 
+.map-container {
+  width: 50%;
+  
+}
+
 
 .tags-container {
   display: flex;
