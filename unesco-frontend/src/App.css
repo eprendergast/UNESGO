@@ -154,9 +154,11 @@
 /* HOME CONTAINER */
 
 .home-image-container {
-  margin: 50px;
-  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
   text-align: center;
+  position: relative;
   color: white;
   border-radius: 4px;
 }
@@ -164,7 +166,21 @@
 .home-image {
   overflow: hidden;
   object-fit: cover;
+  width: 100%;
+  border-radius: 5px;
 }
+
+/* .site-image-container {
+  overflow: hidden;
+  text-align: center;
+}
+
+.site-image {
+  object-fit: cover;
+  height: 350px;
+  width: 100%;
+  border-radius: 2px;
+} */
 
 .home-details-container {
   position: absolute;
