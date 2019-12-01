@@ -26,8 +26,7 @@ class SiteCard extends React.Component {
   addToBucketlistButton = () => {
     return (
       <button
-        basic
-        color='blue'
+        className='active-button'
         onClick={() => this.handleAddToBucketlist(this.props.site)}
       >
         Add to Bucketlist
@@ -38,8 +37,7 @@ class SiteCard extends React.Component {
   removeFromBucketlistButton = () => {
     return (
       <button
-        basic
-        color='blue'
+        className='passive-button'
         onClick={() => this.handleRemoveFromBucketlist(this.props.site.id)}
       >
         Remove from Bucketlist
@@ -50,8 +48,7 @@ class SiteCard extends React.Component {
   addToVisitedButton = () => {
     return (
       <button
-        basic
-        color='blue'
+        className='active-button'
         onClick={() => this.handleAddToVisited(this.props.site)}
       >
         Mark as Visited
@@ -62,8 +59,7 @@ class SiteCard extends React.Component {
   removeFromVisitedButton = () => {
     return (
       <button
-        basic
-        color='blue'
+        className='passive-button'
         onClick={() => this.handleRemoveFromVisited(this.props.site.id)}
       >
         Remove from Visited
@@ -73,21 +69,20 @@ class SiteCard extends React.Component {
 
   buttons = () => {
     const { bucketlist, visited } = this.props
-
     if (visited) {
-      return <div className='ui button'>{this.removeFromVisitedButton()}</div>
+      return <div className="save-buttons-container">{this.removeFromVisitedButton()}</div>
     } else if (bucketlist) {
       return (
-        <div className='ui two buttons'>
-          {this.removeFromBucketlistButton()}
+        <div className="save-buttons-container">
           {this.addToVisitedButton()}
+          {this.removeFromBucketlistButton()}
         </div>
       )
     } else {
       return (
-        <div className='ui two buttons'>
-          {this.addToBucketlistButton()}
+        <div className="save-buttons-container">
           {this.addToVisitedButton()}
+          {this.addToBucketlistButton()}
         </div>
       )
     }
@@ -98,42 +93,40 @@ class SiteCard extends React.Component {
 
     return (
       <div className='site-card-container'>
-        <Link to={`/sites/${id}`}>
           <div className='site-card-image-container'>
             <img className='site-card-image' src={image_url} alt={name} />
+            <div className="site-card-buttons-hover-container ">
+              {this.buttons()}
+            </div>
           </div>
-        </Link>
 
         <div className='site-card-details-container'>
-
-            <div className="site-card-text-details-container">
+          <div className='site-card-text-details-container'>
             <div className='site-card-country-container'>
-            {`${states.map(state => state['name'].toUpperCase()).join(' | ')}`
-              .length > 42
-              ? `${states
-                .map(state => state['name'].toUpperCase())
-                .join(' | ')}`.substr(0, 40) + `...`
-              : `${states
-                .map(state => state['name'].toUpperCase())
-                .join(' | ')}`}
+              {`${states.map(state => state['name'].toUpperCase()).join(' | ')}`
+                .length > 42
+                ? `${states
+                  .map(state => state['name'].toUpperCase())
+                  .join(' | ')}`.substr(0, 40) + `...`
+                : `${states
+                  .map(state => state['name'].toUpperCase())
+                  .join(' | ')}`}
+            </div>
+            <Link to={`/sites/${id}`}>
+              <div className='site-card-name-container'>
+                {name.length > 38 ? `${name.substr(0, 34)}...` : name}
+              </div>
+            </Link>
           </div>
-          <Link to={`/sites/${id}`}>
-            <div className='site-card-name-container'>
-              {name.length > 38 ? `${name.substr(0, 34)}...` : name}
-            </div>
-          </Link>
-            </div>
 
-          
-          <div className="site-card-buttons-container">
-            <button className="secondary-button">Mark as Visited</button>
-            <button className="secondary-button">Add to Bucketlist</button>
+          <div className='site-card-buttons-container'>
+            {/* <button className='primary-button-pink'>Mark as Visited</button>
+            <button className='secondary-button'>Remove from Visited</button>
+            <button className='primary-button-blue'>Add to Bucketlist</button>
+            <button className='secondary-button-grey'>Remove from Bucketlist</button> */}
+          </div>
 
-
-            </div>
         </div>
-
-
       </div>
     )
   }
