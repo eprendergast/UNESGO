@@ -2,6 +2,7 @@ import React from 'react'
 import API from '../API'
 import { Container, Header } from 'semantic-ui-react'
 import TagsContainer from './TagsContainer'
+import MapContainer from '../components/MapContainer'
 
 class SiteContainer extends React.Component {
   state = {
@@ -31,6 +32,9 @@ class SiteContainer extends React.Component {
       region,
       tags
     } = this.state.site
+
+    const latitudeAsFloat = parseFloat(latitude, 10)
+    const longitudeAsFloat = parseFloat(longitude, 10)
 
     return (
       <div className="page-content-container">
@@ -71,6 +75,7 @@ class SiteContainer extends React.Component {
               <div className="site-description-link-container">
                 <a href={http_url} target="_blank">Learn more</a>
               </div>
+                <MapContainer latitude={latitudeAsFloat} longitude={longitudeAsFloat}/>
             </div>
         
           </div>
