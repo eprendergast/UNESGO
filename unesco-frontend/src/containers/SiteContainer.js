@@ -35,6 +35,8 @@ class SiteContainer extends React.Component {
 
     const latitudeAsFloat = parseFloat(latitude, 10)
     const longitudeAsFloat = parseFloat(longitude, 10)
+    debugger
+    // const center = {lat: latitudeAsFloat, lng: longitudeAsFloat}
 
     return (
       <div className="page-content-container">

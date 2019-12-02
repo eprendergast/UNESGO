@@ -29,22 +29,3 @@ const SitesContainer = ({
 }
 
 export default SitesContainer
-
-{
-  /* <div>
-<Card.Group>
-  {sites.map(site => (
-    <SiteCard
-      key={site.id}
-      site={site}
-      bucketlist={bucketlist.map(site => site.id).includes(site.id)}
-      visited={visited.map(site => site.id).includes(site.id)}
-      addBucketlistSiteToState={addBucketlistSiteToState}
-      addVisitedSiteToState={addVisitedSiteToState}
-      removeBucketlistSiteFromState={removeBucketlistSiteFromState}
-      removeVisitedSiteFromState={removeVisitedSiteFromState}
-    />
-  ))}
-</Card.Group>
-</div> */
-}
