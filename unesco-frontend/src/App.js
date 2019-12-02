@@ -14,7 +14,8 @@ class App extends React.Component {
     user_id: '',
     first_name: '',
     bucketlist: [],
-    visited: []
+    visited: [],
+    sites: []
   }
 
   componentDidMount () {
@@ -43,9 +44,11 @@ class App extends React.Component {
   getBucketlistAndVisited = async user_id => {
     const bucketlist = await API.getBucketlist(user_id)
     const visited = await API.getVisited(user_id)
+    const sites = await API.getSites()
     this.setState({
       bucketlist,
-      visited
+      visited,
+      sites
     })
   }
 
@@ -58,7 +61,7 @@ class App extends React.Component {
 
   removeBucketlistSiteFromState = site_id => {
     let filteredBucketlist = this.state.bucketlist.filter(
-      site => site.id != site_id
+      site => site.id !== site_id
     )
     this.setState({
       ...this.state,
@@ -68,7 +71,7 @@ class App extends React.Component {
 
   addVisitedSiteToState = site => {
     let filteredBucketlist = this.state.bucketlist.filter(
-      s => s.id != site.id
+      s => s.id !== site.id
     )
     this.setState({
       ...this.state,
@@ -78,7 +81,7 @@ class App extends React.Component {
   }
 
   removeVisitedSiteFromState = site_id => {
-    let filteredVisited = this.state.visited.filter(site => site.id != site_id)
+    let filteredVisited = this.state.visited.filter(site => site.id !== site_id)
     this.setState({
       ...this.state,
       visited: filteredVisited

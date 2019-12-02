@@ -5,7 +5,6 @@ import { Header } from 'semantic-ui-react'
 import background_image from '../images/poland.jpg'
 import SearchBar from '../components/SearchBar'
 import { PulseLoader } from 'react-spinners'
-import DynamicSearch from '../styled_components/DynamicSearch'
 import sampleSites from '../data/sampleSites'
 
 class HomeContainer extends React.Component {

@@ -6,8 +6,7 @@ import categories from '../data/categories'
 import regions from '../data/regions'
 import states from '../data/states'
 
-import { Button, Form, Select } from 'semantic-ui-react'
-import API from '../API'
+import { Form, Select } from 'semantic-ui-react'
 
 class SearchBar extends React.Component {
   state = {
@@ -68,6 +67,8 @@ class SearchBar extends React.Component {
         return regions
       case 'state':
         return this.stateOptions()
+      default: 
+        return categories
     }
   }
 

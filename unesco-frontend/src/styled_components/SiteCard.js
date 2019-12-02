@@ -1,5 +1,4 @@
 import React from 'react'
-import { Card, Image, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 import API from '../API'
@@ -89,7 +88,7 @@ class SiteCard extends React.Component {
   }
 
   render () {
-    const { id, name, image_url, short_description, states } = this.props.site
+    const { id, name, image_url, states } = this.props.site
 
     return (
       <div className='site-card-container'>
@@ -117,13 +116,6 @@ class SiteCard extends React.Component {
                 {name.length > 38 ? `${name.substr(0, 34)}...` : name}
               </div>
             </Link>
-          </div>
-
-          <div className='site-card-buttons-container'>
-            {/* <button className='primary-button-pink'>Mark as Visited</button>
-            <button className='secondary-button'>Remove from Visited</button>
-            <button className='primary-button-blue'>Add to Bucketlist</button>
-            <button className='secondary-button-grey'>Remove from Bucketlist</button> */}
           </div>
 
         </div>
