@@ -1,5 +1,5 @@
 * {
-  --primary-pink: rgb(253, 92, 99); /*FD5C63*/
+  --primary-pink: rgb(253, 92, 99); /*#FD5C63*/
   --primary-blue: rgb(0, 132, 137);
   --primary-maroon: rgb(145, 70, 105);
   --primary-black: rgb(34,34,34);
@@ -310,6 +310,7 @@
 .map-container {
   height: 400px; 
   width: 700px;
+  margin-top: 24px;
 }
 
 
@@ -481,6 +482,18 @@ font-family: 'AirbnbCerealMedium'; */
   font-size: 16px;
   font-family: 'AirbnbCerealMedium';
   color: var(--primary-black);
+}
+
+.site-card-star-container {
+  height: 16px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+
+  
+}
+
+.star {
+  color: var(--primary-pink)
 }
 
 .site-card-text-details-container {

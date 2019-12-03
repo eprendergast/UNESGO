@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import API from '../API'
+import { Icon } from 'semantic-ui-react'
 
 class SiteCard extends React.Component {
   handleAddToBucketlist = site => {
@@ -28,7 +29,7 @@ class SiteCard extends React.Component {
         className='active-button'
         onClick={() => this.handleAddToBucketlist(this.props.site)}
       >
-        Add to Bucketlist
+        Save to Bucketlist
       </button>
     )
   }
@@ -50,7 +51,7 @@ class SiteCard extends React.Component {
         className='active-button'
         onClick={() => this.handleAddToVisited(this.props.site)}
       >
-        Mark as Visited
+        Save to Visited
       </button>
     )
   }
@@ -69,17 +70,21 @@ class SiteCard extends React.Component {
   buttons = () => {
     const { bucketlist, visited } = this.props
     if (visited) {
-      return <div className="save-buttons-container">{this.removeFromVisitedButton()}</div>
+      return (
+        <div className='save-buttons-container'>
+          {this.removeFromVisitedButton()}
+        </div>
+      )
     } else if (bucketlist) {
       return (
-        <div className="save-buttons-container">
+        <div className='save-buttons-container'>
           {this.addToVisitedButton()}
           {this.removeFromBucketlistButton()}
         </div>
       )
     } else {
       return (
-        <div className="save-buttons-container">
+        <div className='save-buttons-container'>
           {this.addToVisitedButton()}
           {this.addToBucketlistButton()}
         </div>
@@ -92,12 +97,12 @@ class SiteCard extends React.Component {
 
     return (
       <div className='site-card-container'>
-          <div className='site-card-image-container'>
-            <img className='site-card-image' src={image_url} alt={name} />
-            <div className="site-card-buttons-hover-container ">
-              {this.buttons()}
-            </div>
+        <div className='site-card-image-container'>
+          <img className='site-card-image' src={image_url} alt={name} />
+          <div className='site-card-buttons-hover-container '>
+            {this.buttons()}
           </div>
+        </div>
 
         <div className='site-card-details-container'>
           <div className='site-card-text-details-container'>
@@ -116,8 +121,10 @@ class SiteCard extends React.Component {
                 {name.length > 38 ? `${name.substr(0, 34)}...` : name}
               </div>
             </Link>
+            <div className="site-card-star-container">
+              <Icon name ="star" className="star" size="small"/> 0 people have saved this 
+            </div>
           </div>
-
         </div>
       </div>
     )
