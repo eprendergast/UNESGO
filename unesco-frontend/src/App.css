@@ -1,5 +1,5 @@
 * {
-  --primary-pink: rgb(253, 92, 99); 
+  --primary-pink: rgb(253, 92, 99); /*FD5C63*/
   --primary-blue: rgb(0, 132, 137);
   --primary-maroon: rgb(145, 70, 105);
   --primary-black: rgb(34,34,34);
@@ -68,6 +68,13 @@
 .primary-header-container {
   font-size: 24px;
   font-family: 'AirbnbCerealMedium';
+  padding-top: 24px;
+  padding-bottom: 12px;;
+}
+
+.sub-header-container {
+  font-size: 16px;
+  font-family: 'AirbnbCerealLight';
   margin-bottom: 24px;
 }
 
@@ -201,6 +208,14 @@
   margin: 24px;
 }
 
+.sample-sites-container {
+  margin-top: 24px;
+}
+
+.region-sites-container {
+  padding-top: 18px;
+}
+
 /* SEARCH FORM  */
 
 .search-form-container {
@@ -283,8 +298,13 @@
 .site-description-link-container {
   padding-top: 12px;
   font-size: 16px;
-  font-family: 'AirbnbCerealLight';
+  font-family: 'AirbnbCerealMedium';
   color: var(--primary-blue);
+  text-decoration: none;
+}
+
+.site-description-link-container:hover {
+  text-decoration: underline;
 }
 
 .map-container {
@@ -354,7 +374,7 @@
 }
 
 .site-card-container {
-  height: 270px;
+  height: 240px;
   width: 315px;
   padding-left: 8px;
   padding-top: 8px;

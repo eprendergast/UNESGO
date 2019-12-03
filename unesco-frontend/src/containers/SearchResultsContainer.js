@@ -61,7 +61,7 @@ class SearchResultsContainer extends React.Component {
             </div>
             <SearchBar/>
             <SitesContainer
-              sites={sites.slice(0, 10)}
+              sites={sites}
               visited={visited}
               bucketlist={bucketlist}
               addBucketlistSiteToState={addBucketlistSiteToState}

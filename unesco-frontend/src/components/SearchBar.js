@@ -24,7 +24,6 @@ class SearchBar extends React.Component {
       let searchQuery = `${this.state.searchType}=${this.state.selection
         .split(' ')
         .join('+')}`
-      debugger
       this.props.history.push(`/search/${searchQuery}`)
     }
     
