@@ -16,7 +16,7 @@ module GoogleVisionHelper
         site_reference_tag = SiteReferenceTag.find_or_create_by(
           site_reference_id: site_reference.id, 
           tag_id: tag.id)
-        puts "Tag of #{tag.name} created for site #{site_reference.id}"
+        puts "Tag of #{tag.name} created for site reference #{site_reference.id}"
       end
     end
   
