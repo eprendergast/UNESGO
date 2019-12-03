@@ -8,6 +8,7 @@ import './App.css'
 import NavBar from './styled_components/NavBar'
 import API from './API'
 import SiteContainer from './containers/SiteContainer'
+import sampleSites from './data/sampleSites'
 
 class App extends React.Component {
   state = {
@@ -15,7 +16,12 @@ class App extends React.Component {
     first_name: '',
     bucketlist: [],
     visited: [],
-    sites: []
+    europe_and_north_america: [],
+    latin_america_and_the_caribbean: [],
+    africa: [],
+    asia_and_the_pacific: [],
+    arab_states: [],
+    loading: true
   }
 
   componentDidMount () {
@@ -25,9 +31,11 @@ class App extends React.Component {
         .then(data => {
           if (data.error) throw Error(data.error)
           this.signin(data)
+          this.getBucketlistAndVisited(data.id)
         })
         .catch(error => console.log(error))
     }
+    this.getSampleSites()
   }
 
   signin = user => {
@@ -35,8 +43,7 @@ class App extends React.Component {
       {
         user_id: user.id,
         first_name: user.first_name
-      },
-      () => this.getBucketlistAndVisited(this.state.user_id)
+      }
     )
     localStorage.setItem('token', user.token)
   }
@@ -44,13 +51,21 @@ class App extends React.Component {
   getBucketlistAndVisited = async user_id => {
     const bucketlist = await API.getBucketlist(user_id)
     const visited = await API.getVisited(user_id)
-    const sites = await API.getSites()
     this.setState({
       bucketlist,
-      visited,
-      sites
+      visited
     })
   }
+
+  getSampleSites = async () => {
+    const sample_site_data = {}
+    for (const key in sampleSites) {
+      sample_site_data[key] = await this.getTheseSites(sampleSites[key])
+    }
+    this.setState(sample_site_data)
+  }
+
+  getTheseSites = siteIds => Promise.all(siteIds.map(API.getSite))
 
   addBucketlistSiteToState = site => {
     this.setState({
@@ -112,7 +127,18 @@ class App extends React.Component {
       removeBucketlistSiteFromState,
       removeVisitedSiteFromState
     } = this
-    const { user_id, first_name, bucketlist, visited } = this.state
+    const {
+      user_id,
+      first_name,
+      // sites,
+      bucketlist,
+      visited,
+      europe_and_north_america,
+      latin_america_and_the_caribbean,
+      africa,
+      asia_and_the_pacific,
+      arab_states
+    } = this.state
 
     return (
       <Router>
@@ -131,6 +157,11 @@ class App extends React.Component {
               component={routerProps => (
                 <HomeContainer
                   {...routerProps}
+                  europe_and_north_america={europe_and_north_america}
+                  latin_america_and_the_caribbean={latin_america_and_the_caribbean}
+                  africa={africa}
+                  asia_and_the_pacific={asia_and_the_pacific}
+                  arab_states={arab_states}
                   bucketlist={bucketlist}
                   visited={visited}
                   addBucketlistSiteToState={addBucketlistSiteToState}

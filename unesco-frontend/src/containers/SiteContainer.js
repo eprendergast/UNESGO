@@ -2,19 +2,38 @@ import React from 'react'
 import API from '../API'
 import { Container, Header, Icon } from 'semantic-ui-react'
 import TagsContainer from './TagsContainer'
-import MapContainer from '../components/MapContainer'
+import MapContainer from './MapContainer'
 
 class SiteContainer extends React.Component {
   state = {
-    site: {}
+    site: {},
+    loading: true
   }
 
   componentDidMount () {
     API.getSite(this.props.match.params['id']).then(data =>
       this.setState({
-        site: data
+        site: data,
+        loading: false
       })
     )
+  }
+
+  renderMapContainer = () => {
+    if (this.state.site.longitude) {
+      const latitudeAsFloat = parseFloat(this.state.site.latitude, 10)
+      const longitudeAsFloat = parseFloat(this.state.site.longitude, 10)
+      const center = { lat: latitudeAsFloat, lng: longitudeAsFloat }
+      
+      return (
+        <MapContainer
+          center={center}
+          lat={latitudeAsFloat}
+          lng={longitudeAsFloat}
+          name={this.state.site.name}
+        />
+      )
+    }
   }
 
   render () {
@@ -32,11 +51,6 @@ class SiteContainer extends React.Component {
       region,
       tags
     } = this.state.site
-
-    const latitudeAsFloat = parseFloat(latitude, 10)
-    const longitudeAsFloat = parseFloat(longitude, 10)
-    debugger
-    // const center = {lat: latitudeAsFloat, lng: longitudeAsFloat}
 
     return (
       <div className="page-content-container">
@@ -77,7 +91,7 @@ class SiteContainer extends React.Component {
               <div className="site-description-link-container">
                 <a href={http_url} target="_blank">Learn more</a>
               </div>
-                <MapContainer lat={latitudeAsFloat} lng={longitudeAsFloat} name={name}/>
+                {this.renderMapContainer()}
             </div>
         
           </div>
