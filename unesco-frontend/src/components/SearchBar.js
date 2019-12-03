@@ -19,6 +19,7 @@ class SearchBar extends React.Component {
     event.preventDefault()
 
     if (this.state.searchType === 'tag'){
+      debugger
       this.props.history.push(`/search_by_tag/${this.state.keywords}`)
     } else {
       let searchQuery = `${this.state.searchType}=${this.state.selection

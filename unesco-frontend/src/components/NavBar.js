@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import SignUpModal from '../modals/SignUpModal'
 import SignInModal from '../modals/SignInModal'
 
-import logo from '../images/airbnb-logo.png'
+import logo from '../images/unesco-logo.png'
 import name from '../images/unesgo4.png'
 import profile_photo from '../images/profile-photo-placheolder.png'
 

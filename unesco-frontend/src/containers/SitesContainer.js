@@ -1,5 +1,5 @@
 import React from 'react'
-import SiteCard from '../styled_components/SiteCard'
+import SiteCard from '../components/SiteCard'
 
 const SitesContainer = ({
   sites,
