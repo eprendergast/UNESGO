@@ -85,6 +85,16 @@
   padding-right: 80px;
 }
 
+.form-error-message {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: red;
+}
+
+.form-error {
+  border-color: red;
+}
+
 
 /* NAVBAR */
 
