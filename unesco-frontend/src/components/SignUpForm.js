@@ -32,25 +32,25 @@ class SignUpForm extends React.Component {
       case 'first_name':
         formErrors.first_name =
           value.length < 3 
-            ? 'minimum 3 characters required'
+            ? 'Minimum 2 characters required'
             : ''
         break
       case 'last_name':
         formErrors.last_name =
-          value.length < 3 
-            ? 'minimum 3 characters required'
+          value.length < 2
+            ? 'Minimum 2 characters required'
             : ''
         break
       case 'email':
         formErrors.email =
           this.emailRegex.test(value) 
             ? ''
-            : 'invalid email address'
+            : 'Invalid email address'
         break
       case 'password':
         formErrors.password =
           value.length < 6 
-            ? 'minimum 6 characters required'
+            ? 'Minimum 6 characters required'
             : ''
         break
         default:
@@ -61,16 +61,17 @@ class SignUpForm extends React.Component {
         formErrors, [name]: value
     }, () => console.log(this.state))
 
-    // this.setState({
-    //   [event.target.name]: event.target.value
-    // })
   }
 
-  formValid = formErrors => {
+  formValid = ({formErrors, ...rest}) => {
     let valid = true
 
     Object.values(formErrors).forEach(val => {
       val.length > 0 && (valid = false)
+    })
+
+    Object.values(rest).forEach(val => {
+        val === "" && (valid = false)
     })
 
     return valid
@@ -79,17 +80,17 @@ class SignUpForm extends React.Component {
   handleSubmit = event => {
     event.preventDefault()
 
-    if (this.formValid(this.state.formErrors)) {
-      console.log(this.state)
+    if (this.formValid(this.state)) {
+        API.signup(this.state)
+        .then(data => {
+            if (data.error) throw Error(data.error)
+            this.props.signin(data)
+        })
+        .catch(error => console.log(error))
     } else {
       console.error('FORM INVALID')
     }
-    // API.signup(this.state)
-    //   .then(data => {
-    //     if (data.error) throw Error(data.error)
-    //     this.props.signin(data)
-    //   })
-    //   .catch(error => console.log(error))
+
   }
 
   render () {
