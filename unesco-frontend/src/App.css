@@ -343,6 +343,10 @@
   font-family:'AirbnbCerealMedium';
   font-size: 13px;
   color:var(--secondary-grey);
+
+}
+
+.tag-text:hover {
   text-decoration: underline;
 }
 

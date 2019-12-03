@@ -3,7 +3,7 @@ import { Modal } from 'semantic-ui-react'
 import SignInForm from '../components/SignInForm'
 
 const SignInModal = ({ signin }) => (
-  <Modal trigger={<button className='navbar-button'>Login</button>}>
+  <Modal closeIcon trigger={<button className='navbar-button'>Login</button>}>
     <Modal.Header>Log in to continue</Modal.Header>
 
     <Modal.Content>

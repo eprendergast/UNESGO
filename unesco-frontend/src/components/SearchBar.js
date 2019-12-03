@@ -17,17 +17,16 @@ class SearchBar extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-
     if (this.state.searchType === 'tag'){
       debugger
       this.props.history.push(`/search_by_tag/${this.state.keywords}`)
     } else {
+      debugger
       let searchQuery = `${this.state.searchType}=${this.state.selection
         .split(' ')
         .join('+')}`
       this.props.history.push(`/search/${searchQuery}`)
     }
-    
   }
 
   handleDropdownChange = (event, data) => {
