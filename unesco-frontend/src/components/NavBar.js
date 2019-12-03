@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import AuthenticationModal from '../modals/AuthenticationModal'
-import SignInModal from '../modals/SignInModal'
+import SignInModal from '../archive/SignInModal'
 
 import logo from '../images/unesco-logo.png'
 import name from '../images/unesgo4.png'
