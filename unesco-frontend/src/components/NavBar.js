@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import SignUpModal from '../modals/SignUpModal'
-import SignInModal from '../modals/SignInModal'
+import AuthenticationModal from '../modals/AuthenticationModal'
+import SignInModal from '../archive/SignInModal'
 
 import logo from '../images/unesco-logo.png'
 import name from '../images/unesgo4.png'
@@ -30,11 +30,12 @@ class NavBar extends React.Component {
         <div className='navbar-links-container'>
           <div className='navbar-button-container'>
             {/* <div className="navbar-button"> */}
-              <SignUpModal signin={signin} signup={signup} modalTrigger={this.signUpButton}/>
+              <AuthenticationModal status={'signup'} signin={signin} signup={signup} modalTrigger={this.signUpButton}/>
             {/* </div> */}
           </div>
           <div className='navbar-button-container'>
-            <SignInModal signin={signin} modalTrigger={this.loginButton}/>
+            {/* <SignInModal signin={signin} modalTrigger={this.loginButton}/> */}
+            <AuthenticationModal status={'login'} signin={signin} signup={signup} modalTrigger={this.loginButton}/>
           </div>
         </div>
       )
