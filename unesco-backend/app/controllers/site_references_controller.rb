@@ -32,7 +32,6 @@ class SiteReferencesController < ApplicationController
     end
 
     def search_by_tag
-        byebug
         sites = SiteReference.all.select{ |site_reference| site_reference.tags.map{|tag| tag.name }.include?(params[:tag]) }
         site_ids = sites.map{ |site| site.site_id }
         response = site_ids.map{ |id| API.get_site(id) }
