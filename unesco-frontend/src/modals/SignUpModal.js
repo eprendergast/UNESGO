@@ -2,8 +2,8 @@ import React from 'react'
 import { Modal } from 'semantic-ui-react'
 import SignUpForm from '../components/SignUpForm'
 
-const SignUpModal = ({ signup, signin }) => (
-  <Modal closeIcon trigger={<button className='navbar-button'>Sign up</button>}>
+const SignUpModal = ({ signup, signin, modalTrigger }) => (
+  <Modal closeIcon trigger={modalTrigger()}>
     <Modal.Header>Welcome to UNESGO</Modal.Header>
 
     <Modal.Content>

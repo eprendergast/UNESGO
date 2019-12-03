@@ -2,8 +2,8 @@ import React from 'react'
 import { Modal } from 'semantic-ui-react'
 import SignInForm from '../components/SignInForm'
 
-const SignInModal = ({ signin }) => (
-  <Modal closeIcon trigger={<button className='navbar-button'>Login</button>}>
+const SignInModal = ({ signin, modalTrigger }) => (
+  <Modal closeIcon trigger={modalTrigger()}>
     <Modal.Header>Log in to continue</Modal.Header>
 
     <Modal.Content>
