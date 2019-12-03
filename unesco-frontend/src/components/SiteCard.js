@@ -93,7 +93,7 @@ class SiteCard extends React.Component {
   }
 
   render () {
-    const { id, name, image_url, states } = this.props.site
+    const { id, name, image_url, states, saves } = this.props.site
 
     return (
       <div className='site-card-container'>
@@ -118,11 +118,11 @@ class SiteCard extends React.Component {
             </div>
             <Link to={`/sites/${id}`}>
               <div className='site-card-name-container'>
-                {name.length > 38 ? `${name.substr(0, 34)}...` : name}
+                {name.length > 38 ? `${name.substr(0, 32)}...` : name}
               </div>
             </Link>
             <div className="site-card-star-container">
-              <Icon name ="star" className="star" size="small"/> 0 people have saved this 
+              <Icon name ="star" className="star" size="small"/> {parseInt(saves) === 1 ? ('1 person has saved this') : (`${saves} people have saved this`)}
             </div>
           </div>
         </div>

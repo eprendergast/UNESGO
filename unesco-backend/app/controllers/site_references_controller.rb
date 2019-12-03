@@ -8,7 +8,6 @@ class SiteReferencesController < ApplicationController
         response.each do |site|
             site_reference = SiteReference.find_by(site_id: site["id"])
             site["tags"] = site_reference.tags.map{|tag| tag.name }
-            site["no_of_bucketlist"]
         end
 
         render json: response
@@ -19,6 +18,7 @@ class SiteReferencesController < ApplicationController
         response = API.get_site(site.site_id)
         site_reference = SiteReference.find_by(site_id: response["id"])
         response["tags"] = site_reference.tags.map{|tag| tag.name }
+        response["saves"] = site_reference.user_bucketlists.length + site_reference.user_visiteds.length
         render json: response
     end
 
@@ -27,6 +27,7 @@ class SiteReferencesController < ApplicationController
         response.each do |site|
             site_reference = SiteReference.find_by(site_id: site["id"])
             site["tags"] = site_reference.tags.map{|tag| tag.name }
+            site["saves"] = site_reference.user_bucketlists.length + site_reference.user_visiteds.length
         end
         render json: response
     end
@@ -43,6 +44,12 @@ class SiteReferencesController < ApplicationController
 
         render json: response
 
+    end
+
+    def saves 
+        site = SiteReference.find_by(site_id: params[:id])
+        saves = (site.user_bucketlists.length + site.user_visiteds.length)
+        render json: saves
     end
 
 end

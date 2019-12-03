@@ -1,11 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import AuthenticationModal from '../modals/AuthenticationModal'
 import SignInModal from '../archive/SignInModal'
 
 import logo from '../images/unesco-logo.png'
 import name from '../images/unesgo4.png'
 import profile_photo from '../images/profile-photo-placheolder.png'
+import { Search } from 'semantic-ui-react'
+import SearchBar from './SearchBar'
 
 class NavBar extends React.Component {
   linksToRender = () => {
@@ -64,6 +66,9 @@ class NavBar extends React.Component {
             <img className='navbar-name' src={name} alt='UNESGO Name' />
           </div>
         </Link>
+        {/* <div className="nav-bar-search-container"> 
+          <SearchBar {...this.routerProps} />
+        </div> */}
 
         {this.linksToRender()}
 
@@ -72,4 +77,4 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar
+export default withRouter(NavBar)

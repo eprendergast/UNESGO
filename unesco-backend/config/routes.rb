@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get '/sites', to: 'site_references#sites'
   get '/sites/:id', to: 'site_references#site'
+  get '/sites/:id/saves', to: 'site_references#saves'
   get '/sites/search/:query', to: 'site_references#search'
   get '/sites/search_by_tag/:tag', to: 'site_references#search_by_tag'
 

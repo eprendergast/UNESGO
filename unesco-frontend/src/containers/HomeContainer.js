@@ -2,7 +2,7 @@ import React from 'react'
 import API from '../API'
 import SitesContainer from './SitesContainer'
 import { Header, Icon } from 'semantic-ui-react'
-import background_image from '../images/poland.jpg'
+import background_image from '../images/landing-page-image.jpg'
 import SearchBar from '../components/SearchBar'
 import { PulseLoader } from 'react-spinners'
 import sampleSites from '../data/sampleSites'
@@ -44,24 +44,35 @@ class HomeContainer extends React.Component {
     return (
       <div className="page-content-container">
 
-        <div className="home-image-container">
-          <img 
-            className="home-image"
-            src="https://images.unsplash.com/photo-1564748250444-fb69f41b9415?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" 
-            alt="Image" 
-          />
-          <div class="home-details-container">
-            <div className="home-header"> Welcome to UNESGO </div>
-            <div className="home-sub-header"> Explore UNESCO World Heritage Sites around the world </div>
-            <SearchBar {...this.routerProps} />
+
+          
+          <div className="home-header-image-container">
+            
+            <div className="home-header-content-container-flex">
+                <div className="welcome-to">
+                  WELCOME TO
+                </div>
+                <div className="unesgo-large">
+                  UNESGO
+                </div>
+                <div className="unesgo-tagline">
+                  Discover UNESCO World Heritage Sites from around the world
+                </div>
+            </div>
+
+            <div className="home-header-content-container-flex">
+              <SearchBar {...this.routerProps} />
+            </div>
+            
           </div>
-        </div>
+          
+
 
         <div className="sample-sites-container">
           
           <div className="region-sites-container">
             <div className="primary-header-container">
-              Africa
+              Explore Africa
             </div>
             <div className="sub-header-container">
               Wildlife, medinas, and ancient wonders...
@@ -82,7 +93,7 @@ class HomeContainer extends React.Component {
 
           <div className="region-sites-container">
             <div className="primary-header-container">
-              Arab States
+              Explore Arab States
             </div>
             <div className="sub-header-container">
               Rich in history and beauty...
@@ -103,7 +114,7 @@ class HomeContainer extends React.Component {
 
           <div className="region-sites-container">
             <div className="primary-header-container">
-              Asia and the Pacific
+              Explore Asia and the Pacific
             </div>
             <div className="sub-header-container">
               Rugged landscapes and fascinating history...
@@ -124,7 +135,7 @@ class HomeContainer extends React.Component {
 
           <div className="region-sites-container">
             <div className="primary-header-container">
-              Europe and North America
+              Explore Europe and North America
             </div>
             <div className="sub-header-container">
               Something about ancient churches...
@@ -145,7 +156,7 @@ class HomeContainer extends React.Component {
 
           <div className="region-sites-container">
             <div className="primary-header-container">
-              Latin America and the Caribbean
+              Explore Latin America and the Caribbean
             </div>
             <div className="sub-header-container">
               Biodiversity and stuff...
@@ -228,3 +239,16 @@ export default HomeContainer
               src={background_image}
               style={{ width: 'auto', height: '600px', borderRadius: '10px' }}
             /> */}
+
+                    {/* <div className="home-header-container">
+          <div className="home-image-container">
+            <img className="home-image" src={background_image}/>
+          </div>
+          <div class="home-details-container">
+            <div className="home-header"> Welcome to UNESGO </div>
+            <div className="home-sub-header"> 
+            Discover UNESCO World Heritage Sites around the world </div>
+            <SearchBar {...this.routerProps} />
+          </div>
+
+        </div> */}

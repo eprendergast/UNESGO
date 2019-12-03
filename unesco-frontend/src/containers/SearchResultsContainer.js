@@ -51,21 +51,22 @@ class SearchResultsContainer extends React.Component {
     const { sites, searchCriteria, loading } = this.state
 
     return (
-      <div className="page-content-container">
+      <div className='page-content-container'>
         {loading ? (
           <PulseLoader />
         ) : (
           <div>
-            <div className="primary-header-container">
+            <div className='primary-header-container'>
               {`Displaying results for '${searchCriteria}'`}
             </div>
-            <SearchBar/>
+            <SearchBar {...this.routerProps} />
             <SitesContainer
               sites={sites}
               visited={visited}
               bucketlist={bucketlist}
               addBucketlistSiteToState={addBucketlistSiteToState}
-              addVisitedSiteToState={addVisitedSiteToState}              removeBucketlistSiteFromState={removeBucketlistSiteFromState}
+              addVisitedSiteToState={addVisitedSiteToState}
+              removeBucketlistSiteFromState={removeBucketlistSiteFromState}
               removeVisitedSiteFromState={removeVisitedSiteFromState}
             />
           </div>
