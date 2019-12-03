@@ -29,14 +29,28 @@ class NavBar extends React.Component {
       return (
         <div className='navbar-links-container'>
           <div className='navbar-button-container'>
-            <SignUpModal signin={signin} signup={signup} />
+            {/* <div className="navbar-button"> */}
+              <SignUpModal signin={signin} signup={signup} modalTrigger={this.signUpButton}/>
+            {/* </div> */}
           </div>
           <div className='navbar-button-container'>
-            <SignInModal signin={signin} />
+            <SignInModal signin={signin} modalTrigger={this.loginButton}/>
           </div>
         </div>
       )
     }
+  }
+
+  signUpButton = () => {
+    return(
+      <button className='navbar-button'>Sign up</button>
+    )
+  }
+
+  loginButton = () => {
+    return(
+      <button className='navbar-button'>Login</button>
+    )
   }
 
   render () {
