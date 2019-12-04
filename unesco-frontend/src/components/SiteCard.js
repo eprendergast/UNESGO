@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import API from '../API'
 import { Icon } from 'semantic-ui-react'
+import AuthenticationModal from '../modals/AuthenticationModal'
 
 class SiteCard extends React.Component {
 
@@ -31,9 +32,6 @@ class SiteCard extends React.Component {
 
   handleAddToVisited = site => {
     API.addToVisited(site.id).then(this.props.addVisitedSiteToState)
-    // this.setState({
-    //   saves: this.state.saves + 1
-    // })
   }
 
   handleRemoveFromVisited = site_id => {
@@ -41,14 +39,34 @@ class SiteCard extends React.Component {
   }
 
   addToBucketlistButton = () => {
-    return (
-      <button
-        className='active-button'
-        onClick={() => this.handleAddToBucketlist(this.props.site)}
-      >
-        Save to bucketlist
-      </button>
-    )
+
+    const modalTrigger = () => {
+      return  <button
+         className='active-button'
+       >
+         Save to bucketlist
+       </button>
+     }
+
+     if (!localStorage.getItem('token') ) {
+      return <AuthenticationModal 
+        signup={this.props.signup}
+        signin={this.props.signin}
+        modalTrigger={modalTrigger}
+        status={'login'}
+      />
+    } else {
+      return (
+        <button
+          className='active-button'
+          onClick={() => this.handleAddToBucketlist(this.props.site)}
+        >
+          Save to bucketlist
+        </button>
+      )
+    }
+
+    
   }
 
   removeFromBucketlistButton = () => {
@@ -63,14 +81,33 @@ class SiteCard extends React.Component {
   }
 
   addToVisitedButton = () => {
-    return (
-      <button
+
+    const modalTrigger = () => {
+     return  <button
         className='active-button'
-        onClick={() => this.handleAddToVisited(this.props.site)}
       >
         Save to visited
       </button>
-    )
+    }
+
+    if (!localStorage.getItem('token') ) {
+      return <AuthenticationModal 
+        signup={this.props.signup}
+        signin={this.props.signin}
+        modalTrigger={modalTrigger}
+        status={'login'}
+      />
+    } else {
+      return (
+        <button
+          className='active-button'
+          onClick={() => this.handleAddToVisited(this.props.site)}
+        >
+          Save to visited
+        </button>
+      )
+    }
+    
   }
 
   removeFromVisitedButton = () => {

@@ -173,14 +173,12 @@ class SiteContainer extends React.Component {
                   
                 <div className='site-sub-details-container-buttons'>
                   <div className='site-primary-button'>
-                    {/* <Icon color='black' name='star outline' /> */}
                     <div className='site-primary-button-text'>
                       Save to bucketlist
                     </div>
                   </div>
 
                   <div className='site-primary-button'>
-                    {/* <Icon name='x' /> */}
                     <div className='site-primary-button-text'>
                       Save to visited
                     </div>
@@ -189,8 +187,8 @@ class SiteContainer extends React.Component {
 
                 <div className="underline"></div>
                     
-                <div className='site-description-link-container'>
-                    <a className="site-description-link-" href={http_url} target='_blank'>
+                <div className='unesco-link-container'>
+                    <a className="unesco-link" href={http_url} target='_blank'>
                       <Icon name='external alternate' />
                       Learn more
                     </a>

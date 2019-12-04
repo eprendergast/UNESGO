@@ -176,6 +176,8 @@ class App extends React.Component {
               render={routerProps => (
                 <HomeContainer
                   {...routerProps}
+                  signup={signup}
+                  signin={signin}
                   europe_and_north_america={europe_and_north_america}
                   latin_america_and_the_caribbean={latin_america_and_the_caribbean}
                   africa={africa}
@@ -195,6 +197,8 @@ class App extends React.Component {
               render={routerProps => (
                 <SearchResultsContainer
                   {...routerProps}
+                  signup={signup}
+                  signin={signin}
                   visited={visited}
                   bucketlist={bucketlist}
                   addBucketlistSiteToState={addBucketlistSiteToState}
@@ -211,6 +215,8 @@ class App extends React.Component {
               render={routerProps => (
                 <SearchResultsContainer
                   {...routerProps}
+                  signup={signup}
+                  signin={signin}
                   visited={visited}
                   bucketlist={bucketlist}
                   addBucketlistSiteToState={addBucketlistSiteToState}
@@ -228,6 +234,8 @@ class App extends React.Component {
               render={routerProps => <SiteContainer {...routerProps} 
               bucketlist={bucketlist}
               visited={visited}
+              signup={signup}
+              signin={signin}
               addBucketlistSiteToState={addBucketlistSiteToState}
               addVisitedSiteToState={addVisitedSiteToState}
               removeBucketlistSiteFromState={removeBucketlistSiteFromState}

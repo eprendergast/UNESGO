@@ -2,7 +2,6 @@ import React from 'react'
 import { Modal } from 'semantic-ui-react'
 import SignUpForm from '../components/SignUpForm'
 import SignInForm from '../components/SignInForm'
-import SignInModal from '../archive/SignInModal'
 
 class AuthenticationModal extends React.Component {
   constructor (props) {

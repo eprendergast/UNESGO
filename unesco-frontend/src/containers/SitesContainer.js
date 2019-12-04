@@ -8,7 +8,9 @@ const SitesContainer = ({
   addBucketlistSiteToState,
   addVisitedSiteToState,
   removeBucketlistSiteFromState,
-  removeVisitedSiteFromState
+  removeVisitedSiteFromState,
+  signin,
+  signup
 }) => {
   return (
     <div className='sites-container'>
@@ -16,6 +18,8 @@ const SitesContainer = ({
         <SiteCard
           key={site.id}
           site={site}
+          signup={signup}
+          signin={signin}
           bucketlist={bucketlist.map(site => site.id).includes(site.id)}
           visited={visited.map(site => site.id).includes(site.id)}
           addBucketlistSiteToState={addBucketlistSiteToState}
