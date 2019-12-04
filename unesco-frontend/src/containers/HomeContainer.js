@@ -6,17 +6,19 @@ import background_image from '../images/landing-page-image.jpg'
 import SearchBar from '../components/SearchBar'
 import { PulseLoader } from 'react-spinners'
 import sampleSites from '../data/sampleSites'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import LoadingContainer from './LoadingContainer'
 
 class HomeContainer extends React.Component {
   state = {
     loading: true
   }
 
-  componentDidMount(){
-    this.props.africa && this.setState({
-      loading: false
-    })
+  componentDidMount () {
+    this.props.africa &&
+      this.setState({
+        loading: false
+      })
   }
 
   snakeCaseRegion = region => {
@@ -41,40 +43,32 @@ class HomeContainer extends React.Component {
       removeVisitedSiteFromState
     } = this.props
 
+    const { loading } = this.state
+
     return (
-      <div className="page-content-container">
+      <div className='page-content-container'>
 
-
-          
-          <div className="home-header-image-container">
-            
-            <div className="home-header-content-container-flex">
-                <div className="welcome-to">
-                  WELCOME TO
-                </div>
-                <div className="unesgo-large">
-                  UNESGO
-                </div>
-                <div className="unesgo-tagline">
-                  Discover UNESCO World Heritage Sites from around the world
-                </div>
+        {loading ? <LoadingContainer/> : 
+        
+        (<div>
+        <div className='home-header-image-container'>
+          <div className='home-header-content-container-flex'>
+            <div className='welcome-to'>WELCOME TO</div>
+            <div className='unesgo-large'>UNESGO</div>
+            <div className='unesgo-tagline'>
+              Discover UNESCO World Heritage Sites from around the world
             </div>
-
-            <div className="home-header-content-container-flex">
-              <SearchBar {...this.routerProps} />
-            </div>
-            
           </div>
-          
 
+          <div className='home-header-content-container-flex'>
+            <SearchBar {...this.routerProps} />
+          </div>
+        </div>
 
-        <div className="sample-sites-container">
-          
-          <div className="region-sites-container">
-            <div className="primary-header-container">
-              Explore Africa
-            </div>
-            <div className="sub-header-container">
+        <div className='sample-sites-container'>
+          <div className='region-sites-container'>
+            <div className='primary-header-container'>Explore Africa</div>
+            <div className='sub-header-container'>
               Wildlife, medinas, and ancient wonders...
             </div>
             <SitesContainer
@@ -86,16 +80,20 @@ class HomeContainer extends React.Component {
               removeBucketlistSiteFromState={removeBucketlistSiteFromState}
               removeVisitedSiteFromState={removeVisitedSiteFromState}
             />
-            <div className="site-description-link-container">
-              <Link to={'/search/region=Africa'}> See more from Africa <Icon name="chevron right" size="small"/> </Link>
+            <div className='site-description-link-container'>
+              <Link to={'/search/region=Africa'}>
+                {' '}
+                See more from Africa <Icon
+                  name='chevron right'
+                  size='small'
+                />{' '}
+              </Link>
             </div>
           </div>
 
-          <div className="region-sites-container">
-            <div className="primary-header-container">
-              Explore Arab States
-            </div>
-            <div className="sub-header-container">
+          <div className='region-sites-container'>
+            <div className='primary-header-container'>Explore Arab States</div>
+            <div className='sub-header-container'>
               Rich in history and beauty...
             </div>
             <SitesContainer
@@ -107,16 +105,20 @@ class HomeContainer extends React.Component {
               removeBucketlistSiteFromState={removeBucketlistSiteFromState}
               removeVisitedSiteFromState={removeVisitedSiteFromState}
             />
-            <div className="site-description-link-container">
-              <Link to={'/search/region=Arab+States'}> See more from Arab States <Icon name="chevron right" size="small"/> </Link>
+            <div className='site-description-link-container'>
+              <Link to={'/search/region=Arab+States'}>
+                {' '}
+                See more from Arab States{' '}
+                <Icon name='chevron right' size='small' />{' '}
+              </Link>
             </div>
           </div>
 
-          <div className="region-sites-container">
-            <div className="primary-header-container">
+          <div className='region-sites-container'>
+            <div className='primary-header-container'>
               Explore Asia and the Pacific
             </div>
-            <div className="sub-header-container">
+            <div className='sub-header-container'>
               Rugged landscapes and fascinating history...
             </div>
             <SitesContainer
@@ -128,16 +130,20 @@ class HomeContainer extends React.Component {
               removeBucketlistSiteFromState={removeBucketlistSiteFromState}
               removeVisitedSiteFromState={removeVisitedSiteFromState}
             />
-            <div className="site-description-link-container">
-              <Link to={'/search/region=Asia+and+the+Pacific'}> See more from Asia and the Pacific <Icon name="chevron right" size="small"/> </Link>
+            <div className='site-description-link-container'>
+              <Link to={'/search/region=Asia+and+the+Pacific'}>
+                {' '}
+                See more from Asia and the Pacific{' '}
+                <Icon name='chevron right' size='small' />{' '}
+              </Link>
             </div>
           </div>
 
-          <div className="region-sites-container">
-            <div className="primary-header-container">
+          <div className='region-sites-container'>
+            <div className='primary-header-container'>
               Explore Europe and North America
             </div>
-            <div className="sub-header-container">
+            <div className='sub-header-container'>
               Something about ancient churches...
             </div>
             <SitesContainer
@@ -149,16 +155,19 @@ class HomeContainer extends React.Component {
               removeBucketlistSiteFromState={removeBucketlistSiteFromState}
               removeVisitedSiteFromState={removeVisitedSiteFromState}
             />
-            <div className="site-description-link-container">
-              <Link to={'/search/region=Europe+and+North+America'}>See more from Europe and North America <Icon name="chevron right" size="small"/> </Link>
+            <div className='site-description-link-container'>
+              <Link to={'/search/region=Europe+and+North+America'}>
+                See more from Europe and North America{' '}
+                <Icon name='chevron right' size='small' />{' '}
+              </Link>
             </div>
           </div>
 
-          <div className="region-sites-container">
-            <div className="primary-header-container">
+          <div className='region-sites-container'>
+            <div className='primary-header-container'>
               Explore Latin America and the Caribbean
             </div>
-            <div className="sub-header-container">
+            <div className='sub-header-container'>
               Biodiversity and stuff...
             </div>
             <SitesContainer
@@ -170,17 +179,15 @@ class HomeContainer extends React.Component {
               removeBucketlistSiteFromState={removeBucketlistSiteFromState}
               removeVisitedSiteFromState={removeVisitedSiteFromState}
             />
-            <div className="site-description-link-container">
-              <Link to={'/search/region=Latin+America+and+the+Caribbean'}>See more from Latin America and the Caribbean <Icon name="chevron right" size="small"/> </Link>
+            <div className='site-description-link-container'>
+              <Link to={'/search/region=Latin+America+and+the+Caribbean'}>
+                See more from Latin America and the Caribbean{' '}
+                <Icon name='chevron right' size='small' />{' '}
+              </Link>
             </div>
           </div>
-
-          
-          
-
-
         </div>
-            
+        </div>)}
       </div>
     )
   }
@@ -188,7 +195,8 @@ class HomeContainer extends React.Component {
 
 export default HomeContainer
 
- {/* <Header as='h1'>Europe and North America</Header>
+{
+  /* <Header as='h1'>Europe and North America</Header>
             <SitesContainer
               sites={this.state.europe_and_north_america}
               visited={visited}
@@ -228,9 +236,11 @@ export default HomeContainer
               addVisitedSiteToState={addVisitedSiteToState}
               removeBucketlistSiteFromState={removeBucketlistSiteFromState}
               removeVisitedSiteFromState={removeVisitedSiteFromState}
-            /> */}
+            /> */
+}
 
-{/* <Header as='h1'>Welcome to UNESGO</Header>
+{
+  /* <Header as='h1'>Welcome to UNESGO</Header>
             <Header as='h3'>
               Explore UNESCO World Heritage Sites from around the world
             </Header>
@@ -238,17 +248,20 @@ export default HomeContainer
             <img
               src={background_image}
               style={{ width: 'auto', height: '600px', borderRadius: '10px' }}
-            /> */}
+            /> */
+}
 
-                    {/* <div className="home-header-container">
+{
+  /* <div className="home-header-container">
           <div className="home-image-container">
             <img className="home-image" src={background_image}/>
           </div>
           <div class="home-details-container">
             <div className="home-header"> Welcome to UNESGO </div>
-            <div className="home-sub-header"> 
+            <div className="home-sub-header">
             Discover UNESCO World Heritage Sites around the world </div>
             <SearchBar {...this.routerProps} />
           </div>
 
-        </div> */}
+        </div> */
+}

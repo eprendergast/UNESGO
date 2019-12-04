@@ -3,6 +3,7 @@ import API from '../API'
 import { Container, Header, Icon } from 'semantic-ui-react'
 import TagsContainer from './TagsContainer'
 import MapContainer from './MapContainer'
+import LoadingContainer from './LoadingContainer'
 
 class SiteContainer extends React.Component {
   state = {
@@ -16,7 +17,9 @@ class SiteContainer extends React.Component {
     API.getSite(this.props.match.params['id']).then(data =>
       this.setState({
         site: data,
-        bucketlist: this.props.bucketlist.map(site => site.id).includes(data.id),
+        bucketlist: this.props.bucketlist
+          .map(site => site.id)
+          .includes(data.id),
         visited: this.props.visited.map(site => site.id).includes(data.id),
         loading: false
       })
@@ -40,8 +43,6 @@ class SiteContainer extends React.Component {
     }
   }
 
-
-
   render () {
     const {
       name,
@@ -60,97 +61,146 @@ class SiteContainer extends React.Component {
 
     return (
       <div className='page-content-container'>
-        <div className='site-headings-container'>
-          <div className='site-name-heading-container'>{name}</div>
-          <div className='site-sub-headings-container'>
-            <div className='site-sub-heading-container'>
-              {states && states.map(state => state['name']).join(', ')}
-            </div>
-            <div className='site-sub-heading-container'>
-              {`|  ${region && region['name']}`}
-            </div>
-          </div>
-        </div>
+        {this.state.loading ? (
+          <LoadingContainer />
+        ) : (
+          <React.Fragment>
+            <div className='site-headings-container'>
+              <div className='site-headings-container-flex-1'>
+                <div className='site-name-heading-container'>{name}</div>
 
-        <div className='site-details-container'>
-          <div className='site-details-column-1-container'>
-            <div className='site-image-container'>
-              <img className='site-image' src={image_url} alt={name} />
-            </div>
+                <div className='site-sub-headings-container'>
 
-            <TagsContainer tags={tags} />
+                  <div className='site-sub-heading-container'>
+                    {states && states.map(state => state['name']).join(', ')}
+                  </div>
+                  <div className='site-sub-heading-container'>
+                    {`|  ${region && region['name']}`}
+                  </div>
 
-            <div className='site-description-container'>
-              <div className='site-description-container-header'>The Site</div>
-              <div className='site-description-text-container'>
-                {short_description}
-              </div>
-              {this.renderMapContainer()}
-              <div className='site-description-link-container'>
-                <a href={http_url} target='_blank'>
-                  Learn more
-                </a>
-              </div>
-            </div>
-          </div>
 
-          <div className='site-details-column-2-container'>
-
-            <div className='site-sub-details-container'>
-              <div className='site-detail-description'>
-                <Icon name='calendar alternate outline' /> DATE INSCRIBED
-              </div>
-              <div className='site-detail'>{date_inscribed}</div>
-            </div>
-
-            <div className='site-sub-details-container'>
-              <div className='site-detail-description'> <Icon name="sitemap"/> CATEGORY</div>
-              <div className='site-detail'>{category && category['name']}</div>
-            </div>
-
-            <div className='site-sub-details-container'>
-              <div className='site-detail-description'>
-                <Icon name='location arrow' />{' '}
-                {states && (states.length > 1 ? `COUNTRIES` : `COUNTRY`)}
-              </div>
-              <div className='site-detail'>
-                {states && states.map(state => state['name']).join(', ')}
+                </div>
               </div>
             </div>
 
-            <div className='site-sub-details-container'>
-              <div className='site-detail-description'>
-                <Icon name='world' /> REGION
+            <div className='site-details-container'>
+              <div className='site-details-column-1-container'>
+                <div className='site-image-container'>
+                  <img className='site-image' src={image_url} alt={name} />
+                </div>
+
+                <TagsContainer tags={tags} />
+
+                <div className='site-description-container'>
+                  <div className='site-description-container-header'>
+                    The Site
+                  </div>
+                  <div className='site-description-text-container'>
+                    {short_description}
+                  </div>
+                  {this.renderMapContainer()}
+                </div>
               </div>
-              <div className='site-detail'>{region && region['name']}</div>
-            </div>
 
-            <div className='site-sub-details-container'>
-              <div className='site-detail-description'> <Icon name="arrows alternate vertical"/> LONGITUDE</div>
-              <div className='site-detail'>{longitude}</div>
-            </div>
+              <div className='site-details-column-2-container'>
 
-            <div className='site-sub-details-container'>
-              <div className='site-detail-description'> <Icon name="arrows alternate horizontal"/>LATTITUDE</div>
-              <div className='site-detail'>{latitude}</div>
-            </div>
+                <div className='site-sub-details-container'>
+                  <div className='site-detail-description'>
+                    <Icon name='calendar alternate outline' /> DATE INSCRIBED
+                  </div>
+                  <div className='site-detail'>{date_inscribed}</div>
+                </div>
 
-            <div className='site-sub-details-container'>
-              <div className='site-detail-description'>
-                <Icon name="barcode"/> {iso_codes &&
-                  (iso_codes.length > 1 ? `COUNTRY CODES` : `COUNTRY CODE`)}
+                <div className='site-sub-details-container'>
+                  <div className='site-detail-description'>
+                    {' '}
+                    <Icon name='sitemap' /> CATEGORY
+                  </div>
+                  <div className='site-detail'>
+                    {category && category['name']}
+                  </div>
+                </div>
+
+                <div className='site-sub-details-container'>
+                  <div className='site-detail-description'>
+                    <Icon name='location arrow' />{' '}
+                    {states && (states.length > 1 ? `COUNTRIES` : `COUNTRY`)}
+                  </div>
+                  <div className='site-detail'>
+                    {states && states.map(state => state['name']).join(', ')}
+                  </div>
+                </div>
+
+                <div className='site-sub-details-container'>
+                  <div className='site-detail-description'>
+                    <Icon name='world' /> REGION
+                  </div>
+                  <div className='site-detail'>{region && region['name']}</div>
+                </div>
+
+                <div className='site-sub-details-container'>
+                  <div className='site-detail-description'>
+                    {' '}
+                    <Icon name='arrows alternate vertical' /> LONGITUDE
+                  </div>
+                  <div className='site-detail'>{longitude}</div>
+                </div>
+
+                <div className='site-sub-details-container'>
+                  <div className='site-detail-description'>
+                    {' '}
+                    <Icon name='arrows alternate horizontal' />
+                    LATTITUDE
+                  </div>
+                  <div className='site-detail'>{latitude}</div>
+                </div>
+
+                <div className='site-sub-details-container'>
+                  <div className='site-detail-description'>
+                    <Icon name='barcode' />{' '}
+                    {iso_codes &&
+                      (iso_codes.length > 1 ? `COUNTRY CODES` : `COUNTRY CODE`)}
+                  </div>
+                  <div className='site-detail'>
+                    {iso_codes &&
+                      iso_codes
+                        .map(code => code['alpha_2_code'].toUpperCase())
+                        .join(', ')}
+                  </div>
+                </div>
+
+                <div className="underline"> </div>
+                  
+                <div className='site-sub-details-container-buttons'>
+                  <div className='site-primary-button'>
+                    {/* <Icon color='black' name='star outline' /> */}
+                    <div className='site-primary-button-text'>
+                      Save to bucketlist
+                    </div>
+                  </div>
+
+                  <div className='site-primary-button'>
+                    {/* <Icon name='x' /> */}
+                    <div className='site-primary-button-text'>
+                      Save to visited
+                    </div>
+                  </div>
+                </div>
+
+                <div className="underline"></div>
+                    
+                <div className='site-description-link-container'>
+                    <a className="site-description-link-" href={http_url} target='_blank'>
+                      <Icon name='external alternate' />
+                      Learn more
+                    </a>
+                </div>
+
+
               </div>
-              <div className='site-detail'>
-                {iso_codes &&
-                  iso_codes
-                    .map(code => code['alpha_2_code'].toUpperCase())
-                    .join(', ')}
-              </div>
             </div>
-
-            <div className='' />
-          </div>
-        </div>
+          </React.Fragment>
+        )}
       </div>
     )
   }

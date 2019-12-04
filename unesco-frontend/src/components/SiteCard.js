@@ -46,7 +46,7 @@ class SiteCard extends React.Component {
         className='active-button'
         onClick={() => this.handleAddToBucketlist(this.props.site)}
       >
-        Save to Bucketlist
+        Save to bucketlist
       </button>
     )
   }
@@ -57,7 +57,7 @@ class SiteCard extends React.Component {
         className='passive-button'
         onClick={() => this.handleRemoveFromBucketlist(this.props.site.id)}
       >
-        Remove from Bucketlist
+        Remove from bucketlist
       </button>
     )
   }
@@ -68,7 +68,7 @@ class SiteCard extends React.Component {
         className='active-button'
         onClick={() => this.handleAddToVisited(this.props.site)}
       >
-        Save to Visited
+        Save to visited
       </button>
     )
   }
@@ -79,7 +79,7 @@ class SiteCard extends React.Component {
         className='passive-button'
         onClick={() => this.handleRemoveFromVisited(this.props.site.id)}
       >
-        Remove from Visited
+        Remove from visited
       </button>
     )
   }
