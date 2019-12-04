@@ -5,18 +5,35 @@ import API from '../API'
 import { Icon } from 'semantic-ui-react'
 
 class SiteCard extends React.Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      saves: this.props.site.saves
+    }
+  }
+
   handleAddToBucketlist = site => {
     API.addToBucketlist(site.id).then(this.props.addBucketlistSiteToState)
+    this.setState({
+      saves: this.state.saves + 1
+    })
   }
 
   handleRemoveFromBucketlist = site_id => {
     API.removeFromBucketlist(site_id).then(
       this.props.removeBucketlistSiteFromState
     )
+    this.setState({
+      saves: this.state.saves - 1
+    })
   }
 
   handleAddToVisited = site => {
     API.addToVisited(site.id).then(this.props.addVisitedSiteToState)
+    // this.setState({
+    //   saves: this.state.saves + 1
+    // })
   }
 
   handleRemoveFromVisited = site_id => {
@@ -93,7 +110,8 @@ class SiteCard extends React.Component {
   }
 
   render () {
-    const { id, name, image_url, states, saves } = this.props.site
+    const { id, name, image_url, states} = this.props.site
+    const {saves} = this.state
 
     return (
       <div className='site-card-container'>

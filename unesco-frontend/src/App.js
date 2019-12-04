@@ -20,8 +20,7 @@ class App extends React.Component {
     latin_america_and_the_caribbean: [],
     africa: [],
     asia_and_the_pacific: [],
-    arab_states: [],
-    loading: true
+    arab_states: []
   }
 
   componentDidMount () {
@@ -31,7 +30,6 @@ class App extends React.Component {
         .then(data => {
           if (data.error) throw Error(data.error)
           this.signin(data)
-          this.getBucketlistAndVisited(data.id)
         })
         .catch(error => console.log(error))
     }
@@ -43,7 +41,7 @@ class App extends React.Component {
       {
         user_id: user.id,
         first_name: user.first_name
-      }
+      }, () => this.getBucketlistAndVisited(user.id)
     )
     localStorage.setItem('token', user.token)
   }
@@ -117,6 +115,23 @@ class App extends React.Component {
     console.log('SIGN UP')
   }
 
+  getSearchResults = (url) => {
+    API.search(url).then(data => {
+      this.setState({
+        ...this.state,
+        search_results: data,
+        search_criteria: url
+        .split('=')[1]
+        .split('+')
+        .join(' '),
+      })
+    })
+  }
+
+  getSearchByTagResults = (tag) => {
+
+  }
+
   render () {
     const {
       signup,
@@ -125,19 +140,23 @@ class App extends React.Component {
       addBucketlistSiteToState,
       addVisitedSiteToState,
       removeBucketlistSiteFromState,
-      removeVisitedSiteFromState
+      removeVisitedSiteFromState, 
+      getSearchResults,
+      getSearchByTagResults
     } = this
+    
     const {
       user_id,
       first_name,
-      // sites,
       bucketlist,
       visited,
       europe_and_north_america,
       latin_america_and_the_caribbean,
       africa,
       asia_and_the_pacific,
-      arab_states
+      arab_states,
+      search_results,
+      search_criteria
     } = this.state
 
     return (
@@ -154,7 +173,7 @@ class App extends React.Component {
             <Route
               exact
               path='/'
-              component={routerProps => (
+              render={routerProps => (
                 <HomeContainer
                   {...routerProps}
                   europe_and_north_america={europe_and_north_america}
@@ -173,7 +192,7 @@ class App extends React.Component {
             />
             <Route
               path='/search/:query'
-              component={routerProps => (
+              render={routerProps => (
                 <SearchResultsContainer
                   {...routerProps}
                   visited={visited}
@@ -182,12 +201,14 @@ class App extends React.Component {
                   addVisitedSiteToState={addVisitedSiteToState}
                   removeBucketlistSiteFromState={removeBucketlistSiteFromState}
                   removeVisitedSiteFromState={removeVisitedSiteFromState}
+                  getSearchResults={getSearchResults}
+                  getSearchByTagResults={getSearchByTagResults}
                 />
               )}
             />
             <Route
               path='/search_by_tag/:tag'
-              component={routerProps => (
+              render={routerProps => (
                 <SearchResultsContainer
                   {...routerProps}
                   visited={visited}
@@ -196,13 +217,23 @@ class App extends React.Component {
                   addVisitedSiteToState={addVisitedSiteToState}
                   removeBucketlistSiteFromState={removeBucketlistSiteFromState}
                   removeVisitedSiteFromState={removeVisitedSiteFromState}
+                  getSearchResults={getSearchResults}
+                  getSearchByTagResults={getSearchByTagResults}
                 />
               )}
             />
 
             <Route
               path='/sites/:id'
-              component={routerProps => <SiteContainer {...routerProps} />}
+              render={routerProps => <SiteContainer {...routerProps} 
+              bucketlist={bucketlist}
+              visited={visited}
+              addBucketlistSiteToState={addBucketlistSiteToState}
+              addVisitedSiteToState={addVisitedSiteToState}
+              removeBucketlistSiteFromState={removeBucketlistSiteFromState}
+              removeVisitedSiteFromState={removeVisitedSiteFromState}
+              />}
+              
             />
 
             <Route

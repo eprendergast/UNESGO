@@ -43,7 +43,12 @@ class UsersController < ApplicationController
 
     def bucketlist
         user = User.find_by(id: params[:id])
-        render json: user.bucketlist_sites
+        sites = user.bucketlist_sites
+        sites.each do |site|
+            site_reference = SiteReference.find_by(site_id: site["id"])
+            site["saves"] = site_reference.user_bucketlists.length + site_reference.user_visiteds.length
+        end
+        render json: sites
     end
 
     def bucketlist_site_ids
@@ -53,7 +58,12 @@ class UsersController < ApplicationController
 
     def visited
         user = User.find_by(id: params[:id])
-        render json: user.visited_sites
+        sites = user.visited_sites
+        sites.each do |site|
+            site_reference = SiteReference.find_by(site_id: site["id"])
+            site["saves"] = site_reference.user_bucketlists.length + site_reference.user_visiteds.length
+        end
+        render json: sites
     end
 
     def visited_site_ids

@@ -7,6 +7,8 @@ import MapContainer from './MapContainer'
 class SiteContainer extends React.Component {
   state = {
     site: {},
+    bucketlist: false,
+    visited: false,
     loading: true
   }
 
@@ -14,6 +16,8 @@ class SiteContainer extends React.Component {
     API.getSite(this.props.match.params['id']).then(data =>
       this.setState({
         site: data,
+        bucketlist: this.props.bucketlist.map(site => site.id).includes(data.id),
+        visited: this.props.visited.map(site => site.id).includes(data.id),
         loading: false
       })
     )
@@ -35,6 +39,8 @@ class SiteContainer extends React.Component {
       )
     }
   }
+
+
 
   render () {
     const {
@@ -89,6 +95,7 @@ class SiteContainer extends React.Component {
           </div>
 
           <div className='site-details-column-2-container'>
+
             <div className='site-sub-details-container'>
               <div className='site-detail-description'>
                 <Icon name='calendar alternate outline' /> DATE INSCRIBED
@@ -130,7 +137,7 @@ class SiteContainer extends React.Component {
 
             <div className='site-sub-details-container'>
               <div className='site-detail-description'>
-                {iso_codes &&
+                <Icon name="barcode"/> {iso_codes &&
                   (iso_codes.length > 1 ? `COUNTRY CODES` : `COUNTRY CODE`)}
               </div>
               <div className='site-detail'>
