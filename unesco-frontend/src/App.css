@@ -226,7 +226,6 @@
   background-image: url('./images/landing-page-image.jpg');
   background-size: cover;
   border-radius: 6px;
-  /* position: absolute; */
   display: flex;
 }
 
@@ -241,27 +240,28 @@
 
 .welcome-to {
   font-family: 'AirbnbCerealMedium';
-  font-size: 14px;
+  font-size: 16px;
   padding: 12px;
   color: white;
-  box-sizing: border-box;
 }
 
 .unesgo-large {
   font-family: 'AirbnbCerealMedium';
-  font-size: 100px;
-  padding: 12px;
+  font-size: 112px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 12px;
   color: white;
-  box-sizing: border-box;
+  /* height: 300px; */
 }
 
 .unesgo-tagline {
   font-family: 'AirbnbCerealMedium';
-  font-size: 14px;
+  font-size: 16px;
   padding: 12px;
+  margin-left: 8px;
   /* padding-right: 50px; */
   color: white;
-  box-sizing: border-box;
 }
 
 .sample-sites-container {
@@ -519,7 +519,7 @@ font-family: 'AirbnbCerealMedium'; */
   padding-left: 8px;
   padding-top: 8px;
   padding-right: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
 }
 
 .site-card-image-container {
@@ -571,17 +571,19 @@ font-family: 'AirbnbCerealMedium'; */
   border-radius: 5px;
   color: white;
   font-family: 'AirbnbCerealMedium';
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   padding-left: 18px;
   padding-right: 18px;
   font-size: 12px;
   margin: 4px;
-  width: 150px;
+  width: 160px;
+  opacity: 0.9;
 }
 
 .active-button:hover{
   cursor: pointer;
+  opacity: 1;
 }
 
 .passive-button {
@@ -589,14 +591,16 @@ font-family: 'AirbnbCerealMedium'; */
   border: var(--light-grey-border);
   border-radius: 5px;
   font-family: 'AirbnbCerealMedium';
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 12px;
-  width: 150px;
+  width: 160px;
+  opacity: 0.9;
 }
 
 .passive-button:hover{
   cursor: pointer;
+  opacity: 1;
 }
 
 .site-card-details-container {

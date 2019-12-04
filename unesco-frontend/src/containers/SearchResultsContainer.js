@@ -49,7 +49,9 @@ class SearchResultsContainer extends React.Component {
       addBucketlistSiteToState,
       addVisitedSiteToState,
       removeBucketlistSiteFromState,
-      removeVisitedSiteFromState
+      removeVisitedSiteFromState,
+      signup,
+      signin
     } = this.props
 
     const { sites, searchCriteria, loading } = this.state
@@ -65,6 +67,8 @@ class SearchResultsContainer extends React.Component {
             </div>
             <SearchBar {...this.routerProps} />
             <SitesContainer
+              signup={signup}
+              signin={signin}
               sites={sites}
               visited={visited}
               bucketlist={bucketlist}

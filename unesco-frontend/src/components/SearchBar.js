@@ -65,7 +65,7 @@ class SearchBar extends React.Component {
       case 'state':
         return this.stateOptions()
       default: 
-        return categories
+        return ''
     }
   }
 
@@ -75,7 +75,7 @@ class SearchBar extends React.Component {
           <Form.Field>
             <input
               name='keywords'
-              placeholder="Try 'architecture'"
+              placeholder="Try 'Architecture'"
               value={this.state.keywords}
             />
           </Form.Field>
