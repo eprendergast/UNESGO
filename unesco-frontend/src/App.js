@@ -9,6 +9,7 @@ import NavBar from './components/NavBar'
 import API from './API'
 import SiteContainer from './containers/SiteContainer'
 import sampleSites from './data/sampleSites'
+import Footer from './components/Footer'
 
 class App extends React.Component {
   state = {
@@ -250,6 +251,7 @@ class App extends React.Component {
             />
             <Route component={() => <div className="not-found">Page Not Found</div>} />
           </Switch>
+                <Footer/>
         </div>
       </Router>
     )

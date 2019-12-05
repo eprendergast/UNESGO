@@ -81,12 +81,12 @@ class HomeContainer extends React.Component {
                   removeVisitedSiteFromState={removeVisitedSiteFromState}
                 />
                 <div className='site-description-link-container'>
-                <div className="site-description-link-container-text">
-                  <Link to={'/search/region=Africa'}>
-                    {' '}
-                    See more from Africa{' '}
-                    <Icon name='chevron right' size='small' />{' '}
-                  </Link>
+                  <div className='site-description-link-container-text'>
+                    <Link to={'/search/region=Africa'}>
+                      {' '}
+                      See more from Africa{' '}
+                      <Icon name='chevron right' size='small' />{' '}
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -99,6 +99,8 @@ class HomeContainer extends React.Component {
                   Rich in history and beauty...
                 </div>
                 <SitesContainer
+                  signup={signup}
+                  signin={signin}
                   sites={arab_states}
                   visited={visited}
                   bucketlist={bucketlist}
@@ -108,10 +110,11 @@ class HomeContainer extends React.Component {
                   removeVisitedSiteFromState={removeVisitedSiteFromState}
                 />
                 <div className='site-description-link-container'>
-                  <div className="site-description-link-container-text">
-                  <Link to={'/search/region=Arab+States'}>
-                    See more from Arab States <Icon name='chevron right' size='small' />{' '}
-                  </Link>
+                  <div className='site-description-link-container-text'>
+                    <Link to={'/search/region=Arab+States'}>
+                      See more from Arab States{' '}
+                      <Icon name='chevron right' size='small' />{' '}
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -124,6 +127,8 @@ class HomeContainer extends React.Component {
                   Rugged landscapes and fascinating history...
                 </div>
                 <SitesContainer
+                  signup={signup}
+                  signin={signin}
                   sites={asia_and_the_pacific}
                   visited={visited}
                   bucketlist={bucketlist}
@@ -133,12 +138,12 @@ class HomeContainer extends React.Component {
                   removeVisitedSiteFromState={removeVisitedSiteFromState}
                 />
                 <div className='site-description-link-container'>
-                <div className="site-description-link-container-text">
-                  <Link to={'/search/region=Asia+and+the+Pacific'}>
-                    {' '}
-                    See more from Asia and the Pacific{' '}
-                    <Icon name='chevron right' size='small' />{' '}
-                  </Link>
+                  <div className='site-description-link-container-text'>
+                    <Link to={'/search/region=Asia+and+the+Pacific'}>
+                      {' '}
+                      See more from Asia and the Pacific{' '}
+                      <Icon name='chevron right' size='small' />{' '}
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -151,6 +156,8 @@ class HomeContainer extends React.Component {
                   Historic architecture and stunning landscapes...
                 </div>
                 <SitesContainer
+                  signup={signup}
+                  signin={signin}
                   sites={europe_and_north_america}
                   visited={visited}
                   bucketlist={bucketlist}
@@ -160,11 +167,11 @@ class HomeContainer extends React.Component {
                   removeVisitedSiteFromState={removeVisitedSiteFromState}
                 />
                 <div className='site-description-link-container'>
-                <div className="site-description-link-container-text">
-                  <Link to={'/search/region=Europe+and+North+America'}>
-                    See more from Europe and North America{' '}
-                    <Icon name='chevron right' size='small' />{' '}
-                  </Link>
+                  <div className='site-description-link-container-text'>
+                    <Link to={'/search/region=Europe+and+North+America'}>
+                      See more from Europe and North America{' '}
+                      <Icon name='chevron right' size='small' />{' '}
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -177,6 +184,8 @@ class HomeContainer extends React.Component {
                   Biodiversity found no where else...
                 </div>
                 <SitesContainer
+                  signup={signup}
+                  signin={signin}
                   sites={latin_america_and_the_caribbean}
                   visited={visited}
                   bucketlist={bucketlist}
@@ -186,11 +195,11 @@ class HomeContainer extends React.Component {
                   removeVisitedSiteFromState={removeVisitedSiteFromState}
                 />
                 <div className='site-description-link-container'>
-                <div className="site-description-link-container-text">
-                  <Link to={'/search/region=Latin+America+and+the+Caribbean'}>
-                    See more from Latin America and the Caribbean{' '}
-                    <Icon name='chevron right' size='small' />{' '}
-                  </Link>
+                  <div className='site-description-link-container-text'>
+                    <Link to={'/search/region=Latin+America+and+the+Caribbean'}>
+                      See more from Latin America and the Caribbean{' '}
+                      <Icon name='chevron right' size='small' />{' '}
+                    </Link>
                   </div>
                 </div>
               </div>

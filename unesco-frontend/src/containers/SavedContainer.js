@@ -9,7 +9,7 @@ class SavedContainer extends React.Component {
 
   componentDidMount () {
     !localStorage.getItem('token') && this.props.history.push('/')
-    this.props.bucketlist && this.setState({ loading: false })
+    this.props && this.setState({ loading: false })
   }
 
   render () {
@@ -29,8 +29,11 @@ class SavedContainer extends React.Component {
 
         <React.Fragment>
         <div className='bucketlist-and-visited-content-container'>
+        <div className="bucketlist-and-visited-content-container-header">
           <div className='primary-header-container'>My Bucketlist</div>
-          <div>{`${bucketlist.length} sites on bucketlist`}</div>
+          <div className="number-saved-container">{`${bucketlist.length} sites on bucketlist`}</div>
+        </div>
+         
           <SitesContainer
             sites={bucketlist}
             bucketlist={bucketlist}
@@ -43,8 +46,11 @@ class SavedContainer extends React.Component {
         </div>
 
         <div className='bucketlist-and-visited-content-container'>
-          <div className='primary-header-container'>My Visited</div>
-          <div>{`${visited.length}/1120 sites visited`}</div>
+          <div className="bucketlist-and-visited-content-container-header">
+            <div className='primary-header-container'>My Visited</div>
+            <div className="number-saved-container ">{`${visited.length}/1120 sites visited`}</div>
+          </div>
+          
           <SitesContainer
             sites={visited}
             bucketlist={bucketlist}

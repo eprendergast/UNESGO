@@ -6,11 +6,10 @@ import { Icon } from 'semantic-ui-react'
 import AuthenticationModal from '../modals/AuthenticationModal'
 
 class SiteCard extends React.Component {
-
-  constructor(props){
+  constructor (props) {
     super(props)
     this.state = {
-      saves: this.props.site.saves
+      saves: this.props.site.saves || 1
     }
   }
 
@@ -32,29 +31,33 @@ class SiteCard extends React.Component {
 
   handleAddToVisited = site => {
     API.addToVisited(site.id).then(this.props.addVisitedSiteToState)
+    !this.bucketlist &&
+      this.setState({
+        saves: this.state.saves + 1
+      })
   }
 
   handleRemoveFromVisited = site_id => {
     API.removeFromVisited(site_id).then(this.props.removeVisitedSiteFromState)
+    this.setState({
+      saves: this.state.saves - 1
+    })
   }
 
   addToBucketlistButton = () => {
-
     const modalTrigger = () => {
-      return  <button
-         className='active-button'
-       >
-         Save to bucketlist
-       </button>
-     }
+      return <button className='active-button'>Save to bucketlist</button>
+    }
 
-     if (!localStorage.getItem('token') ) {
-      return <AuthenticationModal 
-        signup={this.props.signup}
-        signin={this.props.signin}
-        modalTrigger={modalTrigger}
-        status={'login'}
-      />
+    if (!localStorage.getItem('token')) {
+      return (
+        <AuthenticationModal
+          signup={this.props.signup}
+          signin={this.props.signin}
+          modalTrigger={modalTrigger}
+          status={'login'}
+        />
+      )
     } else {
       return (
         <button
@@ -65,8 +68,6 @@ class SiteCard extends React.Component {
         </button>
       )
     }
-
-    
   }
 
   removeFromBucketlistButton = () => {
@@ -81,22 +82,19 @@ class SiteCard extends React.Component {
   }
 
   addToVisitedButton = () => {
-
     const modalTrigger = () => {
-     return  <button
-        className='active-button'
-      >
-        Save to visited
-      </button>
+      return <button className='active-button'>Save to visited</button>
     }
 
-    if (!localStorage.getItem('token') ) {
-      return <AuthenticationModal 
-        signup={this.props.signup}
-        signin={this.props.signin}
-        modalTrigger={modalTrigger}
-        status={'login'}
-      />
+    if (!localStorage.getItem('token')) {
+      return (
+        <AuthenticationModal
+          signup={this.props.signup}
+          signin={this.props.signin}
+          modalTrigger={modalTrigger}
+          status={'login'}
+        />
+      )
     } else {
       return (
         <button
@@ -107,7 +105,6 @@ class SiteCard extends React.Component {
         </button>
       )
     }
-    
   }
 
   removeFromVisitedButton = () => {
@@ -147,8 +144,8 @@ class SiteCard extends React.Component {
   }
 
   render () {
-    const { id, name, image_url, states} = this.props.site
-    const {saves} = this.state
+    const { id, name, image_url, states } = this.props.site
+    const { saves } = this.state
 
     return (
       <div className='site-card-container'>
@@ -176,8 +173,11 @@ class SiteCard extends React.Component {
                 {name.length > 38 ? `${name.substr(0, 32)}...` : name}
               </div>
             </Link>
-            <div className="site-card-star-container">
-              <Icon name ="star" className="star" size="small"/> {parseInt(saves) === 1 ? ('1 person has saved this') : (`${saves} people have saved this`)}
+            <div className='site-card-star-container'>
+              <Icon name='star' className='star' size='small' />{' '}
+              {parseInt(saves) === 1
+                ? '1 person has saved this'
+                : `${saves} people have saved this`}
             </div>
           </div>
         </div>

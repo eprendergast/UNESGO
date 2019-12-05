@@ -134,6 +134,24 @@
 
 /* NAVBAR */
 
+.footer {
+  /* position: fixed; */
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: var(--secondary-grey);
+  text-align: center;
+  height: 80px;
+  border-top: var(--light-grey-border);
+  padding-top: 32px;
+  justify-content: space-around;
+}
+
+.footer-content-container {
+  height: 100%;
+}
+
 .navbar-container {
   /* position:fixed; */
   height: 80px;
@@ -254,11 +272,15 @@
 .unesgo-large {
   font-family: 'AirbnbCerealMedium';
   font-size: 112px;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding-top: 32px;
+  padding-bottom: 32px;
   padding-left: 12px;
   color: white;
   /* height: 300px; */
+}
+
+.unesgo-large span {
+  color: var(--primary-pink)
 }
 
 .unesgo-tagline {
@@ -664,6 +686,20 @@
   width: 50%;
 }
 
+.bucketlist-and-visited-content-container-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.number-saved-container {
+  font-size: 14px;
+  font-family: 'AirbnbCerealMedium';
+  padding-top: 24px;
+  padding-bottom: 24px;
+  margin-right: 32px;
+  color: var(--primary-grey)
+}
+
 .no-results-container {
   padding-top: 24px;
   font-family: 'AirbnbCerealMedium';
@@ -683,3 +719,4 @@
   justify-content: space-between;
   vertical-align: middle;
 }
+
