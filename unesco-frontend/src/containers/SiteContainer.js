@@ -4,6 +4,7 @@ import { Icon } from 'semantic-ui-react'
 import TagsContainer from './TagsContainer'
 import MapContainer from './MapContainer'
 import LoadingContainer from './LoadingContainer'
+import AuthenticationModal from '../modals/AuthenticationModal'
 
 class SiteContainer extends React.Component {
   state = {
@@ -26,6 +27,36 @@ class SiteContainer extends React.Component {
     )
   }
 
+  // handleAddToBucketlist = site => {
+  //   API.addToBucketlist(site.id).then(this.props.addBucketlistSiteToState)
+  //   this.setState({
+  //     bucketlist: true
+  //   })
+  // }
+
+  // handleRemoveFromBucketlist = site_id => {
+  //   API.removeFromBucketlist(site_id).then(
+  //     this.props.removeBucketlistSiteFromState
+  //   )
+  //   this.setState({
+  //     bucketlist: false
+  //   })
+  // }
+
+  // handleAddToVisited = site => {
+  //   API.addToVisited(site.id).then(this.props.addVisitedSiteToState)
+  //   this.setState({
+  //     visited: true
+  //   })
+  // }
+
+  // handleRemoveFromVisited = site_id => {
+  //   API.removeFromVisited(site_id).then(this.props.removeVisitedSiteFromState)
+  //   this.setState({
+  //     visited: false
+  //   })
+  // }
+
   handleAddToBucketlist = site => {
     API.addToBucketlist(site.id).then(this.props.addBucketlistSiteToState)
     this.setState({
@@ -44,9 +75,10 @@ class SiteContainer extends React.Component {
 
   handleAddToVisited = site => {
     API.addToVisited(site.id).then(this.props.addVisitedSiteToState)
-    this.setState({
-      visited: true
-    })
+    !this.bucketlist &&
+      this.setState({
+        visited: true
+      })
   }
 
   handleRemoveFromVisited = site_id => {
@@ -54,6 +86,105 @@ class SiteContainer extends React.Component {
     this.setState({
       visited: false
     })
+  }
+
+  addToBucketlistButton = () => {
+    const modalTrigger = () => {
+      return <button className='active-button'>Save to bucketlist</button>
+    }
+
+    if (!localStorage.getItem('token')) {
+      return (
+        <AuthenticationModal
+          signup={this.props.signup}
+          signin={this.props.signin}
+          modalTrigger={modalTrigger}
+          status={'login'}
+        />
+      )
+    } else {
+      return (
+        <button
+          className='active-button'
+          onClick={() => this.handleAddToBucketlist(this.state.site)}
+        >
+          Save to bucketlist
+        </button>
+      )
+    }
+  }
+
+  removeFromBucketlistButton = () => {
+    return (
+      <button
+        className='passive-button'
+        onClick={() => this.handleRemoveFromBucketlist(this.state.site.id)}
+      >
+        Remove from bucketlist
+      </button>
+    )
+  }
+
+  addToVisitedButton = () => {
+    const modalTrigger = () => {
+      return <button className='active-button'>Save to visited</button>
+    }
+
+    if (!localStorage.getItem('token')) {
+      return (
+        <AuthenticationModal
+          signup={this.props.signup}
+          signin={this.props.signin}
+          modalTrigger={modalTrigger}
+          status={'login'}
+        />
+      )
+    } else {
+      return (
+        <button
+          className='active-button'
+          onClick={() => this.handleAddToVisited(this.state.site)}
+        >
+          Save to visited
+        </button>
+      )
+    }
+  }
+
+  removeFromVisitedButton = () => {
+    return (
+      <button
+        className='passive-button'
+        onClick={() => this.handleRemoveFromVisited(this.state.site.id)}
+      >
+        Remove from visited
+      </button>
+    )
+  }
+
+  buttons = () => {
+    const { bucketlist, visited } = this.state
+    if (visited) {
+      return (
+        <div className='save-buttons-container-site-show-page'>
+          {this.removeFromVisitedButton()}
+        </div>
+      )
+    } else if (bucketlist) {
+      return (
+        <div className='save-buttons-container-site-show-page'>
+          {this.addToVisitedButton()}
+          {this.removeFromBucketlistButton()}
+        </div>
+      )
+    } else {
+      return (
+        <div className='save-buttons-container-site-show-page'>
+          {this.addToVisitedButton()}
+          {this.addToBucketlistButton()}
+        </div>
+      )
+    }
   }
 
   renderMapContainer = () => {
@@ -207,7 +338,7 @@ class SiteContainer extends React.Component {
                 <div className="underline"> </div>
                   
                 <div className='site-sub-details-container-buttons'>
-                  {!visited && 
+                  {/* {!visited && 
 
                     (<div className='site-primary-button'>
                     <div className='site-primary-button-text' onClick={bucketlist === true ? () => handleRemoveFromBucketlist(id) : () => handleAddToBucketlist(this.state.site)}>
@@ -222,8 +353,8 @@ class SiteContainer extends React.Component {
                     <div className='site-primary-button-text'>
                       Save to visited
                     </div>
-                  </div>
-
+                  </div> */}
+                     {this.buttons()}
                 </div>
 
                 <div className="underline"></div>

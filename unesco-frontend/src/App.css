@@ -591,6 +591,13 @@
   align-content: space-between;
 }
 
+.save-buttons-container-site-show-page {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  align-content: space-between;
+}
+
 .active-button {
   background-color: var(--primary-blue);
   border: var(--blue-border);
