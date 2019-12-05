@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import GoogleMapReact from 'google-map-react'
 import { Icon } from 'semantic-ui-react'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import API from '../API'
-import { Container, Header, Icon } from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
 import TagsContainer from './TagsContainer'
 import MapContainer from './MapContainer'
 import LoadingContainer from './LoadingContainer'
@@ -24,6 +24,30 @@ class SiteContainer extends React.Component {
         loading: false
       })
     )
+  }
+
+  handleAddToBucketlist = site => {
+    API.addToBucketlist(site.id).then(this.props.addBucketlistSiteToState)
+    this.setState({
+      saves: this.state.saves + 1
+    })
+  }
+
+  handleRemoveFromBucketlist = site_id => {
+    API.removeFromBucketlist(site_id).then(
+      this.props.removeBucketlistSiteFromState
+    )
+    this.setState({
+      saves: this.state.saves - 1
+    })
+  }
+
+  handleAddToVisited = site => {
+    API.addToVisited(site.id).then(this.props.addVisitedSiteToState)
+  }
+
+  handleRemoveFromVisited = site_id => {
+    API.removeFromVisited(site_id).then(this.props.removeVisitedSiteFromState)
   }
 
   renderMapContainer = () => {

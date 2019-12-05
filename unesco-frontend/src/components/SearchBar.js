@@ -16,7 +16,9 @@ class SearchBar extends React.Component {
   }
 
   handleSubmit = event => {
+    debugger
     event.preventDefault()
+
     if (this.state.searchType === 'tag'){
       this.props.history.push(`/search_by_tag/${this.state.keywords}`)
     } else {
@@ -117,11 +119,13 @@ class SearchBar extends React.Component {
             {selectionFieldToRender()}
           </div>
 
+          <Form.Field>
           <div className='search-field'>
             <button className='primary-button' type='submit'>
               Search
             </button>
           </div>
+          </Form.Field>
 
         </div>
 

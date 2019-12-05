@@ -115,23 +115,6 @@ class App extends React.Component {
     console.log('SIGN UP')
   }
 
-  getSearchResults = (url) => {
-    API.search(url).then(data => {
-      this.setState({
-        ...this.state,
-        search_results: data,
-        search_criteria: url
-        .split('=')[1]
-        .split('+')
-        .join(' '),
-      })
-    })
-  }
-
-  getSearchByTagResults = (tag) => {
-
-  }
-
   render () {
     const {
       signup,
@@ -154,9 +137,7 @@ class App extends React.Component {
       latin_america_and_the_caribbean,
       africa,
       asia_and_the_pacific,
-      arab_states,
-      search_results,
-      search_criteria
+      arab_states
     } = this.state
 
     return (
@@ -176,8 +157,11 @@ class App extends React.Component {
               render={routerProps => (
                 <HomeContainer
                   {...routerProps}
+                  user_id={user_id}
+                  first_name={first_name}
                   signup={signup}
                   signin={signin}
+                  signout={signout}
                   europe_and_north_america={europe_and_north_america}
                   latin_america_and_the_caribbean={latin_america_and_the_caribbean}
                   africa={africa}
@@ -197,16 +181,17 @@ class App extends React.Component {
               render={routerProps => (
                 <SearchResultsContainer
                   {...routerProps}
+                  user_id={user_id}
+                  first_name={first_name}
                   signup={signup}
                   signin={signin}
+                  signout={signout}
                   visited={visited}
                   bucketlist={bucketlist}
                   addBucketlistSiteToState={addBucketlistSiteToState}
                   addVisitedSiteToState={addVisitedSiteToState}
                   removeBucketlistSiteFromState={removeBucketlistSiteFromState}
                   removeVisitedSiteFromState={removeVisitedSiteFromState}
-                  getSearchResults={getSearchResults}
-                  getSearchByTagResults={getSearchByTagResults}
                 />
               )}
             />
@@ -215,16 +200,17 @@ class App extends React.Component {
               render={routerProps => (
                 <SearchResultsContainer
                   {...routerProps}
+                  user_id={user_id}
+                  first_name={first_name}
                   signup={signup}
                   signin={signin}
+                  signout={signout}
                   visited={visited}
                   bucketlist={bucketlist}
                   addBucketlistSiteToState={addBucketlistSiteToState}
                   addVisitedSiteToState={addVisitedSiteToState}
                   removeBucketlistSiteFromState={removeBucketlistSiteFromState}
                   removeVisitedSiteFromState={removeVisitedSiteFromState}
-                  getSearchResults={getSearchResults}
-                  getSearchByTagResults={getSearchByTagResults}
                 />
               )}
             />
@@ -234,8 +220,11 @@ class App extends React.Component {
               render={routerProps => <SiteContainer {...routerProps} 
               bucketlist={bucketlist}
               visited={visited}
+              user_id={user_id}
+              first_name={first_name}
               signup={signup}
               signin={signin}
+              signout={signout}
               addBucketlistSiteToState={addBucketlistSiteToState}
               addVisitedSiteToState={addVisitedSiteToState}
               removeBucketlistSiteFromState={removeBucketlistSiteFromState}
@@ -259,7 +248,7 @@ class App extends React.Component {
                 />
               )}
             />
-            <Route component={() => <h1>Page Not Found</h1>} />
+            <Route component={() => <div className="not-found">Page Not Found</div>} />
           </Switch>
         </div>
       </Router>

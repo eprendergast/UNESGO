@@ -25,6 +25,7 @@
   padding-left: 20px;
   padding-right: 20px;
   font-family: 'AirbnbCerealMedium';
+  cursor: pointer;
 }
 
 .primary-button-blue {
@@ -212,6 +213,10 @@
   font-family: 'AirbnbCerealMedium';
 }
 
+.navbar-button:hover {
+  cursor: pointer;
+}
+
 
 /* HOME CONTAINER */
 
@@ -318,15 +323,9 @@
   width: 150px;
 }
 
-/* background-color: var(--primary-pink);
-border: var(--pink-border);
-color: white;
-border-radius: 5px;
-padding-top: 10px;
-padding-bottom: 10px;
-padding-left: 20px;
-padding-right: 20px;
-font-family: 'AirbnbCerealMedium'; */
+.site-primary-button:hover {
+  cursor: pointer;
+}
 
 .site-primary-button-text {
   color: white;
@@ -658,4 +657,16 @@ font-family: 'AirbnbCerealMedium'; */
 
 .bucketlist-and-visited-content-container {
   width: 50%;
+}
+
+.no-results-container {
+  padding-top: 24px;
+  font-family: 'AirbnbCerealMedium';
+}
+
+.not-found {
+  padding: 100px;
+  font-family: 'AirbnbCerealMedium';
+  font-size: 48px;
+  text-align: center;
 }
