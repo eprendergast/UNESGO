@@ -13,7 +13,7 @@ const SitesContainer = ({
   signin,
   signup
 }) => {
-  return (
+  return ( 
     <div>
       {sites.length > 0 ? (
         <div className='sites-container'>

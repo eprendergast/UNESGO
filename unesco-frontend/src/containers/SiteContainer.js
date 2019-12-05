@@ -29,7 +29,7 @@ class SiteContainer extends React.Component {
   handleAddToBucketlist = site => {
     API.addToBucketlist(site.id).then(this.props.addBucketlistSiteToState)
     this.setState({
-      saves: this.state.saves + 1
+      bucketlist: true
     })
   }
 
@@ -38,16 +38,22 @@ class SiteContainer extends React.Component {
       this.props.removeBucketlistSiteFromState
     )
     this.setState({
-      saves: this.state.saves - 1
+      bucketlist: false
     })
   }
 
   handleAddToVisited = site => {
     API.addToVisited(site.id).then(this.props.addVisitedSiteToState)
+    this.setState({
+      visited: true
+    })
   }
 
   handleRemoveFromVisited = site_id => {
     API.removeFromVisited(site_id).then(this.props.removeVisitedSiteFromState)
+    this.setState({
+      visited: false
+    })
   }
 
   renderMapContainer = () => {
@@ -69,6 +75,7 @@ class SiteContainer extends React.Component {
 
   render () {
     const {
+      id,
       name,
       date_inscribed,
       http_url,
@@ -80,8 +87,12 @@ class SiteContainer extends React.Component {
       longitude,
       category,
       region,
-      tags
+      tags,
+      bucketlist,
+      visited
     } = this.state.site
+
+    const { handleAddToBucketlist, handleRemoveFromBucketlist, handleAddToVisited, handleRemoveFromVisited} = this
 
     return (
       <div className='page-content-container'>
@@ -196,17 +207,23 @@ class SiteContainer extends React.Component {
                 <div className="underline"> </div>
                   
                 <div className='site-sub-details-container-buttons'>
-                  <div className='site-primary-button'>
-                    <div className='site-primary-button-text'>
-                      Save to bucketlist
+                  {!visited && 
+
+                    (<div className='site-primary-button'>
+                    <div className='site-primary-button-text' onClick={bucketlist === true ? () => handleRemoveFromBucketlist(id) : () => handleAddToBucketlist(this.state.site)}>
+                        { bucketlist === true ? 'Remove from bucketlist' : 'Save to bucketlist' }
                     </div>
-                  </div>
+                  </div>)
+                  
+                  }
+                  
 
                   <div className='site-primary-button'>
                     <div className='site-primary-button-text'>
                       Save to visited
                     </div>
                   </div>
+
                 </div>
 
                 <div className="underline"></div>

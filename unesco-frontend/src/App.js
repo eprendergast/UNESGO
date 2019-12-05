@@ -42,7 +42,8 @@ class App extends React.Component {
       {
         user_id: user.id,
         first_name: user.first_name
-      }, () => this.getBucketlistAndVisited(user.id)
+      },
+      () => this.getBucketlistAndVisited(user.id)
     )
     localStorage.setItem('token', user.token)
   }
@@ -84,9 +85,7 @@ class App extends React.Component {
   }
 
   addVisitedSiteToState = site => {
-    let filteredBucketlist = this.state.bucketlist.filter(
-      s => s.id !== site.id
-    )
+    let filteredBucketlist = this.state.bucketlist.filter(s => s.id !== site.id)
     this.setState({
       ...this.state,
       bucketlist: filteredBucketlist,
@@ -124,11 +123,11 @@ class App extends React.Component {
       addBucketlistSiteToState,
       addVisitedSiteToState,
       removeBucketlistSiteFromState,
-      removeVisitedSiteFromState, 
+      removeVisitedSiteFromState,
       getSearchResults,
       getSearchByTagResults
     } = this
-    
+
     const {
       user_id,
       first_name,
@@ -164,7 +163,9 @@ class App extends React.Component {
                   signin={signin}
                   signout={signout}
                   europe_and_north_america={europe_and_north_america}
-                  latin_america_and_the_caribbean={latin_america_and_the_caribbean}
+                  latin_america_and_the_caribbean={
+                    latin_america_and_the_caribbean
+                  }
                   africa={africa}
                   asia_and_the_pacific={asia_and_the_pacific}
                   arab_states={arab_states}
@@ -218,20 +219,22 @@ class App extends React.Component {
 
             <Route
               path='/sites/:id'
-              render={routerProps => <SiteContainer {...routerProps} 
-              bucketlist={bucketlist}
-              visited={visited}
-              user_id={user_id}
-              first_name={first_name}
-              signup={signup}
-              signin={signin}
-              signout={signout}
-              addBucketlistSiteToState={addBucketlistSiteToState}
-              addVisitedSiteToState={addVisitedSiteToState}
-              removeBucketlistSiteFromState={removeBucketlistSiteFromState}
-              removeVisitedSiteFromState={removeVisitedSiteFromState}
-              />}
-              
+              render={routerProps => (
+                <SiteContainer
+                  {...routerProps}
+                  bucketlist={bucketlist}
+                  visited={visited}
+                  user_id={user_id}
+                  first_name={first_name}
+                  signup={signup}
+                  signin={signin}
+                  signout={signout}
+                  addBucketlistSiteToState={addBucketlistSiteToState}
+                  addVisitedSiteToState={addVisitedSiteToState}
+                  removeBucketlistSiteFromState={removeBucketlistSiteFromState}
+                  removeVisitedSiteFromState={removeVisitedSiteFromState}
+                />
+              )}
             />
 
             <Route
@@ -249,9 +252,11 @@ class App extends React.Component {
                 />
               )}
             />
-            <Route component={() => <div className="not-found">Page Not Found</div>} />
+            <Route
+              component={() => <div className='not-found'>Page Not Found</div>}
+            />
           </Switch>
-                <Footer/>
+          <Footer />
         </div>
       </Router>
     )
