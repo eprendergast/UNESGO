@@ -5,18 +5,14 @@ import SitesContainer from './SitesContainer'
 import LoadingContainer from './LoadingContainer'
 import SearchBar from '../components/SearchBar'
 
-class SearchResultsContainer extends React.Component {
+class SearchResultsContainer extends React.PureComponent {
   state = {
     sites: [],
     searchCriteria: '',
     loading: true
   }
 
-  componentWillUnmount () {
-    console.log('SearchResultsContainers Unmounting...')
-  }
-
-  componentDidMount () {
+  getSearchResultsBasedOnURL = () => {
     if (this.props.match.url.split('/').includes('search_by_tag')) {
       let split_url = this.props.match.url.split('/')
       let tag = split_url[split_url.length - 1]
@@ -39,6 +35,19 @@ class SearchResultsContainer extends React.Component {
           loading: false
         })
       )
+    }
+  }
+
+  componentDidMount () {
+    this.getSearchResultsBasedOnURL()
+  }
+
+  componentDidUpdate(prevProps){
+    if(prevProps.match.url !== this.props.match.url) {
+      this.setState({
+        loading: true
+      })
+      this.getSearchResultsBasedOnURL() 
     }
   }
 
