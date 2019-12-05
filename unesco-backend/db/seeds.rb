@@ -19,8 +19,6 @@ puts "#{User.all.length} user(s) created"
 
 # Generate Site References for all UNESCO sites
 
-# sample_tags = ["Mining town", "Church", "Ancient", "Ruins", "Forest", "Trees", "Architecture", "Cities", "Building", "Landmark", "Waterfall", "Nature", "Mountain", "Adventure", "Roman"]
-
 sites = API.get_sites
 sites.each do |site|
     site_reference = SiteReference.create(site_id: site["id"])
