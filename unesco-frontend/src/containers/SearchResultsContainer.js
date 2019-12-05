@@ -23,6 +23,7 @@ class SearchResultsContainer extends React.PureComponent {
           loading: false
         })
       )
+      
     } else {
       let url = this.props.match.url
       API.search(url).then(data =>
@@ -36,6 +37,7 @@ class SearchResultsContainer extends React.PureComponent {
         })
       )
     }
+    window.scrollTo(0, 0)
   }
 
   componentDidMount () {

@@ -9,7 +9,7 @@ class SiteCard extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      saves: this.props.site.saves || 1
+      saves: this.props.site.saves || 0
     }
   }
 

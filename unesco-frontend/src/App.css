@@ -70,7 +70,7 @@
   font-size: 24px;
   font-family: 'AirbnbCerealMedium';
   padding-top: 24px;
-  padding-bottom: 24px;
+  padding-bottom: 12px;
 
 }
 
@@ -594,7 +594,6 @@
 .save-buttons-container-site-show-page {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: center; */
   align-content: space-between;
 }
 

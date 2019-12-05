@@ -25,6 +25,7 @@ class SiteContainer extends React.Component {
         loading: false
       })
     )
+    window.scrollTo(0, 0)
   }
 
   // handleAddToBucketlist = site => {
@@ -222,8 +223,6 @@ class SiteContainer extends React.Component {
       bucketlist,
       visited
     } = this.state.site
-
-    const { handleAddToBucketlist, handleRemoveFromBucketlist, handleAddToVisited, handleRemoveFromVisited} = this
 
     return (
       <div className='page-content-container'>
