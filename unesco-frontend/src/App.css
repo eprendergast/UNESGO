@@ -70,7 +70,8 @@
   font-size: 24px;
   font-family: 'AirbnbCerealMedium';
   padding-top: 24px;
-  padding-bottom: 12px;;
+  padding-bottom: 24px;
+
 }
 
 .sub-header-container {
@@ -279,13 +280,17 @@
 
 .site-description-link-container {
   padding-top: 12px;
+
+}
+
+.site-description-link-container-text a {
   font-size: 16px;
   font-family: 'AirbnbCerealMedium';
   color: var(--primary-blue);
   text-decoration: none;
 }
 
-.site-description-link-container:hover {
+.site-description-link-container-text:hover {
   text-decoration: underline;
 }
 
@@ -669,4 +674,12 @@
   font-family: 'AirbnbCerealMedium';
   font-size: 48px;
   text-align: center;
+}
+
+.search-results-container-headers {
+  padding-bottom: 24px;
+  padding-right: 24px;
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
 }

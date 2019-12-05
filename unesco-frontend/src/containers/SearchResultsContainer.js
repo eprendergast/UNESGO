@@ -71,10 +71,13 @@ class SearchResultsContainer extends React.PureComponent {
           <LoadingContainer />
         ) : (
           <div>
-            <div className='primary-header-container'>
-              {`Displaying results for '${searchCriteria}'`}
+            <div className='search-results-container-headers'>
+              <div className='primary-header-container'>
+                {`Displaying results for '${searchCriteria}'`}
+              </div>
+              <SearchBar {...this.routerProps} />
             </div>
-            <SearchBar {...this.routerProps} />
+    
             <SitesContainer
               signup={signup}
               signin={signin}

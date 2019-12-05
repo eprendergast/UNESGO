@@ -81,11 +81,13 @@ class HomeContainer extends React.Component {
                   removeVisitedSiteFromState={removeVisitedSiteFromState}
                 />
                 <div className='site-description-link-container'>
+                <div className="site-description-link-container-text">
                   <Link to={'/search/region=Africa'}>
                     {' '}
                     See more from Africa{' '}
                     <Icon name='chevron right' size='small' />{' '}
                   </Link>
+                  </div>
                 </div>
               </div>
 
@@ -106,11 +108,11 @@ class HomeContainer extends React.Component {
                   removeVisitedSiteFromState={removeVisitedSiteFromState}
                 />
                 <div className='site-description-link-container'>
+                  <div className="site-description-link-container-text">
                   <Link to={'/search/region=Arab+States'}>
-                    {' '}
-                    See more from Arab States{' '}
-                    <Icon name='chevron right' size='small' />{' '}
+                    See more from Arab States <Icon name='chevron right' size='small' />{' '}
                   </Link>
+                  </div>
                 </div>
               </div>
 
@@ -131,11 +133,13 @@ class HomeContainer extends React.Component {
                   removeVisitedSiteFromState={removeVisitedSiteFromState}
                 />
                 <div className='site-description-link-container'>
+                <div className="site-description-link-container-text">
                   <Link to={'/search/region=Asia+and+the+Pacific'}>
                     {' '}
                     See more from Asia and the Pacific{' '}
                     <Icon name='chevron right' size='small' />{' '}
                   </Link>
+                  </div>
                 </div>
               </div>
 
@@ -156,10 +160,12 @@ class HomeContainer extends React.Component {
                   removeVisitedSiteFromState={removeVisitedSiteFromState}
                 />
                 <div className='site-description-link-container'>
+                <div className="site-description-link-container-text">
                   <Link to={'/search/region=Europe+and+North+America'}>
                     See more from Europe and North America{' '}
                     <Icon name='chevron right' size='small' />{' '}
                   </Link>
+                  </div>
                 </div>
               </div>
 
@@ -180,10 +186,12 @@ class HomeContainer extends React.Component {
                   removeVisitedSiteFromState={removeVisitedSiteFromState}
                 />
                 <div className='site-description-link-container'>
+                <div className="site-description-link-container-text">
                   <Link to={'/search/region=Latin+America+and+the+Caribbean'}>
                     See more from Latin America and the Caribbean{' '}
                     <Icon name='chevron right' size='small' />{' '}
                   </Link>
+                  </div>
                 </div>
               </div>
             </div>
