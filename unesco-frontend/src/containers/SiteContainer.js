@@ -315,7 +315,7 @@ class SiteContainer extends React.Component {
                   <div className='site-detail-description'>
                     {' '}
                     <Icon name='arrows alternate horizontal' />
-                    LATTITUDE
+                    LATITUDE
                   </div>
                   <div className='site-detail'>{latitude}</div>
                 </div>

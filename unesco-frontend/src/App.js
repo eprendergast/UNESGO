@@ -11,6 +11,8 @@ import SiteContainer from './containers/SiteContainer'
 import sampleSites from './data/sampleSites'
 import Footer from './components/Footer'
 
+const BASE_URL = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+
 class App extends React.Component {
   state = {
     user_id: '',

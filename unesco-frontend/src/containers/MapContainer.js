@@ -1,8 +1,7 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react'
 import { Icon } from 'semantic-ui-react'
-
-const AnyReactComponent = ({ text }) => <div>{text}</div>
+import API_KEY from '../data/mapsApiKey'
 
 class MapContainer extends React.Component {
   
@@ -20,7 +19,7 @@ class MapContainer extends React.Component {
       <div className='map-container'>
         <GoogleMapReact
           bootstrapURLKeys={{
-            key: 'AIzaSyC9kL6GmDUCx-dhhVw4Lxs4v6Hh06y24K4',
+            key: API_KEY,
             language: 'en'
           }}
           defaultCenter={this.props.center}
