@@ -61,7 +61,6 @@ class SearchResultsContainer extends React.PureComponent {
       addVisitedSiteToState,
       removeBucketlistSiteFromState,
       removeVisitedSiteFromState,
-      signup,
       signin
     } = this.props
 
@@ -81,7 +80,6 @@ class SearchResultsContainer extends React.PureComponent {
             </div>
     
             <SitesContainer
-              signup={signup}
               signin={signin}
               sites={sites}
               visited={visited}

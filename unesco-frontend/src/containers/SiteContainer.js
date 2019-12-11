@@ -28,36 +28,6 @@ class SiteContainer extends React.Component {
     window.scrollTo(0, 0)
   }
 
-  // handleAddToBucketlist = site => {
-  //   API.addToBucketlist(site.id).then(this.props.addBucketlistSiteToState)
-  //   this.setState({
-  //     bucketlist: true
-  //   })
-  // }
-
-  // handleRemoveFromBucketlist = site_id => {
-  //   API.removeFromBucketlist(site_id).then(
-  //     this.props.removeBucketlistSiteFromState
-  //   )
-  //   this.setState({
-  //     bucketlist: false
-  //   })
-  // }
-
-  // handleAddToVisited = site => {
-  //   API.addToVisited(site.id).then(this.props.addVisitedSiteToState)
-  //   this.setState({
-  //     visited: true
-  //   })
-  // }
-
-  // handleRemoveFromVisited = site_id => {
-  //   API.removeFromVisited(site_id).then(this.props.removeVisitedSiteFromState)
-  //   this.setState({
-  //     visited: false
-  //   })
-  // }
-
   handleAddToBucketlist = site => {
     API.addToBucketlist(site.id).then(this.props.addBucketlistSiteToState)
     this.setState({
@@ -97,7 +67,6 @@ class SiteContainer extends React.Component {
     if (!localStorage.getItem('token')) {
       return (
         <AuthenticationModal
-          signup={this.props.signup}
           signin={this.props.signin}
           modalTrigger={modalTrigger}
           status={'login'}
@@ -134,7 +103,6 @@ class SiteContainer extends React.Component {
     if (!localStorage.getItem('token')) {
       return (
         <AuthenticationModal
-          signup={this.props.signup}
           signin={this.props.signin}
           modalTrigger={modalTrigger}
           status={'login'}
