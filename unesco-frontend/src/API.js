@@ -13,7 +13,6 @@ const USER_VISITEDS_URL = `${BASE_URL}/user_visiteds`
 const SEARCH_URL = `${BASE_URL}/sites/search`
 const SEARCH_BY_TAG_URL = `${BASE_URL}/sites/search_by_tag`
 
-
 // SITE MANAGEMENT
 
 const getSites = () => {
@@ -26,8 +25,8 @@ const getSite = id => {
 }
 
 const getSitesByRegion = region => {
-    const url = `${SEARCH_URL}/region=${region.split(" ").join("+")}`
-    return getWithoutAuth(url)
+  const url = `${SEARCH_URL}/region=${region.split(' ').join('+')}`
+  return getWithoutAuth(url)
 }
 
 const search = query => {
@@ -46,44 +45,43 @@ const getTags = () => {
 
 // BUCKETLIST
 
-const getBucketlistSiteIds = (user_id) => {
-    const url = `${USERS_URL}/${user_id}/bucketlist_site_ids`
-    return getWithAuth(url)
+const getBucketlistSiteIds = user_id => {
+  const url = `${USERS_URL}/${user_id}/bucketlist_site_ids`
+  return getWithAuth(url)
 }
 
-const getBucketlist = (user_id) => {
-    const url = `${USERS_URL}/${user_id}/bucketlist`
-    return getWithAuth(url) 
+const getBucketlist = user_id => {
+  const url = `${USERS_URL}/${user_id}/bucketlist`
+  return getWithAuth(url)
 }
 
-const addToBucketlist = (site_id) => {
-    return post(USER_BUCKETLISTS_URL, {site_id})
+const addToBucketlist = site_id => {
+  return post(USER_BUCKETLISTS_URL, { site_id })
 }
 
-const removeFromBucketlist = (site_id) => {
-    return destroy(USER_BUCKETLISTS_URL, {site_id})
+const removeFromBucketlist = site_id => {
+  return destroy(USER_BUCKETLISTS_URL, { site_id })
 }
 
 // VISITED SITES
 
-const getVisitedSiteIds = (user_id) => {
-    const url = `${USERS_URL}/${user_id}/visited_site_ids`
-    return getWithAuth(url)
+const getVisitedSiteIds = user_id => {
+  const url = `${USERS_URL}/${user_id}/visited_site_ids`
+  return getWithAuth(url)
 }
 
-const getVisited = (user_id) => {
-    const url = `${USERS_URL}/${user_id}/visited`
-    return getWithAuth(url)
+const getVisited = user_id => {
+  const url = `${USERS_URL}/${user_id}/visited`
+  return getWithAuth(url)
 }
 
-const addToVisited = (site_id) => {
-    return post(USER_VISITEDS_URL, {site_id})
+const addToVisited = site_id => {
+  return post(USER_VISITEDS_URL, { site_id })
 }
 
-const removeFromVisited = (site_id) => {
-    return destroy(USER_VISITEDS_URL, {site_id})
+const removeFromVisited = site_id => {
+  return destroy(USER_VISITEDS_URL, { site_id })
 }
-
 
 // AUTHENTICATION & AUTHORISATION
 
@@ -119,9 +117,9 @@ const post = (url, data) => {
 }
 
 const destroy = (url, data) => {
-    let configObject = generateConfigObject('DELETE', data)
-    return fetch(url, configObject).then(resp => resp.json())
-  }
+  let configObject = generateConfigObject('DELETE', data)
+  return fetch(url, configObject).then(resp => resp.json())
+}
 
 const generateConfigObject = (method, data) => {
   return {

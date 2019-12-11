@@ -25,9 +25,6 @@ class SignUpForm extends React.Component {
     const { name, value } = event.target
     let formErrors = this.state.formErrors
 
-    console.log("Name: ", name)
-    console.log("Value: ", value)
-
     switch (name) {
       case 'first_name':
         formErrors.first_name =

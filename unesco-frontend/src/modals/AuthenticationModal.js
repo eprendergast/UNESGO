@@ -32,10 +32,9 @@ class AuthenticationModal extends React.Component {
   }
 
   render () {
-    const { signup, signin, modalTrigger } = this.props
+    const { signin, modalTrigger } = this.props
     const { status } = this.state
 
-    // return <div>{this.modalToRender(signup, signin, modalTrigger)}</div>
     return (
       <Modal closeIcon trigger={modalTrigger()}>
         <Modal.Header>
@@ -43,7 +42,7 @@ class AuthenticationModal extends React.Component {
         </Modal.Header>
         <Modal.Content>
           {status === 'signup' ? (
-            <SignUpForm signin={signin} signup={signup} />
+            <SignUpForm signin={signin}/>
           ) : (
             <SignInForm signin={signin} />
           )}

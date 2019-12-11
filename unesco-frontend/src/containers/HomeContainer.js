@@ -15,14 +15,7 @@ class HomeContainer extends React.Component {
       this.setState({
         loading: false
       })
-      window.scrollTo(0, 0)
-  }
-
-  snakeCaseRegion = region => {
-    return region
-      .toLocaleLowerCase()
-      .split(' ')
-      .join('_')
+    window.scrollTo(0, 0)
   }
 
   render () {
@@ -38,7 +31,6 @@ class HomeContainer extends React.Component {
       addVisitedSiteToState,
       removeBucketlistSiteFromState,
       removeVisitedSiteFromState,
-      signup,
       signin
     } = this.props
 
@@ -71,7 +63,6 @@ class HomeContainer extends React.Component {
                   Wildlife, medinas, and ancient wonders...
                 </div>
                 <SitesContainer
-                  signup={signup}
                   signin={signin}
                   sites={africa}
                   visited={visited}
@@ -100,7 +91,6 @@ class HomeContainer extends React.Component {
                   Rich in history and beauty...
                 </div>
                 <SitesContainer
-                  signup={signup}
                   signin={signin}
                   sites={arab_states}
                   visited={visited}
@@ -128,7 +118,6 @@ class HomeContainer extends React.Component {
                   Rugged landscapes and fascinating history...
                 </div>
                 <SitesContainer
-                  signup={signup}
                   signin={signin}
                   sites={asia_and_the_pacific}
                   visited={visited}
@@ -157,7 +146,6 @@ class HomeContainer extends React.Component {
                   Historic architecture and stunning landscapes...
                 </div>
                 <SitesContainer
-                  signup={signup}
                   signin={signin}
                   sites={europe_and_north_america}
                   visited={visited}
@@ -185,7 +173,6 @@ class HomeContainer extends React.Component {
                   Biodiversity found no where else...
                 </div>
                 <SitesContainer
-                  signup={signup}
                   signin={signin}
                   sites={latin_america_and_the_caribbean}
                   visited={visited}

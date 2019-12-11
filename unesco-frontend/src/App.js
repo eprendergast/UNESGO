@@ -111,21 +111,14 @@ class App extends React.Component {
     localStorage.removeItem('token')
   }
 
-  signup = () => {
-    console.log('SIGN UP')
-  }
-
   render () {
     const {
-      signup,
       signin,
       signout,
       addBucketlistSiteToState,
       addVisitedSiteToState,
       removeBucketlistSiteFromState,
-      removeVisitedSiteFromState,
-      getSearchResults,
-      getSearchByTagResults
+      removeVisitedSiteFromState
     } = this
 
     const {
@@ -146,7 +139,6 @@ class App extends React.Component {
           <NavBar
             user_id={user_id}
             first_name={first_name}
-            signup={signup}
             signin={signin}
             signout={signout}
           />
@@ -159,7 +151,6 @@ class App extends React.Component {
                   {...routerProps}
                   user_id={user_id}
                   first_name={first_name}
-                  signup={signup}
                   signin={signin}
                   signout={signout}
                   europe_and_north_america={europe_and_north_america}
@@ -185,7 +176,6 @@ class App extends React.Component {
                   {...routerProps}
                   user_id={user_id}
                   first_name={first_name}
-                  signup={signup}
                   signin={signin}
                   signout={signout}
                   visited={visited}
@@ -204,7 +194,6 @@ class App extends React.Component {
                   {...routerProps}
                   user_id={user_id}
                   first_name={first_name}
-                  signup={signup}
                   signin={signin}
                   signout={signout}
                   visited={visited}
@@ -226,7 +215,6 @@ class App extends React.Component {
                   visited={visited}
                   user_id={user_id}
                   first_name={first_name}
-                  signup={signup}
                   signin={signin}
                   signout={signout}
                   addBucketlistSiteToState={addBucketlistSiteToState}
