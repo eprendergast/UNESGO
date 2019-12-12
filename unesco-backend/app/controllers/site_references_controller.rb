@@ -33,7 +33,7 @@ class SiteReferencesController < ApplicationController
     end
 
     def search_by_tag
-        sites = SiteReference.all.select{ |site_reference| site_reference.tags.map{|tag| tag.name }.include?(params[:tag]) }
+        sites = SiteReference.all.select{ |site_reference| site_reference.tags.map{|tag| tag.name.downcase }.include?(params[:tag].downcase) }
         site_ids = sites.map{ |site| site.site_id }
         response = site_ids.map{ |id| API.get_site(id) }
         
@@ -44,7 +44,6 @@ class SiteReferencesController < ApplicationController
         end
 
         render json: response
-
     end
 
     def saves 
