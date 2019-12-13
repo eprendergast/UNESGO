@@ -1,4 +1,3 @@
 /unesco-backend/log/
 
-unesco-frontend/.env
-unesco-backend/.env
+*.env
