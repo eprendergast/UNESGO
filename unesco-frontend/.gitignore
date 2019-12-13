@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+unesco-frontend/.env
+unesco-backend/.env
