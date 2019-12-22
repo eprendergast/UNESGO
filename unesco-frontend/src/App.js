@@ -34,8 +34,7 @@ class App extends React.Component {
         })
         .catch(error => console.log(error))
     }
-    this.getSampleSites()
-    debugger
+    this.getSampleSites() 
   }
 
   signin = user => {
