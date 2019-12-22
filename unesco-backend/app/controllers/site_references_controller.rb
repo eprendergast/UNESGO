@@ -9,7 +9,6 @@ class SiteReferencesController < ApplicationController
             site_reference = SiteReference.find_by(site_id: site["id"])
             site["tags"] = site_reference.tags.map{|tag| tag.name }
         end
-
         render json: response
     end
 
