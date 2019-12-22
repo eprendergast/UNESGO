@@ -45,7 +45,7 @@ class SearchBar extends React.Component {
 
   stateOptions = () => {
     let stateOptions = []
-    states.forEach((state, index) => {
+    states.sort().forEach((state, index) => {
       stateOptions = [
         ...stateOptions,
         {

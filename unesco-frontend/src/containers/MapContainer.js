@@ -20,7 +20,7 @@ class MapContainer extends React.Component {
       <div className='map-container'>
         <GoogleMapReact
           bootstrapURLKeys={{
-            key: ENV['GOOGLE_MAPS_KEY'],
+            key: process.env.REACT_APP_GOOGLE_MAPS_API,
             language: 'en'
           }}
           defaultCenter={center}
