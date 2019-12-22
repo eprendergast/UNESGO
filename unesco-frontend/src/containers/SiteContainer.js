@@ -175,7 +175,6 @@ class SiteContainer extends React.Component {
 
   render () {
     const {
-      id,
       name,
       date_inscribed,
       http_url,
@@ -187,9 +186,7 @@ class SiteContainer extends React.Component {
       longitude,
       category,
       region,
-      tags,
-      bucketlist,
-      visited
+      tags
     } = this.state.site
 
     return (
@@ -305,29 +302,13 @@ class SiteContainer extends React.Component {
                 <div className="underline"> </div>
                   
                 <div className='site-sub-details-container-buttons'>
-                  {/* {!visited && 
-
-                    (<div className='site-primary-button'>
-                    <div className='site-primary-button-text' onClick={bucketlist === true ? () => handleRemoveFromBucketlist(id) : () => handleAddToBucketlist(this.state.site)}>
-                        { bucketlist === true ? 'Remove from bucketlist' : 'Save to bucketlist' }
-                    </div>
-                  </div>)
-                  
-                  }
-                  
-
-                  <div className='site-primary-button'>
-                    <div className='site-primary-button-text'>
-                      Save to visited
-                    </div>
-                  </div> */}
                      {this.buttons()}
                 </div>
 
                 <div className="underline"></div>
                     
                 <div className='unesco-link-container'>
-                    <a className="unesco-link" href={http_url} target='_blank'>
+                    <a className="unesco-link" href={http_url} target='blank'>
                       <Icon name='external alternate' />
                       Learn more
                     </a>

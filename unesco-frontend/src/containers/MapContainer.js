@@ -1,7 +1,6 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react'
 import { Icon } from 'semantic-ui-react'
-import API_KEY from '../data/mapsApiKey'
 
 const Marker = () => <Icon name='map marker' size='big' color='red' />
 
@@ -15,7 +14,7 @@ class MapContainer extends React.Component {
   }
 
   render () {
-    const { center, lat, lng, name } = this.props
+    const { center, lat, lng } = this.props
     return (
       <div className='map-container'>
         <GoogleMapReact

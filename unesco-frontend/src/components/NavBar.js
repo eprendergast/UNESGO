@@ -4,7 +4,7 @@ import AuthenticationModal from '../modals/AuthenticationModal'
 
 import logo from '../images/unesco-logo.png'
 import name from '../images/unesgo4.png'
-import profile_photo from '../images/profile-photo-placheolder.png'
+import profile_photo_placheolder from '../images/profile-photo-placheolder.png'
 
 class NavBar extends React.Component {
   
@@ -29,8 +29,8 @@ class NavBar extends React.Component {
           </div>
           <img
             className='navbar-logo'
-            src={profile_photo}
-            alt='profile photo'
+            src={profile_photo_placheolder}
+            alt='profile_photo_placheolder'
           />
         </div>
       )

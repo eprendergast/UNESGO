@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import Tag from '../components/Tag'
 
 const TagsContainer = (props) => {
