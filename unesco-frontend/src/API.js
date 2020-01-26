@@ -20,7 +20,7 @@ const getSites = () => {
 }
 
 const getSite = id => {
-  const url = `${SITES_URL}/${id}`
+  const url = `${SITES_URL}/${id}` 
   return getWithoutAuth(url)
 }
 
